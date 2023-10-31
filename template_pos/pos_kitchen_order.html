@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>POS - 廚房出餐作業</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+
+	<link href="../assets/css/customize.css" rel="stylesheet" />
+	<link href="../favicon.png" rel="icon" type="image/x-icon">
+</head>
+<body class='pace-top'>
+	<!-- BEGIN #loader -->
+	<div id="loader" class="app-loader">
+		<span class="spinner"></span>
+	</div>
+	<!-- END #loader -->
+
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-content-full-height app-without-sidebar app-without-header">
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content p-0">
+			<!-- BEGIN pos -->
+			<div class="pos pos-with-header" id="pos">
+				<!-- BEGIN pos-header -->
+				<div class="pos-header">
+					<div class="logo">
+						<a href="pos_customer_order.html">
+							<div class="logo-img"><img src="../index_list/Logo_Dark_s.png"> </div>
+							<div class="logo-text">Drink & Dine</div>
+						</a>
+					</div>
+					<div class="time">2023-08-21(一)　<span id="time"></span></div>
+					<div class="nav">
+						<div class="nav-item">
+							<a href="pos_customer_order.html" class="nav-link">
+								<i class="fas fa-cash-register nav-icon" title="銷售作業"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_counter_checkout.html" class="nav-link">
+								<i class="fas fa-credit-card nav-icon" title="桌位結帳"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_table_booking.html" class="nav-link">
+								<i class="far fa-calendar-check nav-icon" title="預約管理"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_kitchen_order.html" class="nav-link">
+								<i class="fa fa-clipboard-list nav-icon" title="出餐作業"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-header -->
+				
+				<!-- BEGIN pos-content -->
+				<div class="pos-content-container p-4">
+					<div class="d-md-flex align-items-center mb-4">
+						<div class="pos-booking-title flex-1">
+							<div class="fs-24px mb-1">出餐單 (<span class="text-theme">12</span>/120)</div>
+							<div class="mb-2 mb-md-0 d-flex">
+								<div class="d-md-flex align-items-center">
+									<!-- BEGIN filter -->
+									<div class="d-flex">
+										<div id="options" class="me-2">
+											<div class="d-flex flex-wrap text-nowrap mb-n1">
+												<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1">今日全部</a>
+												<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1 active">尚未完成</a>
+												<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1">已完成</a>
+											</div>
+										</div>
+										<!-- BEGIN btn-group -->
+										<div class="btn-group">
+											<a href="pos_kitchen_order.html" class="btn btn-white active"><i class="fa fa-list"></i></a>
+											<a href="pos_kitchen_orderlist.html" class="btn btn-white"><i class="fa fa-th-large"></i></a>
+										</div>
+										<!-- END btn-group -->
+									</div>
+									<!-- END filter -->
+		
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="w-200px">
+								<label for="nosearch">單號搜尋</label>
+								<input type="text" id="nosearch" class="form-control form-control-lg fs-13px" placeholder="請輸入單號" />
+							</div>
+						</div>
+					</div>
+
+					<div class="pos-task-row">
+						<div class="pos-task">
+							<div class="pos-task-info">
+								<div class="table-no">
+									桌號 <b>01</b>
+								</div>
+								<div class="order-no">
+									單號: #9049
+								</div>
+								<div class="order-type">
+									<span class="badge bg-success">內用</span>
+								</div>
+								<div class="time-pass" data-start-time="3">
+									<i class="far fa-clock"></i> <span class="text-danger">35:20</span>
+								</div>
+							</div>
+							<div class="pos-task-body">
+								<div class="pos-task-completed">
+									完成度: <b>(3/4)</b>
+								</div>
+								<div class="pos-task-product-row">
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-1.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">碳烤雞腿排</div>
+												<div class="desc">
+													- 尺寸: 大 (+$50.00)<br>
+													- 配餐: 飯<br>
+													- 飲料: 加點 (總價-30)<br>
+													- 其他: 醬少、飲料餐後上
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-2.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">碳烤豬排</div>
+												<div class="desc">
+													- 尺寸: 中 (+$30.00)<br>
+													- 配餐: 麵包<br>
+													- 飲料: 冰咖啡<br>
+													- 其他: 飲料去冰
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking">
+												<div class="cover" style="background-image: url(../assets/img/pos/product-8.jpg);"></div>
+											</a>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">蔬果汁</div>
+												<div class="desc">
+													- 其他: 少冰
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-10.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">今日主廚湯品</div>
+												<div class="desc">
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pos-task">
+							<div class="pos-task-info">
+								<div class="table-no">
+									桌號 <b>02</b>
+								</div>
+								<div class="order-no">
+									單號: #9047
+								</div>
+								<div class="order-type">
+									<span class="badge bg-success">內用</span>
+								</div>
+								<div class="time-pass" data-start-time="3">
+									<i class="far fa-clock"></i> <span class="text-danger">12:49</span>
+								</div>
+							</div>
+							<div class="pos-task-body">
+								<div class="pos-task-completed">
+									完成度: <b>(3/12)</b>
+								</div>
+								<div class="pos-task-product-row">
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-11.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">碳烤雞翅</div>
+												<div class="desc">
+													- 尺寸: 小<br />
+													- 小辣<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-1.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">碳烤雞腿排</div>
+												<div class="desc">
+													- 尺寸: 大 (+$50.00)<br>
+													- 配餐: 飯<br>
+													- 飲料: 加點 (總價-30)<br>
+													- 其他: 醬少、飲料餐後上
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-2.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">碳烤豬排</div>
+												<div class="desc">
+													- 尺寸: 中 (+$30.00)<br>
+													- 配餐: 麵包<br>
+													- 飲料: 冰咖啡<br>
+													- 其他: 飲料去冰
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-8.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">蔬果汁</div>
+												<div class="desc">
+													- 其他: 少冰
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-10.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">今日主廚湯品</div>
+												<div class="desc">
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-11.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Baked chicken wing</div>
+												<div class="desc">
+													- 6 pieces<br />
+													- honey source<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-11.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Baked chicken wing</div>
+												<div class="desc">
+													- 6 pieces<br />
+													- honey source<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-11.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Baked chicken wing</div>
+												<div class="desc">
+													- 6 pieces<br />
+													- honey source<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-12.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Veggie Spaghetti</div>
+												<div class="desc">
+													- size: large <br />
+													- spicy level: light
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-7.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Coffee Latte</div>
+												<div class="desc">
+													- no sugar<br />
+													- more cream<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-1.jpg);"></div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Grill Chicken Chop</div>
+												<div class="desc">
+													- ala carte
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success">完成</a>
+											<a href="#" class="btn btn-outline-inverse">取消</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pos-task">
+							<div class="pos-task-info">
+								<div class="table-no">
+									外帶 <b>17</b>
+								</div>
+								<div class="order-no">
+									單號: #9046
+								</div>
+								<div class="order-type">
+									<span class="badge bg-gray-500">外帶(0921013303)</span>
+								</div>
+								<div class="time-pass" data-start-time="3">
+									出餐完畢<br />
+									<i class="far fa-clock"></i> 12:30
+								</div>
+							</div>
+							<div class="pos-task-body">
+								<div class="pos-task-completed">
+									完成度: <b>(3/3)</b>
+								</div>
+								<div class="pos-task-product-row">
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-2.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Pork Burger</div>
+												<div class="desc">
+													- large size<br />
+													- extra cheese<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-10.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Mushroom soup</div>
+												<div class="desc">
+													- ala carte<br />
+													- more cheese<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-8.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Vita C Detox Juice</div>
+												<div class="desc">
+													- large size<br />
+													- less ice<br />
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pos-task">
+							<div class="pos-task-info">
+								<div class="table-no">
+									外帶 <b>18</b>
+								</div>
+								<div class="order-no">
+									單號: #9045
+								</div>
+								<div class="order-type">
+									<span class="badge bg-gray-500">外帶</span>
+								</div>
+								<div class="time-pass" data-start-time="3">
+									出餐完畢<br />
+									<i class="far fa-clock"></i> 12:30
+								</div>
+							</div>
+							<div class="pos-task-body">
+								<div class="pos-task-completed">
+									完成度: <b>(2/2)</b>
+								</div>
+								<div class="pos-task-product-row">
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-13.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Vanilla Ice Cream</div>
+												<div class="desc">
+													- ala carte
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-9.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Pancake</div>
+												<div class="desc">
+													- ala carte
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pos-task">
+							<div class="pos-task-info">
+								<div class="table-no">
+									桌號 <b>05</b>
+								</div>
+								<div class="order-no">
+									單號: #9043
+								</div>
+								<div class="order-type">
+									<span class="badge bg-gray-500">內用</span>
+								</div>
+								<div class="time-pass" data-start-time="3">
+									出餐完畢<br />
+									<i class="far fa-clock"></i> 22:28
+								</div>
+							</div>
+							<div class="pos-task-body">
+								<div class="pos-task-completed">
+									完成度: <b>(3/3)</b>
+								</div>
+								<div class="pos-task-product-row">
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-4.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Vegan Salad Bowl&reg;</div>
+												<div class="desc">
+													- ala carte
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-6.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Avocado Shake</div>
+												<div class="desc">
+													- ala carte
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+									<div class="pos-task-product completed">
+										<div class="pos-task-product-img">
+											<div class="cover" style="background-image: url(../assets/img/pos/product-5.jpg);"></div>
+											<div class="caption">
+												<div>Completed</div>
+											</div>
+										</div>
+										<div class="pos-task-product-info">
+											<div class="info">
+												<div class="title">Hawaiian Pizza&reg;</div>
+												<div class="desc">
+													- ala carte
+												</div>
+											</div>
+											<div class="qty">
+												x1
+											</div>
+										</div>
+										<div class="pos-task-product-action">
+											<a href="#" class="btn btn-success disabled">完成</a>
+											<a href="#" class="btn btn-outline-inverse disabled">取消</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-content -->
+			</div>
+			<!-- END pos -->
+		</div>
+		<!-- END #content -->
+		
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+
+	<!-- BEGIN #modalPosBooking -->
+	<div class="modal modal-pos-booking fade" id="modalPosBooking">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content border-0">
+				<div class="modal-body">
+					<div class="d-flex align-items-center mb-3">
+						<h4 class="modal-title d-flex align-items-center">蔬果汁
+					</div>
+					<p>備註：(商品介紹)時令消暑降火蔬果汁，健康消暑。鮮榨蔬果汁，精選夏季時令水果×生機蔬果調理機，清心降火，含有豐富的鉀與維生素C，能提高身體免疫功能。</p>
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="table-responsive">
+								<table class="table mb-0">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>名稱</th>
+											<th>用量</th>
+											<th>單位</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>綠拿鐵粉</td>
+											<td>2</td>
+											<td>杯</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>小黃瓜</td>
+											<td>1/2</td>
+											<td>根</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>綜合堅果</td>
+											<td>20</td>
+											<td>克</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>橘子</td>
+											<td>1</td>
+											<td>顆</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>蘿蔓</td>
+											<td>40</td>
+											<td>克</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td>香蕉</td>
+											<td>1/3</td>
+											<td>根</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td>酪梨</td>
+											<td>1/2</td>
+											<td>顆</td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td>冰塊</td>
+											<td>1/2</td>
+											<td>杯</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="result-info">
+								<h4 class="title">製作程序 <small class="location"> 2023-08-19 更新</small></h4>
+								
+								<!--p class="desc"></p-->
+								<ol class="step">
+									<li><div class="text-theme">step.1</div>
+										除了酪梨、堅果和冰塊以外都放進果汁機裡榨汁</li>
+									<li><div class="text-theme">step.2</div>
+										將前一步驟打好的果汁，加上酪梨果肉、堅果和冰塊一起放入攪拌機裡</li>
+									<li><div class="text-theme">step.3</div>
+										攪拌到成為糊狀，使用濾網過濾雜質</li>
+									<li><div class="text-theme">step.4</div>
+										倒出到杯中，依需求再加入冰塊即可完成</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-default w-100px" data-bs-dismiss="modal">關閉</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END #modalPosBooking -->
+
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="../assets/js/vendor.min.js"></script>
+	<script src="../assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+	
+	<!-- ================== BEGIN page-js ================== -->
+	<script src="../assets/js/demo/pos-header.demo.js"></script>
+	<!-- ================== END page-js ================== -->
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>POS - 廚房出餐作業</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+
+	<link href="../assets/css/customize.css" rel="stylesheet" />
+	<link href="../favicon.png" rel="icon" type="image/x-icon">
+</head>
+<body class='pace-top'>
+	<!-- BEGIN #loader -->
+	<div id="loader" class="app-loader">
+		<span class="spinner"></span>
+	</div>
+	<!-- END #loader -->
+
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-content-full-height app-without-sidebar app-without-header">
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content p-0">
+			<!-- BEGIN pos -->
+			<div class="pos pos-with-header" id="pos">
+				<!-- BEGIN pos-header -->
+				<div class="pos-header">
+					<div class="logo">
+						<a href="pos_customer_order.html">
+							<div class="logo-img"><img src="../index_list/Logo_Dark_s.png"> </div>
+							<div class="logo-text">Drink & Dine</div>
+						</a>
+					</div>
+					<div class="time">2023-08-21(一)　<span id="time"></span></div>
+					<div class="nav">
+						<div class="nav-item">
+							<a href="pos_customer_order.html" class="nav-link">
+								<i class="fas fa-cash-register nav-icon" title="銷售作業"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_counter_checkout.html" class="nav-link">
+								<i class="fas fa-credit-card nav-icon" title="桌位結帳"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_table_booking.html" class="nav-link">
+								<i class="far fa-calendar-check nav-icon" title="預約管理"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_kitchen_order.html" class="nav-link">
+								<i class="fa fa-clipboard-list nav-icon" title="出餐作業"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-header -->
+				
+				<!-- BEGIN pos-content -->
+				<div class="pos-content-container p-4">
+					<div class="d-md-flex align-items-center mb-4">
+						<div class="pos-booking-title flex-1">
+							<div class="fs-24px mb-1">出餐單 (<span class="text-theme">12</span>/120)</div>
+							<div class="mb-2 mb-md-0 d-flex">
+								<div class="d-md-flex align-items-center">
+									<!-- BEGIN filter -->
+									<div class="d-flex">
+										<div id="options" class="me-2">
+											<div class="d-flex flex-wrap text-nowrap mb-n1">
+												<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1">今日全部</a>
+												<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1 active">尚未完成</a>
+												<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1">已完成</a>
+											</div>
+										</div>
+										<!-- BEGIN btn-group -->
+										<div class="btn-group">
+											<a href="pos_kitchen_order.html" class="btn btn-white"><i class="fa fa-list"></i></a>
+											<a href="pos_kitchen_orderlist.html" class="btn btn-white active"><i class="fa fa-th-large"></i></a>
+										</div>
+										<!-- END btn-group -->
+									</div>
+									<!-- END filter -->
+		
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="w-200px">
+								<label for="nosearch">單號搜尋</label>
+								<input type="text" id="nosearch" class="form-control form-control-lg fs-13px" placeholder="請輸入單號" />
+							</div>
+						</div>
+					</div>
+
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9049</div>
+                                                <div class="no">內用</div>
+                                                <div class="desc">桌號: 01(4人桌)</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤豬排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="desc">
+													- 尺寸: 中 (+$30.00)<br>
+													- 配餐: 麵包<br>
+													- 飲料: 冰咖啡<br>
+													- 其他: 飲料去冰
+												</div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">蔬果汁 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 冰<br/>
+                                                    - 其他: 去冰、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">今日主廚湯品 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">-</div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9047</div>
+                                                <div class="no">內用</div>
+                                                <div class="desc">桌號: 02(8人桌)</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 12
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤豬排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="desc">
+													- 尺寸: 中 (+$30.00)<br>
+													- 配餐: 麵包<br>
+													- 飲料: 冰咖啡<br>
+													- 其他: 飲料去冰
+												</div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">蔬果汁 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 冰<br/>
+                                                    - 其他: 去冰、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">今日主廚湯品 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">-</div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤豬排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="desc">
+                                                    - 尺寸: 大 (+$50.00)<br>
+                                                    - 配餐: 飯<br>
+                                                    - 飲料: 加點 (總價-30)<br>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 其他: 醬少、飲料餐後上</div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking disabled">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9046</div>
+                                                <div class="no">外帶</div>
+                                                <div class="desc">序號: 17</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 3
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9049</div>
+                                                <div class="no">內用</div>
+                                                <div class="desc">桌號: 01(4人桌)</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9049</div>
+                                                <div class="no">內用</div>
+                                                <div class="desc">桌號: 01(4人桌)</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9049</div>
+                                                <div class="no">內用</div>
+                                                <div class="desc">桌號: 01(4人桌)</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9049</div>
+                                                <div class="no">內用</div>
+                                                <div class="desc">桌號: 01(4人桌)</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+                                <div class="pos-table-booking-container">
+                                    <div class="pos-table-booking-header">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-1">
+                                                <div class="title">單號: #9049</div>
+                                                <div class="no">內用</div>
+                                                <div class="desc">桌號: 01(4人桌)</div>
+                                            </div>
+                                            <div class="task-completed">
+                                                <b class="text-theme">3</b> / 4
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pos-table-booking-body">
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="taskmenu">
+                                            <div class="itemtitle">碳烤雞腿排 <em>x1</em></div>
+                                            <div class="booking">
+                                                <div class="info">- 尺寸: 大 (+$50.00)<br/>
+                                                    - 配餐: 飯<br/>
+                                                    - 飲料: 加點 (總價-30)<br/>
+                                                    - 其他: 醬少、飲料餐後上
+                                                </div>
+                                                <div class="time"></div>
+                                                <div class="status taskcompleted"><i class="fa fa-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+				<!-- END pos-content -->
+			</div>
+			<!-- END pos -->
+		</div>
+		<!-- END #content -->
+		
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+
+	<!-- BEGIN #modalPosBooking -->
+	<div class="modal modal-pos-booking fade" id="modalPosBooking">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content border-0">
+				<div class="modal-body">
+					<div class="d-flex align-items-center mb-3">
+						<h4 class="modal-title d-flex align-items-center">單號: #9049 (<small class="fw-bold ms-2 task-completed"><b class="text-theme">3</b> / 4</small>)</h4></div>
+					<p>內用(桌號: 01／4人桌)</p>
+					<div class="row">
+						<div class="col-lg-4">
+                            <div class="task-product completed">
+                                <div class="task-product-info">
+                                    <div class="info">
+                                        <h5 class="title">碳烤雞腿排 <span class="qty">x1</span></h5>
+                                        <div class="desc">
+                                            - 尺寸: 大 (+$50.00)<br>
+                                            - 配餐: 飯<br>
+                                            - 飲料: 加點 (總價-30)<br>
+                                            - 其他: 醬少、飲料餐後上
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="task-product-action">
+                                    <a href="#" class="btn btn-success disabled">完成</a>
+                                    <a href="#" class="btn btn-outline-inverse disabled">取消</a>
+                                </div>
+                            </div>
+						</div>
+						<div class="col-lg-4">
+                            <div class="task-product completed">
+                                <div class="task-product-info">
+                                    <div class="info">
+                                        <h5 class="title">碳烤豬排 <span class="qty">x1</span></h5>
+                                        <div class="desc">
+                                            - 尺寸: 中 (+$30.00)<br>
+                                            - 配餐: 麵包<br>
+                                            - 飲料: 冰咖啡<br>
+                                            - 其他: 飲料去冰
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="task-product-action">
+                                    <a href="#" class="btn btn-success disabled">完成</a>
+                                    <a href="#" class="btn btn-outline-inverse disabled">取消</a>
+                                </div>
+                            </div>
+						</div>
+						<div class="col-lg-4">
+                            <div class="task-product">
+                                <div class="task-product-info">
+                                    <div class="info">
+                                        <h5 class="title">蔬果汁 <span class="qty">x1</span></h5>
+                                        <div class="desc">- 其他: 少冰、飲料餐後上</div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="task-product-action">
+                                    <a href="#" class="btn btn-success">完成</a>
+                                    <a href="#" class="btn btn-outline-inverse">取消</a>
+                                </div>
+                            </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4">
+                            <div class="task-product completed">
+                                <div class="task-product-info">
+                                    <div class="info">
+                                        <h5 class="title">今日主廚湯品 <span class="qty">x1</span></h5>
+                                        <div class="desc">- </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="task-product-action">
+                                    <a href="#" class="btn btn-success disabled">完成</a>
+                                    <a href="#" class="btn btn-outline-inverse disabled">取消</a>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-default w-100px" data-bs-dismiss="modal">關閉</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END #modalPosBooking -->
+
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="../assets/js/vendor.min.js"></script>
+	<script src="../assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+	
+	<!-- ================== BEGIN page-js ================== -->
+	<script src="../assets/js/demo/pos-header.demo.js"></script>
+	<!-- ================== END page-js ================== -->
+</body>
+</html>

@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>POS - 桌位預約管理作業</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+
+	<!-- 客製化CSS暫用 -->
+	<link href="../assets/css/customize.css" rel="stylesheet" />
+	<link href="../favicon.png" rel="icon" type="image/x-icon">
+</head>
+<body class='pace-top'>
+	<!-- BEGIN #loader -->
+	<div id="loader" class="app-loader">
+		<span class="spinner"></span>
+	</div>
+	<!-- END #loader -->
+
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-content-full-height app-without-sidebar app-without-header">
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content p-0">
+			<!-- BEGIN pos -->
+			<div class="pos pos-with-header" id="pos">
+				<!-- BEGIN pos-header -->
+				<div class="pos-header">
+					<div class="logo">
+						<a href="pos_customer_order.html">
+							<div class="logo-img"><img src="../index_list/Logo_Dark_s.png"> </div>
+							<div class="logo-text">Drink & Dine</div>
+						</a>
+					</div>
+					<div class="time">2023-08-21(一)　<span id="time"></span></div>
+					<div class="nav">
+						<div class="nav-item">
+							<a href="pos_customer_order.html" class="nav-link">
+								<i class="fas fa-cash-register nav-icon" title="銷售作業"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_counter_checkout.html" class="nav-link">
+								<i class="fas fa-credit-card nav-icon" title="桌位結帳"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_table_booking.html" class="nav-link">
+								<i class="far fa-calendar-check nav-icon" title="預約管理"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_kitchen_order.html" class="nav-link">
+								<i class="fa fa-clipboard-list nav-icon" title="出餐作業"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-header -->
+				
+				<!-- BEGIN pos-content -->
+				<div class="pos-content">
+					<div class="pos-content-container p-4">
+						<div class="d-md-flex align-items-center mb-4">
+							<div class="pos-booking-title flex-1">
+								<div class="fs-24px mb-1">內用預約 (<span class="text-theme">12</span>/20)</div>
+								<div class="mb-2 mb-md-0 d-flex">
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-primary fs-9px me-1"></i> 預約(尚未入座)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-pink fs-9px me-1"></i> 預約(逾時未到)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-danger fs-9px me-1"></i> 使用中(尚未點餐)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-warning fs-9px me-1"></i> 使用中(已點餐)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-gray fs-9px me-1"></i> 用餐結束
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="w-200px">
+									<input type="date" class="form-control form-control-lg fs-13px" placeholder="Today's" value="2023-08-21" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">01</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone" title="目前時段尚可使用"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">- (預約)Ms.劉3人、0921013303</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">- (預約)林小姐3人、0921000000</div>
+												<div class="status noshow"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">13:30</div>
+												<div class="info">- (現場)4人</div>
+												<div class="status in-progress"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:00</div>
+												<div class="info">- (預約)Mr.劉3人、0921013303</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">- (預約)Ms.陳3人、0921013303</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">02</div>
+													<div class="desc">8人桌</div>
+												</div>
+												<div class="text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone" title="目前時段不可使用"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">- (現場)4人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">- (現場)6人</div>
+												<div class="status in-progress"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">- (預約)Ms.陳3人、0921013303</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">03</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">- (預約)Mr.張5人、0900000000</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">- (預約)Mr.張5人、0900000000</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">- (預約)Mr.張5人、0900000000</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">04</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:00</div>
+												<div class="info">- (現場)3人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">- (現場)3人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">- (預約)Mr.林2人、0900000000</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">- (預約)Mr.林2人、0900000000</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">- (預約)Mr.林2人、0900000000</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">05</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">- (現場)3人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">- (現場)3人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info"></div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">- (預約)Mr.林2人、0900000000</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">06</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="pe-1 text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:00</div>
+												<div class="info">- (現場)3人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">- (現場)3人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">- (現場)3人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">- (預約)Mr.陳3人、0921013303</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">19:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">07</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info"></div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">- (現場)4人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">- (現場)5人</div>
+												<div class="status in-progress"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info"></div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">08</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">- (現場)4人</div>
+												<div class="status completed"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">09</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="pe-1 text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">- (預約)Ms.劉4人</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">10</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">- (現場)5人</div>
+												<div class="status in-use-order"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#" class="pos-table-booking disabled">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">11</div>
+													<div class="desc">6人桌(暫停使用)</div>
+												</div>
+												<div class="pe-1 text-gray-600 display-5">
+													<i class="iconify" data-icon="fe:disabled"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">12</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">13</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="pe-1 text-gray-600 display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">- (預約)Ms.劉5人、0921013303</div>
+												<div class="status upcoming"><i class="fa fa-circle"></i></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">14</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">15</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">16</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">17</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">18</div>
+													<div class="desc">4人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">19</div>
+													<div class="desc">6人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+								<a href="#" data-bs-toggle="modal" data-bs-target="#modalPosBooking" class="pos-table-booking">
+									<div class="pos-table-booking-container">
+										<div class="pos-table-booking-header">
+											<div class="d-flex align-items-center">
+												<div class="flex-1">
+													<div class="title">桌號</div>
+													<div class="no">20</div>
+													<div class="desc">2人桌</div>
+												</div>
+												<div class="pe-1 text-theme display-5">
+													<i class="iconify" data-icon="solar:check-circle-line-duotone"></i>
+												</div>
+											</div>
+										</div>
+										<div class="pos-table-booking-body">
+											<div class="booking">
+												<div class="time">11:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">12:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">13:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking highlight">
+												<div class="time">12:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">14:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">15:30</div>
+													<div class="info-title">-</div>
+													<div class="info-desc"></div>
+											</div>
+											<div class="booking">
+												<div class="time">16:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">17:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:00</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+											<div class="booking">
+												<div class="time">18:30</div>
+												<div class="info">-</div>
+												<div class="status"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-content -->
+			</div>
+			<!-- END pos -->
+		</div>
+		<!-- END #content -->
+		
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+	
+	<!-- BEGIN #modalPosBooking -->
+	<div class="modal modal-pos-booking fade" id="modalPosBooking">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content border-0">
+				<div class="modal-body">
+					<div class="d-flex align-items-center mb-3">
+						<h4 class="modal-title d-flex align-items-center">桌號 01 <small class="fs-13px fw-bold ms-2">4人桌
+					</div>
+					<p>每30分鐘為一時段，一時段被預約後、上下一個時段不開放預約。前一組入座客人尚未結帳離開，則後面的時段不開放現場入座選擇。</p>
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">11:00</div>
+									<input type="text" class="form-control" placeholder="" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">11:30</div>
+									<input type="text" class="form-control" placeholder="" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">12:00</div>
+									<input type="text" class="form-control" placeholder="" value="(預約)Ms.劉3人、0921013303" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">12:30</div>
+									<input type="text" class="form-control" placeholder="" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">13:00</div>
+									<input type="text" class="form-control is-invalid" title="逾時未到" placeholder="" value="(預約)Ms.劉3人、0921013303" disabled />
+									<div class="input-group-text"><a href="#" title="取消預約"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">13:30</div>
+									<input type="text" class="form-control" placeholder="" value="(現場)4人" />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">14:00</div>
+									<input type="text" class="form-control" placeholder="前一時段尚未結束，不開放預約" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">14:30</div>
+									<input type="text" class="form-control" placeholder="" />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">15:00</div>
+									<input type="text" class="form-control" placeholder="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">15:30</div>
+									<input type="text" class="form-control" placeholder="前/後一時段已被預約，不開放預約" value="" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">16:00</div>
+									<input type="text" class="form-control" placeholder="" value="(預約)Mr.劉3人、0921013303" disabled />
+									<div class="input-group-text"><a href="#" title="取消預約"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">16:30</div>
+									<input type="text" class="form-control" placeholder="前/後一時段已被預約，不開放預約" value="" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">17:00</div>
+									<input type="text" class="form-control" placeholder="" value="(預約)Mr.劉3人、0921013303" disabled />
+									<div class="input-group-text"><a href="#" title="取消預約"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">17:30</div>
+									<input type="text" class="form-control" placeholder="前/後一時段已被預約，不開放預約" value="" disabled />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">18:00</div>
+									<input type="text" class="form-control" placeholder="" />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">18:30</div>
+									<input type="text" class="form-control" placeholder="" />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">19:00</div>
+									<input type="text" class="form-control" placeholder="" />
+								</div>
+							</div>
+							<div class="form-group mb-2">
+								<div class="input-group">
+									<div class="input-group-text fw-bold">19:30</div>
+									<input type="text" class="form-control" placeholder="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-default w-100px" data-bs-dismiss="modal">取消</a>
+					<button type="submit" class="btn btn-success w-100px">儲存變更</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END #modalPosBooking -->
+	
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="../assets/js/vendor.min.js"></script>
+	<script src="../assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+	
+	<!-- ================== BEGIN page-js ================== -->
+	<script src="../assets/js/demo/pos-header.demo.js"></script>
+	<script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+	<!-- ================== END page-js ================== -->
+</body>
+</html>

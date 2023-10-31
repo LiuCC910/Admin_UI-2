@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>POS - 銷售作業</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+	
+	<!-- ================== BEGIN page-css ================== -->
+	<link href="../assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
+	<link href="../assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
+	<link href="../assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+	<link href="../assets/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
+	<!-- ================== END page-css ================== -->
+
+	<link href="../assets/css/customize.css" rel="stylesheet" />
+	<link href="../favicon.png" rel="icon" type="image/x-icon">
+</head>
+<body class='pace-top'>
+	<!-- BEGIN #loader -->
+	<div id="loader" class="app-loader">
+		<span class="spinner"></span>
+	</div>
+	<!-- END #loader -->
+
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-content-full-height app-without-header app-without-sidebar">
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content p-0">
+			<!-- BEGIN pos -->
+			<div class="pos pos-with-header pos-with-menu pos-with-sidebar" id="pos">
+				<!-- BEGIN pos-header -->
+				<div class="pos-header">
+					<div class="logo">
+						<a href="pos_customer_order.html">
+							<div class="logo-img"><img src="../index_list/Logo_Dark_s.png"> </div>
+							<div class="logo-text">Drink & Dine</div>
+						</a>
+					</div>
+					<div class="time">2023-08-21(一)　<span id="time"></span></div>
+					<div class="nav">
+						<div class="nav-item">
+							<a href="pos_customer_order.html" class="nav-link">
+								<i class="fas fa-cash-register nav-icon" title="銷售作業"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_counter_checkout.html" class="nav-link">
+								<i class="fas fa-credit-card nav-icon" title="桌位結帳"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_table_booking.html" class="nav-link">
+								<i class="far fa-calendar-check nav-icon" title="預約管理"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_kitchen_order.html" class="nav-link">
+								<i class="fa fa-clipboard-list nav-icon" title="出餐作業"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-header -->
+				<!-- BEGIN pos-menu -->
+				<div class="pos-menu">
+					<div class="logo">
+						<a href="#">
+							<!--div class="logo-img"><img src="../index_list/Logo_Dark_s.png"></div-->
+							<div class="logo-text">POS</div>
+						</a>
+					</div>
+					<div class="nav-container">
+						<div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+							<ul class="nav nav-tabs">
+								<li class="nav-item">
+									<a class="nav-link active" href="#" data-filter="all">
+										<div class="nav-icon"><i class="fa fa-fw fa-utensils"></i></div>
+										<div class="nav-text">全部</div>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#" data-filter="meat">
+										<div class="nav-icon"><i class="fa fa-fw fa-drumstick-bite"></i></div>
+										<div class="nav-text">主餐</div>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#" data-filter="burger">
+										<div class="nav-icon"><i class="fa fa-fw fa-hamburger"></i></div>
+										<div class="nav-text">附餐(單點)</div>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#" data-filter="drinks">
+										<div class="nav-icon"><i class="fa fa-fw fa-cocktail"></i></div>
+										<div class="nav-text">飲料</div>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#" data-filter="desserts">
+										<div class="nav-icon"><i class="fa fa-fw fa-ice-cream"></i></div>
+										<div class="nav-text">甜點</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-menu -->
+				
+				<!-- BEGIN pos-content -->
+				<div class="pos-content">
+					<div class="pos-content-container h-100">
+						<div class="d-md-flex align-items-center mb-4">
+							<div class="pos-booking-title flex-1">
+								<div id="options" class="mb-3">
+									<div class="d-flex flex-wrap text-nowrap mb-n1">
+										<a href="#" class="btn btn-white btn-lg active border-0 me-1 mb-1">推薦排序</a>
+										<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1">熱門排序</a>
+										<a href="#" class="btn btn-white btn-lg border-0 me-1 mb-1">新品排序</a>
+									</div>
+								</div>
+								</div>
+							<div>
+								<div class="w-200px">
+									<input type="text" id="nosearch" class="form-control form-control-lg fs-13px" placeholder="請輸入商品名稱" />
+								</div>
+							</div>
+						</div>
+						<div class="product-row">
+							<div class="product-container" data-type="meat">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-1.jpg)"></div>
+									<div class="text">
+										<div class="title">(品名)碳烤雞腿排 <!--推薦商品符號-->&reg;</div>
+										<div class="desc">(描述)尺寸：小、中、大</div>
+										<div class="price">$110.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="meat">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-2.jpg)"></div>
+									<div class="text">
+										<div class="title">碳烤豬排 &reg;</div>
+										<div class="desc">尺寸：小、中、大</div>
+										<div class="price">$115.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="meat">
+								<div class="product not-available">
+									<div class="img" style="background-image: url(../assets/img/pos/product-5.jpg)"></div>
+									<div class="text">
+										<div class="title">夏威夷披薩 &reg;</div>
+										<div class="desc">尺寸：6吋、9吋</div>
+										<div class="price">$120.00</div>
+									</div>
+									<div class="not-available-text">
+										<div>目前無法販售</div>
+									</div>
+								</div>
+							</div>
+							<div class="product-container" data-type="meat">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-3.jpg)"></div>
+									<div class="text">
+										<div class="title">培根義大利麵 &reg;</div>
+										<div class="desc"></div>
+										<div class="price">$99.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="meat">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-12.jpg)"></div>
+									<div class="text">
+										<div class="title">羅勒義大利麵 &reg;</div>
+										<div class="desc"></div>
+										<div class="price">$109.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="meat">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-4.jpg)"></div>
+									<div class="text">
+										<div class="title">輕蔬沙拉碗 &reg;</div>
+										<div class="desc"></div>
+										<div class="price">$77.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="burger">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-17.jpg)"></div>
+									<div class="text">
+										<div class="title">雙層起士漢堡</div>
+										<div class="desc"></div>
+										<div class="price">$69.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="burger">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-9.jpg)"></div>
+									<div class="text">
+										<div class="title">蜂蜜鬆餅</div>
+										<div class="desc"></div>
+										<div class="price">$55.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="burger">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-10.jpg)"></div>
+									<div class="text">
+										<div class="title">今日主廚湯品</div>
+										<div class="desc"></div>
+										<div class="price">$69.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="burger">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-11.jpg)"></div>
+									<div class="text">
+										<div class="title">碳烤雞翅</div>
+										<div class="desc">尺寸：小、中</div>
+										<div class="price">$69.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="drinks">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-18.png)"></div>
+									<div class="text">
+										<div class="title">珍珠奶茶</div>
+										<div class="desc">冷飲尺寸：M、L／熱飲</div>
+										<div class="price">$65.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="drinks">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-19.jpg)"></div>
+									<div class="text">
+										<div class="title">經典紅茶</div>
+										<div class="desc">冷飲尺寸：M、L／熱飲</div>
+										<div class="price">$55.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="drinks">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-20.jpg)"></div>
+									<div class="text">
+										<div class="title">經典綠茶</div>
+										<div class="desc">冷飲尺寸：M、L／熱飲</div>
+										<div class="price">$55.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="drinks">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-6.jpg)"></div>
+									<div class="text">
+										<div class="title">綜合果汁(現打)</div>
+										<div class="desc"></div>
+										<div class="price">$75.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="drinks">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-8.jpg)"></div>
+									<div class="text">
+										<div class="title">蔬果汁(現打)</div>
+										<div class="desc"></div>
+										<div class="price">$75.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="drinks">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-7.jpg)"></div>
+									<div class="text">
+										<div class="title">咖啡拿鐵</div>
+										<div class="desc">冷飲尺寸：M、L／熱飲</div>
+										<div class="price">$69.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="desserts">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-13.jpg)"></div>
+									<div class="text">
+										<div class="title">冰淇淋(二球)</div>
+										<div class="desc">餅乾桶、杯裝</div>
+										<div class="price">$45.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="desserts">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-15.jpg)"></div>
+									<div class="text">
+										<div class="title">甜甜圈(二個)</div>
+										<div class="desc"></div>
+										<div class="price">$45.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="desserts">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-14.jpg)"></div>
+									<div class="text">
+										<div class="title">馬卡龍(三個)</div>
+										<div class="desc"></div>
+										<div class="price">$45.00</div>
+									</div>
+								</a>
+							</div>
+							<div class="product-container" data-type="desserts">
+								<a href="#" class="product" data-bs-toggle="modal" data-bs-target="#modalPos">
+									<div class="img" style="background-image: url(../assets/img/pos/product-16.jpg)"></div>
+									<div class="text">
+										<div class="title">杯子蛋糕(二個)</div>
+										<div class="desc"></div>
+										<div class="price">$45.00</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-content -->
+				
+				<!-- BEGIN pos-sidebar -->
+				<div class="pos-sidebar">
+					<div class="h-100 d-flex flex-column">
+						<div class="pos-sidebar-header">
+							<div class="back-btn">
+								<button type="button" data-dismiss-class="pos-sidebar-mobile-toggled" data-target="#pos" class="btn border-0">
+									<i class="fa fa-chevron-left"></i>
+								</button>
+							</div>
+							<div class="icon"><i class="fa fa-plate-wheat"></i></div>
+							<div class="title">外帶<!--內用：桌號 01--></div>
+							<div class="order">單號: <b>#0056</b></div>
+						</div>
+						<div class="pos-sidebar-nav">
+							<ul class="nav nav-tabs nav-fill">
+								<li class="nav-item">
+									<a class="nav-link active" href="#" data-bs-toggle="tab" data-bs-target="#newOrderTab">新訂單 (5)</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#" data-bs-toggle="tab" data-bs-target="#orderSettingTab">訂單設定</a>
+								</li>
+							</ul>
+						</div>
+						<div class="pos-sidebar-body tab-content" data-scrollbar="true" data-height="100%">
+							<div class="tab-pane fade h-100 show active" id="newOrderTab">
+								<div class="pos-table">
+									<div class="row pos-table-row">
+										<div class="col-9">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-2.jpg)"></div>
+												<div class="info">
+													<div class="title">碳烤雞腿排</div>
+													<div class="single-price">$110.00</div>
+													<div class="desc">
+														- 尺寸: 大 (+$50.00)<br/>
+														- 配餐: 飯<br/>
+														- 飲料: 加點 (總價-30)<br/>
+														- 其他: 醬少、選項
+													</div>
+													<div class="input-group qty">
+														<div class="input-group-append">
+															<a href="#" class="btn btn-default"><i class="fa fa-minus"></i></a>
+														</div>
+														<input type="number" class="form-control" value="1" />
+														<div class="input-group-prepend">
+															<a href="#" class="btn btn-default"><i class="fa fa-plus"></i></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3 total-price">$160.00
+											<div><a href="#" class="btn btn-default"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+										</div>
+									</div>
+									<div class="row pos-table-row">
+										<div class="col-9">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-1.jpg)"></div>
+												<div class="info">
+													<div class="title">碳烤豬排</div>
+													<div class="single-price">$115.00</div>
+													<div class="desc">
+														- 尺寸: 中 (+$30.00)<br/>
+														- 配餐: 麵包<br/>
+														- 飲料: 冰咖啡<br/>
+														- 其他: 飲料去冰
+													</div>
+													<div class="input-group qty">
+														<div class="input-group-append">
+															<a href="#" class="btn btn-default"><i class="fa fa-minus"></i></a>
+														</div>
+														<input type="number" class="form-control" value="1" />
+														<div class="input-group-prepend">
+															<a href="#" class="btn btn-default"><i class="fa fa-plus"></i></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3 total-price">$145.00
+											<div><a href="#" class="btn btn-default"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+										</div>
+									</div>
+									<div class="row pos-table-row">
+										<div class="col-9">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-8.jpg)"></div>
+												<div class="info">
+													<div class="title">蔬果汁</div>
+													<div class="single-price">$75.00</div>
+													<div class="desc">
+														- 其他: 少冰
+													</div>
+													<div class="input-group qty">
+														<div class="input-group-append">
+															<a href="#" class="btn btn-default"><i class="fa fa-minus"></i></a>
+														</div>
+														<input type="number" class="form-control" value="1" />
+														<div class="input-group-prepend">
+															<a href="#" class="btn btn-default"><i class="fa fa-plus"></i></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3 total-price">$75.00
+											<div><a href="#" class="btn btn-default"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+										</div>
+									</div>
+									<div class="row pos-table-row">
+										<div class="col-9">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-5.jpg)"></div>
+												<div class="info">
+													<div class="title">輕蔬沙拉碗</div>
+													<div class="single-price">$77.00</div>
+													<div class="desc">
+														- 其他: 去洋蔥
+													</div>
+													<div class="input-group qty">
+														<div class="input-group-append">
+															<a href="#" class="btn btn-default"><i class="fa fa-minus"></i></a>
+														</div>
+														<input type="number" class="form-control" value="0" min="0" />
+														<div class="input-group-prepend">
+															<a href="#" class="btn btn-default"><i class="fa fa-plus"></i></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3 total-price">$0.00
+											<div><a href="#" class="btn btn-default"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+										</div>
+										<!--商品數量為0=移除品項，出現移除訊息-->
+										<div class="pos-remove-confirmation alert alert-dark alert-dismissible fade show">
+											<div class="text-center mx-auto">
+												<div><i class="far fa-trash-can fa-2x text-body text-opacity-50"></i></div>
+												<div class="mt-1 mb-2">Confirm to remove this item? </div>
+												<div>
+													<a href="#" class="btn btn-default w-60px me-2" data-bs-dismiss="alert">No</a>
+													<a href="#" class="btn btn-danger w-60px">Yes</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row pos-table-row">
+										<div class="col-9">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-10.jpg)"></div>
+												<div class="info">
+													<div class="title">今日主廚湯品</div>
+													<div class="single-price">$69.00</div>
+													<div class="desc">
+													</div>
+													<div class="input-group qty">
+														<div class="input-group-append">
+															<a href="#" class="btn btn-default"><i class="fa fa-minus"></i></a>
+														</div>
+														<input type="number" class="form-control" value="1" />
+														<div class="input-group-prepend">
+															<a href="#" class="btn btn-default"><i class="fa fa-plus"></i></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-3 total-price">$69.00
+											<div><a href="#" class="btn btn-default"><i class="far fa-trash-can fa-1x me-1"></i></a></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade h-100" id="orderSettingTab">
+								<div class="panel panel-inverse" data-sortable-id="form-slider-switcher-3">
+									<!-- BEGIN panel-body -->
+									<div class="panel-body">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label class="form-label mb-2">內用設定:</label>
+														<input type="checkbox" data-render="switchery" data-theme="default" />
+														<!--span class="text-muted ms-2">內用設定</span-->
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label class="form-label mb-2">續單設定:</label>
+														<input type="checkbox" data-render="switchery" data-theme="default" />
+														<!--span class="text-muted ms-2">內用設定</span-->
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label for="" class="form-label mb-2">桌號:</label>
+														<select class="form-select form-select-lg" disabled>
+															<option>請選擇</option>
+															<option>1(6人桌)</option>
+															<option disabled>2(4人桌)</option>
+															<option>3(4人桌)</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label for="" class="form-label mb-2">人數:</label>
+														<select class="form-select form-select-lg" disabled>
+															<option>請選擇</option>
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+															<option>5</option>
+															<option>6</option>
+														</select>
+														<!--input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"-->
+													</div>
+												</div>
+											</div>
+											<hr/>
+											<div class="row">
+												<label for="" class="form-label mb-2">會員:</label>
+												<div class="col-md-7">
+													<input type="email" class="form-control" id="exampleInputEmail2" placeholder="請輸入電話號碼">
+												</div>
+												<!--輸入會員資訊後帶出會員資料-->
+												<div class="col-md-5">
+													<button type="submit" class="btn btn-primary w-50px me-5px">輸入</button>
+													<button type="submit" class="btn btn-default w-50px">取消</button>
+												</div>
+											</div>
+											<hr/>
+											<dl class="row">
+													<dt class="col-md-9"><b>Ms. 劉佳淇</b> (0921013303) </dt>
+													<dd class="col-md-3"><a href="javascript:;" class="btn btn-sm btn-danger">移除</a></dd>
+													<dt class="text-body">近期消費紀錄</dt>
+													<dd>
+														<ol>
+															<li>08-11 10:00：5品項｜外帶｜<b>$450</b></li>
+															<li>07-31 13:29：7品項｜內用(3人)｜<b>$1050</b></li>
+															<li>07-21 10:00：3品項｜內用(1人)｜<b>$400</b></li>
+															<li>07-11 10:00：4品項｜外帶｜<b>$650</b></li>
+															<li>07-01 10:00：2品項｜外帶｜<b>$150</b></li>
+														</ol>
+													</dd>
+											</dl>
+									</div>
+									<!-- END panel-body -->
+								</div>
+							</div>
+						</div>
+						<div class="pos-sidebar-footer">
+							<div class="d-flex align-items-center mb-2">
+								<div>加點折扣</div>
+								<div class="flex-1 text-end h6 mb-0">-$30.00</div>
+							</div>
+							<div class="d-flex align-items-center mb-2">
+								<div>餐點小計</div>
+								<div class="flex-1 text-end h6 mb-0">+$419.00</div>
+							</div>
+							<div class="d-flex align-items-center">
+								<div>服務費 (內用10%)</div>
+								<div class="flex-1 text-end h6 mb-0">+$0.00</div>
+							</div>
+							<div class="d-flex align-items-center">
+								<div>稅 (0%)</div>
+								<div class="flex-1 text-end h6 mb-0">+$0.00</div>
+							</div>
+							<hr class="opacity-1 my-10px">
+							<div class="d-flex align-items-center mb-2">
+								<div>總計</div>
+								<div class="flex-1 text-end h4 mb-0">$419.00</div>
+							</div>
+							<div class="d-flex align-items-center mt-3">
+								<a href="#" class="btn btn-default rounded-3 text-center me-10px w-70px"><i class="fa fa-add d-block fs-18px my-1"></i> 新訂單</a>
+								<a href="#" class="btn btn-default rounded-3 text-center me-10px w-70px"><i class="fa fa-shopping-cart d-block fs-18px my-1"></i> 送出</a>
+								<a href="#" class="btn btn-theme rounded-3 text-center flex-1"><i class="fa fa-receipt d-block fs-18px my-1"></i> 收銀付款</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-sidebar -->
+			</div>
+			<!-- END pos -->
+			
+			<!-- BEGIN pos-mobile-sidebar-toggler -->
+			<a href="#" class="pos-mobile-sidebar-toggler" data-toggle-class="pos-sidebar-mobile-toggled" data-target="#pos">
+				<i class="iconify display-6" data-icon="solar:bag-smile-bold-duotone"></i>
+				<span class="badge">5</span>
+			</a>
+			<!-- END pos-mobile-sidebar-toggler -->
+		</div>
+		<!-- END #content -->
+		
+
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+	
+	<!-- BEGIN #modalPos -->
+	<div class="modal modal-pos fade" id="modalPos">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					<a href="#" data-bs-dismiss="modal" class="btn-close position-absolute top-0 end-0 m-4"></a>
+					<div class="modal-pos-product">
+						<div class="modal-pos-product-img">
+							<div class="img" style="background-image: url(../assets/img/pos/product-1.jpg)"></div>
+						</div>
+						<div class="modal-pos-product-info">
+							<div class="fs-4 fw-bold">(品名)碳烤雞腿排</div>
+							<div class="fs-6 text-body text-opacity-50 mb-2">
+								(商品介紹)去骨雞腿肉、特殊香料醃漬，燒烤、高溫熨燙烙紋
+							</div>
+							<div class="fs-3 fw-bolder mb-3">$110.00</div>
+							<div class="option-row">
+								<div class="d-flex mb-3">
+									<a href="#" class="btn btn-default d-flex align-items-center"><i class="fa fa-minus"></i></a>
+									<input type="number" class="form-control w-30px fw-bold fs-5 px-0 mx-2 text-center border-0" name="qty" value="1">
+									<a href="#" class="btn btn-default d-flex align-items-center"><i class="fa fa-plus"></i></a>
+								</div>
+							</div>
+							<hr />
+							<div class="mb-3">
+								<div class="fw-bold fs-6">尺寸</div>
+								<div class="option-list">
+									<div class="option">
+										<input type="radio" id="size3" name="size" class="option-input" checked />
+										<label class="option-label" for="size3">
+											<span class="option-text">小</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="size1" name="size" class="option-input" />
+										<label class="option-label" for="size1">
+											<span class="option-text">大</span>
+											<span class="option-price">+50.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="size2" name="size" class="option-input" />
+										<label class="option-label" for="size2">
+											<span class="option-text">中</span>
+											<span class="option-price">+30.00</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="mb-3">
+								<div class="fw-bold fs-6">配餐</div>
+								<div class="option-list">
+									<div class="option">
+										<input type="radio" id="catering3" name="catering" class="option-input" checked />
+										<label class="option-label" for="catering3">
+											<span class="option-text">飯</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="catering1" name="catering" class="option-input" />
+										<label class="option-label" for="catering1">
+											<span class="option-text">麵</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="catering2" name="catering" class="option-input" />
+										<label class="option-label" for="catering2">
+											<span class="option-text">麵包</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="mb-3">
+								<div class="fw-bold fs-6">飲料</div>
+								<div class="option-list">
+									<div class="option">
+										<input type="radio" id="drink3" name="drink" class="option-input" checked />
+										<label class="option-label" for="drink3">
+											<span class="option-text">冰紅茶</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="drink5" name="drink" class="option-input" />
+										<label class="option-label" for="drink5">
+											<span class="option-text">熱紅茶</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="drink6" name="drink" class="option-input" />
+										<label class="option-label" for="drink6">
+											<span class="option-text">冰咖啡</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="drink1" name="drink" class="option-input" />
+										<label class="option-label" for="drink1">
+											<span class="option-text">熱咖啡</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="drink2" name="drink" class="option-input" />
+										<label class="option-label" for="drink2">
+											<span class="option-text">今日果汁</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="radio" id="drink4" name="drink" class="option-input" />
+										<label class="option-label" for="drink4">
+											<span class="option-text">加點</span>
+											<span class="option-price">-30.00</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="mb-3">
+								<div class="fw-bold fs-6">其他</div>
+								<div class="option-list">
+									<div class="option">
+										<input type="checkbox" name="addon[sos]" value="true" class="option-input" id="addon1" />
+										<label class="option-label" for="addon1">
+											<span class="option-text">醬多</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ff]" value="true" class="option-input" id="addon2" />
+										<label class="option-label" for="addon2">
+											<span class="option-text">醬少</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon3" />
+										<label class="option-label" for="addon3">
+											<span class="option-text">不加醬</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon4" />
+										<label class="option-label" for="addon4">
+											<span class="option-text">不加蔥</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon5" />
+										<label class="option-label" for="addon5">
+											<span class="option-text">不加蒜</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon6" />
+										<label class="option-label" for="addon6">
+											<span class="option-text">不加香菜</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon7" />
+										<label class="option-label" for="addon7">
+											<span class="option-text">飲料去冰</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon8" />
+										<label class="option-label" for="addon8">
+											<span class="option-text">飲料少冰</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+									<div class="option">
+										<input type="checkbox" name="addon[ms]" value="true" class="option-input" id="addon9" />
+										<label class="option-label" for="addon9">
+											<span class="option-text">飲料餐後上</span>
+											<span class="option-price">+0.00</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<hr />
+							<div class="row gx-3">
+								<div class="col-4">
+									<a href="#" class="btn btn-default fs-14px rounded-3 fw-bold mb-0 d-block py-3" data-bs-dismiss="modal">取消</a>
+								</div>
+								<div class="col-8">
+									<a href="#" class="btn btn-theme fs-14px rounded-3 fw-bold d-flex justify-content-center align-items-center py-3 m-0">加入訂單 <i class="fa fa-plus ms-3"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END #modalPos -->
+	
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="../assets/js/vendor.min.js"></script>
+	<script src="../assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+	
+	<!-- ================== BEGIN page-js ================== -->
+	<script src="../assets/js/demo/pos-header.demo.js"></script>
+	<script src="../assets/js/demo/pos-customer-order.demo.js"></script>
+	<script src="../assets/plugins/switchery/dist/switchery.min.js"></script>
+	<script src="../assets/js/demo/form-slider-switcher.demo.js"></script>
+	<script src="../assets/js/demo/pos-counter-checkout.demo.js"></script>
+	<script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+	<!-- ================== END page-js ================== -->
+</body>
+</html>

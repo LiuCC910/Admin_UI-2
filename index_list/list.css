@@ -1,0 +1,391 @@
+﻿html{
+    font-family:sans-serif;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%
+}
+body{
+    margin:0;
+    font-size:1.25em;
+    font-weight:normal;
+    color:#333;
+    line-height:1.5em;
+    font-family:Lato,"PingFang TC","Helvetica Neue",Helvetica,微軟正黑體,Arial,sans-serif;
+    -webkit-text-size-adjust:none
+}
+a{
+    color:#7b4397;
+    text-decoration:none
+}
+a:hover,a:focus{
+    color:#0092d4;
+    cursor:pointer
+}
+
+hr{
+    border:none;
+    border-top:1px solid #CFCFCF;
+    margin:1em 0px;
+    display:block;
+    clear:both
+}
+
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.938em;
+    color:#222
+}
+@media screen and (max-width: 575px){
+    table{
+        width:100%
+    }
+}
+table tr{
+    transition:.3s ease-out
+}
+table tr:hover{
+    color:#111
+}
+table th,table td{
+    padding:.5em .5em;
+    text-align:left;
+    font-size: 1.05em;
+}
+table th.main_data,table td.main_data{
+    text-align:center
+}
+@media screen and (max-width: 767px){
+    table th.main_data,table td.main_data{
+        max-width:100%;
+        min-width:300px
+    }
+}
+table th.text-left,table td.text-left{
+    text-align:left
+}
+table th.text-right,table td.text-right{
+    text-align:right
+}
+table th.last-child,table td.last-child{
+    min-width:8em
+}
+table th input[type="checkbox"],table td input[type="checkbox"]{
+    margin-top:4px
+}
+table th .pic,table td .pic{
+    max-width:80px;
+    overflow:hidden;
+    position:relative
+}
+table th .pic:before,table td .pic:before{
+    display:inline-block;
+    content:"";
+    padding-top:75%
+}
+table th .pic img,table td .pic img{
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    width:100%;
+    height:100%;
+    margin:auto
+}
+table th .pic a,table td .pic a{
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0
+}
+table th .pic img,table td .pic img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    object-fit:cover
+}
+table th.hasInput,table td.hasInput{
+    width:3em
+}
+table td{
+    border:#ebebeb 1px solid;
+    word-break:break-all;
+    border-left:none;
+    border-right:none;
+    text-align:left;
+    min-height:3em;
+}
+table td.main_data{
+    text-align:left;
+    min-width:10em;
+    font-weight:bold
+}
+table td.main_data a{
+    word-break:break-all;
+    color:#1f72bb;
+    display:block;
+    font-size:1rem
+}
+table td.main_data a:hover,table td.main_data a:focus{
+    color:#308cdd
+}
+table td>.btn{
+    padding:0;
+    width:2.5em;
+    height:2.5em;
+    border-radius:50%;
+    min-width:2em;
+    background:#FFF;
+    position:relative;
+    border:1px solid #DDD
+}
+table td>.btn:hover,table td>.btn:focus{
+    border:1px solid #21baff;
+    background:#FFF;
+    box-shadow:none;
+    background:#21baff
+}
+table td>.btn:hover:before,table td>.btn:focus:before{
+    border:2px solid #FFF;
+    border-left:none;
+    border-top:none
+}
+table td>.btn:hover i,table td>.btn:focus i{
+    filter:invert(100%)
+}
+table td>.btn:hover i span,table td>.btn:focus i span{
+    filter:invert(100%)
+}
+table td>.btn:hover span,table td>.btn:focus span{
+    filter:invert(100%)
+}
+table td>.btn-delete:hover,table td>.btn-delete:focus{
+    color:#FFF;
+    background:#FF3E4D;
+    border:1px solid #FF3E4D
+}
+table td.num{
+    text-align:center;
+    width:3em
+}
+table td time{
+    white-space:nowrap;
+    font-size:.875rem
+}
+table td span{
+    display:inline-block;
+    vertical-align:middle;
+    border-radius:.2em;
+    text-align:center;
+    margin-right:.25em;
+    font-size:.938rem
+}
+table td span.green{
+    color:#FFF;
+    margin:0 .1em 0em;
+    padding:.2em;
+    min-width:4em;
+    white-space:nowrap;
+    background:#4cae4c
+}
+table td span.red{
+    color:#FFF;
+    margin:0 .2em .2em;
+    padding:.2em;
+    min-width:4em;
+    white-space:nowrap;
+    background:#ff0b1e
+}
+table td span.blue{
+    color:#FFF;
+    margin:0 .2em .2em;
+    padding:.2em;
+    min-width:4em;
+    white-space:nowrap;
+    background:#00a3ed
+}
+table td span.orange{
+    color:#FFF;
+    margin:0 .2em .2em;
+    padding:.2em;
+    min-width:4em;
+    white-space:nowrap;
+    background:#ff7a0e
+}
+table td span.gray{
+    color:#FFF;
+    margin:0 .2em .2em;
+    padding:.2em;
+    min-width:4em;
+    white-space:nowrap;
+    background:#b3b3b3
+}
+table th{
+    background-color:#7b4397;
+    color:#fff;
+    text-align:left;
+    white-space:nowrap;
+    border-left:none;
+    border-right:none
+}
+table th a{
+    color:#111
+}
+table th a i{
+    opacity:.5;
+    font-size:.8em
+}
+table th a i:before{
+    top:-.2em
+}
+table th a:hover,table th a:focus{
+    color:#333
+}
+table th a:hover i,table th a:focus i{
+    opacity:1
+}
+table th i{
+    margin:0 .05em
+}
+table th i:before{
+    width:.75em !important;
+    height:.75em !important
+}
+table.table_hover tr:hover{
+    background:#FAFAFA
+}
+table.table_sprite tr:nth-child(even){
+    background:#FAFAFA
+}
+@media screen and (max-width: 575px){
+    .table_list{
+        background-color:transparent !important
+    }
+    .table_list thead,.table_list tbody,.table_list th,.table_list td,.table_list tr{
+        display:block
+    }
+    .table_list thead tr{
+        position:absolute;
+        top:-9999px;
+        left:-9999px
+    }
+    .table_list tr{
+        border:1px solid #ccc;
+        margin-bottom:10px
+    }
+    .table_list td{
+        border:none !important;
+        border-bottom:1px solid #eee !important;
+        position:relative;
+        padding-left:35% !important;
+        white-space:normal;
+        text-align:left
+    }
+    .table_list td:before{
+        content:attr(data-title);
+        position:absolute;
+        top:.5em;
+        left:.5em;
+        width:30%;
+        padding-right:10px;
+        white-space:nowrap;
+        text-align:left;
+        font-weight:bold;
+        color:#000
+    }
+}
+
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+    line-height: 1em;
+}
+body {
+    font-size: 1em;
+    font-weight: normal;
+    color: #222;
+    line-height: 1.45em;
+    font-family: Lato,"PingFang TC","Helvetica Neue",Helvetica,微軟正黑體,Arial,sans-serif;
+    -webkit-text-size-adjust: none;
+    counter-reset: num;
+}
+
+.demo_wrap {
+    max-width: 90%;
+    margin: 3em auto 1em;
+    padding: 15px 15px 3em;
+    clear: both;
+    background: #FFF;
+    border-radius: 0.5em;
+}
+.demo_wrap h1 {
+    display: block;
+    margin: 0px auto;
+    max-width: 300px;
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+@media screen and (max-width:545px) {
+    .demo_wrap h1 {
+        max-width: 100%;
+        float: none;
+        text-align: center
+    }
+}
+.demo_wrap h1 img { width: 260px }
+.num { min-width: 5%;}
+body { counter-reset: num }
+table { margin-bottom: 1em }
+table caption {
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.25em;
+    padding: .5em 0;
+    color: #7b4397;
+}
+tbody tr td:first-child:before {
+    counter-increment: num;
+    display: block;
+    text-align: center;
+    content: counters(num, ".") " "
+}
+tbody tr td:nth-child(1) { max-width: 5% }
+tbody tr td:nth-child(2) { width: 30%; text-align: center; }
+
+.btn_grp{ text-align: right; }
+
+@media screen and (max-width:545px) {
+   .btn_grp{ text-align: center; }
+}
+
+tbody tr td img{
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.scrollToTop {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: url(top.png) no-repeat center top rgba(0,0,0,0.4);
+    text-align: center;
+    color: #FFF;
+    line-height: 50px;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    transition: .3s ease-out;
+    z-index: 99999999;
+    text-indent: -999999px;
+}

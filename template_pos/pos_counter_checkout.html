@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>POS - 桌位點單結帳作業</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+	
+	<!-- 客製化CSS暫用 -->
+	<link href="../assets/css/customize.css" rel="stylesheet" />
+	<link href="../favicon.png" rel="icon" type="image/x-icon">
+</head>
+<body class='pace-top'>
+	<!-- BEGIN #loader -->
+	<div id="loader" class="app-loader">
+		<span class="spinner"></span>
+	</div>
+	<!-- END #loader -->
+
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-content-full-height app-without-header app-without-sidebar">
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content p-0">
+			<!-- BEGIN pos -->
+			<div class="pos pos-with-header pos-with-sidebar" id="pos">
+				<!-- BEGIN pos-header -->
+				<div class="pos-header">
+					<div class="logo">
+						<a href="pos_customer_order.html">
+							<div class="logo-img"><img src="../index_list/Logo_Dark_s.png"> </div>
+							<div class="logo-text">Drink & Dine</div>
+						</a>
+					</div>
+					<div class="time">2023-08-21(一)　<span id="time"></span></div>
+					<div class="nav">
+						<div class="nav-item">
+							<a href="pos_customer_order.html" class="nav-link">
+								<i class="fas fa-cash-register nav-icon" title="銷售作業"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_counter_checkout.html" class="nav-link">
+								<i class="fas fa-credit-card nav-icon" title="桌位結帳"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_table_booking.html" class="nav-link">
+								<i class="far fa-calendar-check nav-icon" title="預約管理"></i>
+							</a>
+						</div>
+						<div class="nav-item">
+							<a href="pos_kitchen_order.html" class="nav-link">
+								<i class="fa fa-clipboard-list nav-icon" title="出餐作業"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-header -->
+				
+				<!-- BEGIN pos-content -->
+				<div class="pos-content">
+					<div class="pos-content-container">
+						<div class="d-md-flex align-items-center mb-4">
+							<div class="pos-booking-title flex-1">
+								<div class="fs-24px mb-1">內用桌況 (<span class="text-theme">12</span>/20)</div>
+								<div class="mb-2 mb-md-0 d-flex">
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-primary fs-9px me-1"></i> 預約(尚未入座) (3)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-danger fs-9px me-1"></i> 使用中(尚未點餐) (1)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-warning fs-9px me-1"></i> 使用中(已點餐) (3)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-theme fs-9px me-1"></i> 可使用 (12)
+									</div>
+									<div class="d-flex align-items-center me-3">
+										<i class="fa fa-circle fa-fw text-gray fs-9px me-1"></i> 暫停使用 (1)
+									</div>
+								</div>
+							</div>
+							<div style="display: none;">
+								<div class="w-200px">
+									<label for="nosearch">單號搜尋</label>
+									<input type="text" id="nosearch" class="form-control form-control-lg fs-13px" placeholder="請輸入單號" />
+								</div>
+							</div>
+						</div>
+
+						<div class="pos-table-row">
+							<div class="pos-table in-use selected">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">01</div>
+										<div class="order"><b class="text-danger">3</b> / <span>4 品項</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">2 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">35:20</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">$461.00</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">尚未付款</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table in-use">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">02</div>
+										<div class="order"><b class="text-danger">3</b> / <span>12 品項</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">6 / 8</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">12:49</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">$1682.00</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">尚未付款</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="javascript:;" class="pos-table-container" data-toggle="select-table" data-click="swal-info">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">03</div>
+										<div class="order"><span>6人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table" data-click="swal-info">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">04</div>
+										<div class="order"><span>4人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">05</div>
+										<div class="order"><span>4人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table reservation">
+								<a href="#" class="pos-table-container" data-toggle="select-table" data-click="swal-primary">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">06</div>
+										<div class="order"><span>2023-08-21 11:30 陳先生(3人)</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">3 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">預約(尚未入座)</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table in-use">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">07</div>
+										<div class="order"><span><b class="text-danger">12</b> / <span>12 品項</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">6 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">58:40</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">$1329.00</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-check-circle"></i></span>
+												<span class="text">已付款</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">08</div>
+										<div class="order"><span>4人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table reservation">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">09</div>
+										<div class="order"><span>2023-08-21 11:30 劉小姐(3人)</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">3 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">預約(尚未入座)</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table in-use-order">
+								<a href="#" class="pos-table-container" data-toggle="select-table" data-click="swal-warning">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">10</div>
+										<div class="order"><span>尚未點餐</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">5 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">03:21</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-check-circle"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table disabled">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">11</div>
+										<div class="order"><span>6人桌(暫停使用)</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">12</div>
+										<div class="order"><span>4人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table reservation">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">13</div>
+										<div class="order"><span>2023-08-21 11:30 林小姐(5人)</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">預約(尚未入座)</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">14</div>
+										<div class="order"><span>6人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">15</div>
+										<div class="order"><span>6人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">16</div>
+										<div class="order"><span>6人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">17</div>
+										<div class="order"><span>4人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">18</div>
+										<div class="order"><span>4人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 4</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">19</div>
+										<div class="order"><span>6人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 6</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="pos-table available">
+								<a href="#" class="pos-table-container" data-toggle="select-table">
+									<div class="pos-table-status"></div>
+									<div class="pos-table-name">
+										<div class="name">桌號</div>
+										<div class="no">20</div>
+										<div class="order"><span>2人桌</span></div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-user"></i></span>
+												<span class="text">0 / 2</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-clock"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+									<div class="pos-table-info-row">
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="fa fa-receipt"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+										<div class="pos-table-info-col">
+											<div class="pos-table-info-container">
+												<span class="icon opacity-50"><i class="far fa-dollar-sign"></i></span>
+												<span class="text">-</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-content -->
+				
+				<!-- BEGIN pos-sidebar -->
+				<div class="pos-sidebar">
+					<div class="h-100 d-flex flex-column">
+						<div class="pos-sidebar-header">
+							<div class="back-btn">
+								<button type="button" data-dismiss-class="pos-sidebar-mobile-toggled" data-target="#pos" class="btn border-0">
+									<i class="fa fa-chevron-left"></i>
+								</button>
+							</div>
+							<div class="icon"><i class="fa fa-plate-wheat"></i></div>
+							<div class="title">內用：桌號 01 (4)</div>
+							<div class="order">單號: <b>#0055</b></div>
+						</div>
+						<div class="pos-sidebar-body tab-content" data-scrollbar="true" data-height="100%">
+							<div class="tab-pane fade h-100 show active" id="newOrderTab">
+								<div class="pos-table">
+									<div class="row pos-table-row">
+										<div class="col-8">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-2.jpg)"></div>
+												<div class="info">
+													<div class="title">碳烤雞腿排</div>
+													<div class="single-price">$110.00</div>
+													<div class="desc">
+														- 尺寸: 大 (+$50.00)<br/>
+														- 配餐: 飯<br/>
+														- 飲料: 加點 (總價-30)<br/>
+														- 其他: 醬少、飲料餐後上
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-1 total-qty">x1</div>
+										<div class="col-3 total-price">$160.00 
+											<div><i class="fa fa-check fa-1x me-1 text-theme" title="已出餐"></i></div>
+										</div>
+									</div>
+									<div class="row pos-table-row">
+										<div class="col-8">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-1.jpg)"></div>
+												<div class="info">
+													<div class="title">碳烤豬排</div>
+													<div class="single-price">$115.00</div>
+													<div class="desc">
+														- 尺寸: 中 (+$30.00)<br/>
+														- 配餐: 麵包<br/>
+														- 飲料: 冰咖啡<br/>
+														- 其他: 飲料去冰
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-1 total-qty">x1</div>
+										<div class="col-3 total-price">$145.00
+											<div><i class="fa fa-check fa-1x me-1 text-theme"></i></div>
+										</div>
+									</div>
+									<div class="row pos-table-row">
+										<div class="col-8">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-8.jpg)"></div>
+												<div class="info">
+													<div class="title">蔬果汁</div>
+													<div class="single-price">$75.00</div>
+													<div class="desc">
+														- 其他: 少冰
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-1 total-qty">x1</div>
+										<div class="col-3 total-price">$75.00
+											<div></div>
+										</div>
+									</div>
+									<div class="row pos-table-row">
+										<div class="col-8">
+											<div class="pos-product-thumb">
+												<div class="img" style="background-image: url(../assets/img/pos/product-10.jpg)"></div>
+												<div class="info">
+													<div class="title">今日主廚湯品</div>
+													<div class="single-price">$69.00</div>
+													<div class="desc">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-1 total-qty">x1</div>
+										<div class="col-3 total-price">$69.00
+											<div><i class="fa fa-check fa-1x me-1 text-theme"></i></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--隱藏-->
+							<div class="tab-pane fade h-100" id="orderSettingTab" style="display:none;">
+								<div class="panel panel-inverse" data-sortable-id="form-slider-switcher-3">
+									<!-- BEGIN panel-body -->
+									<div class="panel-body">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label class="form-label mb-2">內用設定:</label>
+														<input type="checkbox" data-render="switchery" data-theme="default" />
+														<!--span class="text-muted ms-2">內用設定</span-->
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label class="form-label mb-2">續單設定:</label>
+														<input type="checkbox" data-render="switchery" data-theme="default" />
+														<!--span class="text-muted ms-2">內用設定</span-->
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label for="" class="form-label mb-2">桌號:</label>
+														<select class="form-select form-select-lg" disabled>
+															<option>請選擇</option>
+															<option>1(6人桌)</option>
+															<option disabled>2(4人桌)</option>
+															<option>3(4人桌)</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="mb-10px">
+														<label for="" class="form-label mb-2">人數:</label>
+														<select class="form-select form-select-lg" disabled>
+															<option>請選擇</option>
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+															<option>5</option>
+															<option>6</option>
+														</select>
+														<!--input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"-->
+													</div>
+												</div>
+											</div>
+											<hr/>
+											<div class="row">
+												<label for="" class="form-label mb-2">會員:</label>
+												<div class="col-md-7">
+													<input type="email" class="form-control" id="exampleInputEmail2" placeholder="請輸入電話號碼">
+												</div>
+												<!--輸入會員資訊後帶出會員資料-->
+												<div class="col-md-5">
+													<button type="submit" class="btn btn-primary w-50px me-5px">輸入</button>
+													<button type="submit" class="btn btn-default w-50px">取消</button>
+												</div>
+											</div>
+											<hr/>
+											<dl class="row">
+													<dt class="col-md-9"><b>Ms. 劉佳淇</b> (0921013303) </dt>
+													<dd class="col-md-3"><a href="javascript:;" class="btn btn-sm btn-danger">移除</a></dd>
+													<dt class="text-body">近期消費紀錄</dt>
+													<dd>
+														<ol>
+															<li>08-11 10:00：5品項｜外帶｜<b>$450</b></li>
+															<li>07-31 13:29：7品項｜內用(3人)｜<b>$1050</b></li>
+															<li>07-21 10:00：3品項｜內用(1人)｜<b>$400</b></li>
+															<li>07-11 10:00：4品項｜外帶｜<b>$650</b></li>
+															<li>07-01 10:00：2品項｜外帶｜<b>$150</b></li>
+														</ol>
+													</dd>
+											</dl>
+									</div>
+									<!-- END panel-body -->
+								</div>
+							</div>
+						</div>
+						<div class="pos-sidebar-footer">
+							<div class="d-flex align-items-center mb-2">
+								<div>餐點小計</div>
+								<div class="flex-1 text-end h6 mb-0">+$449.00</div>
+							</div>
+							<div class="d-flex align-items-center mb-2">
+								<div>加點折扣</div>
+								<div class="flex-1 text-end h6 mb-0">-$30.00</div>
+							</div>
+							<div class="d-flex align-items-center">
+								<div>服務費 (內用10%)</div>
+								<div class="flex-1 text-end h6 mb-0">+$42.00</div>
+							</div>
+							<div class="d-flex align-items-center">
+								<div>稅 (0%)</div>
+								<div class="flex-1 text-end h6 mb-0">+$0.00</div>
+							</div>
+							<hr class="opacity-1 my-10px">
+							<div class="d-flex align-items-center mb-2">
+								<div>總計</div>
+								<div class="flex-1 text-end h4 mb-0">$461.00</div>
+							</div>
+							<div class="d-flex align-items-center mt-3">
+								<a href="#" class="btn btn-default rounded-3 text-center me-10px w-70px"><i class="fa fa-add d-block fs-18px my-1"></i> 加點</a>
+								<a href="#" class="btn btn-default rounded-3 text-center me-10px w-70px"><i class="fab fa-cc-visa d-block fs-18px my-1"></i> 信用卡</a>
+								<a href="#" class="btn btn-theme rounded-3 text-center flex-1"><i class="fa fa-wallet d-block fs-18px my-1"></i> 現金付款</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END pos-sidebar -->
+			</div>
+			<!-- END pos -->
+		</div>
+		<!-- END #content -->
+
+		
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+	
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="../assets/js/vendor.min.js"></script>
+	<script src="../assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+	
+	<!-- ================== BEGIN page-js ================== -->
+	<script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+	<script src="../assets/js/demo/pos-header.demo.js"></script>
+	<script src="../assets/js/demo/pos-customer-order.demo.js"></script>
+	<script src="../assets/js/demo/pos-counter-checkout.demo.js"></script>
+	<script src="../assets/plugins/switchery/dist/switchery.min.js"></script>
+	<script src="../assets/js/demo/form-slider-switcher.demo.js"></script>
+	<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>
+	<script src="../assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="../assets/js/demo/ui-modal-notification.demo.js"></script>
+	<script src="../assets/plugins/@highlightjs/cdn-assets/highlight.min.js"></script>
+	<script src="../assets/js/demo/render.highlight.js"></script>
+	<!-- ================== END page-js ================== -->
+</body>
+</html>
