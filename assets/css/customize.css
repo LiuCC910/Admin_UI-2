@@ -1,0 +1,45 @@
+/*增加桌況狀態設定*/
+.pos .pos-table-row .pos-table.available .pos-table-container, .pos .pos-table-row .pos-table.in-use-order .pos-table-container {cursor: url(hand.cur), pointer;}
+.pos .pos-table-row .pos-table.in-use-order .pos-table-container .pos-table-status {background: var(--bs-danger);}
+.pos .pos-table-row .pos-table.reservation .pos-table-container .pos-table-status {background: var(--bs-primary);}
+
+/*增加不可預約狀態設定*/
+.pos .pos-table-booking.disabled {cursor: not-allowed;}
+.pos .pos-table-booking.disabled .pos-table-booking-container {background-color: #666;}
+.pos .pos-table-booking.disabled .pos-table-booking-container .pos-table-booking-body {background-color: #999;}
+.pos .pos-table-booking.disabled .pos-table-booking-container .pos-table-booking-header .no {color: #999;}
+.pos .pos-table-booking.disabled .pos-table-booking-container .pos-table-booking-body .booking .time, 
+.pos .pos-table-booking.disabled .pos-table-booking-container .pos-table-booking-body .booking .info{color: #666;}
+
+/*增加、變更預約狀態顏色設定*/
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking .status.completed {color: #333;}
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking .status.noshow {color: #fb5597;}
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking .status.upcoming {color: #348fe2;}
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking .status.in-progress {color: #f59c1a;}
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking .status.in-use-order {color: #ff5b57;}
+
+/*調整出餐單設定*/
+.pos .pos-task-row .pos-task .pos-task-info {width: 20%;}
+.result-info .step{list-style: none; font-size: 1rem;}
+.result-info .step div{font-size: 1.05rem;}
+.result-info .step li{padding-bottom: 10px;}
+.itemtitle {padding: 5px 10px 0; font-size: 1.05rem;}
+.task-completed, .task-product-info .info .title {font-size: 1.25rem; padding: 0; margin: 0;}
+.task-product.completed {background-color: #cfcfcf; color: #999;}
+.task-product {font-size: 1rem;padding: 20px; margin-bottom: 15px; border: 1px dotted #979797; border-radius: 5px;}
+.taskmenu{border-bottom: 1px dotted #cccccc;margin:0 10px;}
+.task-product-action{margin: 15px 0 5px;}
+.task-product-action a{width: 100%;margin: 5px 5px 0;}
+.task-product-info .desc{min-height: 7.5rem;}
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking .status.taskcompleted {color: #00acac;}
+
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking {min-width:100%;}
+.pos .pos-table-booking .pos-table-booking-container .pos-table-booking-body .booking .status {margin-left: auto;}
+
+/*Admin用*/
+.before {font-size: .5em; color: #666;}
+.card .badge {min-width: 75px; margin-right: 15px;}
+.widget-stats {min-height: 170px;}
+.chats .chats-item .message:before {top: 25%;}
+.chat-buttons.btn-group.flex-wrap {margin:15px;}
+.chat-buttons.btn-group.flex-wrap a {padding:5px 15px;background-color:#666;border:1px dotted #fff;}
