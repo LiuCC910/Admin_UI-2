@@ -10,7 +10,7 @@ var handleDataTableFixedColumns = function() {
     
 	if ($('#data-table-fixed-columns').length !== 0) {
 		$('#data-table-fixed-columns').DataTable({
-			scrollY:        300,
+			scrollY:        350,
 			scrollX:        true,
 			scrollCollapse: true,
 			paging:         false,

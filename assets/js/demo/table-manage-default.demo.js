@@ -12,6 +12,21 @@ var handleDataTableDefault = function() {
 		$('#data-table-default').DataTable({
 			responsive: true
 		});
+	};
+	if ($('#data-table-default2').length !== 0) {
+		$('#data-table-default2').DataTable({
+			responsive: true
+		});
+	};
+	if ($('#data-table-default3').length !== 0) {
+		$('#data-table-default3').DataTable({
+			responsive: true
+		});
+	};
+	if ($('#data-table-default4').length !== 0) {
+		$('#data-table-default4').DataTable({
+			responsive: true
+		});
 	}
 };
 
@@ -24,6 +39,7 @@ var TableManageDefault = function () {
 		}
 	};
 }();
+
 
 $(document).ready(function() {
 	TableManageDefault.init();
