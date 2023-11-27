@@ -49,7 +49,7 @@
 
 td span.badge {width:50px;float:inline-end;}
 
-div.fixed-table {width: 100%; height:400px !important; overflow: auto; padding: 0 !important;}
+div.fixed-table {width: 100%; height:450px !important; overflow: auto; padding: 0 !important;}
 table.table-fixed {
     table-layout: fixed;
     width: 100%;
