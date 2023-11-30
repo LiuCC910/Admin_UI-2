@@ -74,3 +74,28 @@ table.table-fixed tbody tr th:nth-child(2) {
 
 .picker .pc-select{float:inline-end;}
 .picker>.pc-element{margin-bottom:0 !important;padding-bottom:0 !important;}
+
+.card.data-table {padding: 5px 10px;}
+.form-group.row {margin: 5px 0 10px;}
+
+.divider {
+    --text-divider-gap: 1rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+} 
+ 
+.divider::before, .divider::after {
+    content: '';
+    height: 1px;
+    background-color: #adb5bd;
+    flex-grow: 1;
+}
+  
+.divider::before {
+    margin-right: var(--text-divider-gap);
+}
+  
+.divider::after {
+    margin-left: var(--text-divider-gap);
+}
