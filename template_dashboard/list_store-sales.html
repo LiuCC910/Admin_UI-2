@@ -213,14 +213,14 @@
 							<div class="menu-item">
 								<a href="index_dashboard-store.html" class="menu-link"><div class="menu-text">門店儀表板</div></a>
 							</div>
+							<div class="menu-item">
+								<a href="index_store-sales.html" class="menu-link"><div class="menu-text">門店區間業績表</div></a>
+							</div>
 							<div class="menu-item active">
-								<a href="list_store-sales.html" class="menu-link"><div class="menu-text">門店區間業績表</div></a>
+								<a href="list_store-sales.html" class="menu-link"><div class="menu-text">門店銷售紀錄</div></a>
 							</div>
 							<div class="menu-item">
-								<a href="#" class="menu-link"><div class="menu-text">銷售摘要</div></a>
-							</div>
-							<div class="menu-item">
-								<a href="#" class="menu-link"><div class="menu-text">作業紀錄</div></a>
+								<a href="#" class="menu-link"><div class="menu-text">原物料成本管理</div></a>
 							</div>
 						</div>
 					</div>
@@ -586,1797 +586,743 @@
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">資訊摘要</a></li>
-				<li class="breadcrumb-item active">門店儀表板</li>
+				<li class="breadcrumb-item active">門店銷售清單</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">門店區間業績 <small>2023-09-04(日) <span id="time"></span></small></h1>
+			<h1 class="page-header">門店銷售清單</h1>
 			<!-- END page-header -->
 
 			<!-- BEGIN row -->
 			<div class="row">
 				<!-- BEGIN col-8 -->
                 <div class="col-xl-6">
-                    <div class="fc-toolbar-chunk">
-                        <div class="btn-group">
-                            <button type="button" title="Previous Month" aria-pressed="false" class="fc-prev-button btn btn-primary"><span class="fa fa-chevron-left"></span></button>
-                            <button type="button" title="Week view" aria-pressed="false" class="fc-timeGridWeek-button btn btn-primary active">本週</button>
-                            <button type="button" title="Next Month" aria-pressed="false" class="fc-next-button btn btn-primary" disabled><span class="fa fa-chevron-right"></span></button>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" title="Day view" aria-pressed="false" class="fc-timeGridDay-button btn btn-primary">自定區間</button>
-                            <div>
-                                <a href="#" class="btn me-2 bg-gray-700 text-white disabled" id="daterange-filter">
-                                    <i class="fa fa-calendar fa-fw text-opacity-50 ms-n1"></i> 
-                                    <span>2023-11-13(一) - 2023-11-19(日)</span>
-                                    <b class="caret ms-1 opacity-5"></b>
-                                </a>
-                            </div>
-                        </div>
+                    <!--div class="dt-buttons btn-group flex-wrap">
+                        <button class="btn btn-secondary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button"><span>批次刪除</span></button> 
+                        <button class="btn btn-secondary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button"><span>批次匯出</span></button> 
+                    </div-->
+                </div>
+                <div class="col-xl-6 text-end">
+                    <div class="dt-buttons btn-group flex-wrap">
+                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button"onclick="window.location.href='content_store-sales-add.html';"><i class="fas fa-circle-plus"></i> <span>新增資料</span></button>
+                        <button class="btn btn-outline-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button"><i class="fas fa-upload"></i> <span>批次匯入</span></button> 
+                        <button class="btn btn-outline-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="showFunction()"><i class="fab fa-searchengin"></i><span>欄位查詢</span></button> 
+						<script>
+							function showFunction() {
+							  var x = document.getElementById("advSearchDIV");
+							  if (x.style.display === "none") {
+								x.style.display = "flex";
+							  } else {
+								x.style.display = "none";
+							  }
+							}
+						</script>
                     </div>
-				</div>
-                <div class="col-lg-6">
-                    <select class="selectpicker form-control" id="ex-search" multiple>
-                        <option value="0">000000 台南成功店</option>
-                        <option value="1">000001 蘆洲民族店</option>
-                        <option value="2">000002 中壢實踐店</option>
-                        <option value="3">000003 文山景美店</option>
-                        <option value="4">000004 高雄大社店</option>
-                        <option value="5">000005 善化民權店</option>
-                        <option value="6">000006 台南東寧店</option>
-                        <option value="7" disabled>000007 花蓮玉里店</option>
-                        <option value="8">000002 中壢實踐店</option>
-                        <option value="9">000003 文山景美店</option>
-                        <option value="10">000004 高雄大社店</option>
-                        <option value="11">000005 善化民權店</option>
-                    </select>
-                    
+
                 </div>
             </div>
+            <hr/>
+            <div class="row" style="display: none;" id="advSearchDIV">
+				<div class="col-md-6">
+					<div class="form-group row">
+						<label class="form-label col-form-label col-lg-2" for="fullname">日期</label>
+						<div class="col-lg-10">
+							<div class="input-group">
+								<input type="date" class="form-control" name="start" placeholder="Date Start">
+								<span class="input-group-text input-group-addon">至</span>
+								<input type="date" class="form-control" name="end" placeholder="Date End">
+							</div>
+						</div>
+					</div>
+					<!--div class="form-group row">
+						<label class="form-label col-form-label col-lg-2" for="projectyear">計畫年度</label>
+						<div class="col-lg-10">
+							<div class="input-group">
+								<select class="form-select">
+									<option>請選擇年度</option>
+									<option>112</option>
+									<option>111</option>
+									<option>110</option>
+									<option>109</option>
+									<option>108</option>
+								</select>
+								<span class="input-group-text input-group-addon">至</span>
+								<select class="form-select">
+									<option>請選擇年度</option>
+									<option>112</option>
+									<option>111</option>
+									<option>110</option>
+									<option>109</option>
+									<option>108</option>
+								</select>
+							</div>
+						</div>
+					</div-->
+					<div class="form-group row">
+						<label class="form-label col-form-label col-lg-2" for="projectyear">類別</label>
+						<div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select class="form-select">
+                                        <option>請選擇來源類型</option>
+                                        <option>POS</option>
+                                        <option>UBER Eats</option>
+                                        <option>foodpanda</option>
+                                        <option>快一點</option>
+                                        <option>其他</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select">
+                                        <option>請選擇建立模式</option>
+                                        <option>串接</option>
+                                        <option>自建</option>
+                                        <option>匯入</option>
+                                        <option>其他</option>
+                                    </select>
+                                </div>
+
+                            </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group row">
+						<label class="form-label col-form-label col-lg-2" for="projectyear">營業點</label>
+						<div class="col-lg-10">
+							<select class="form-select">
+								<option>請選擇營業點</option>
+								<option>112</option>
+								<option>111</option>
+								<option>110</option>
+								<option>109</option>
+								<option>108</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="form-label col-form-label col-lg-2">關鍵字</label>
+						<div class="col-md-10">
+							<input type="email" class="form-control" placeholder="請輸入關鍵字">
+						</div>
+					</div>
+					<!--div class="form-group row">
+						<label class="form-label col-form-label col-lg-2">名稱</label>
+						<div class="col-md-10">
+							<input type="email" class="form-control" placeholder="請輸入關鍵字">
+						</div>
+					</div-->
+				</div>
+				
+				<div class="col-md-12">
+						<div class="form-group row text-center">
+							<div class="col-lg-12">
+								<button type="submit" class="btn btn-primary" onclick="showFunction();">查詢</button>
+								<button type="cancel" class="btn">重設</button>
+							</div>
+						</div>
+				</div>
+			</div>
             <!--資料內容頁籤區-->
             <div class="row" style="margin-top: 25px;">
                 <div class="col-xl-12">
-                    <!-- BEGIN nav-tabs -->
-					<ul class="nav nav-tabs">
-						<li class="nav-item">
-							<a href="#default-tab-1" data-bs-toggle="tab" class="nav-link active">
-								<span class="d-sm-none">Tab 1</span>
-								<span class="d-sm-block d-none">業績統計表</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="#default-tab-2" data-bs-toggle="tab" class="nav-link">
-								<span class="d-sm-none">Tab 2</span>
-								<span class="d-sm-block d-none">門店POS銷售</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="#default-tab-3" data-bs-toggle="tab" class="nav-link">
-								<span class="d-sm-none">Tab 3</span>
-								<span class="d-sm-block d-none">UBER Eats</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="#default-tab-4" data-bs-toggle="tab" class="nav-link">
-								<span class="d-sm-none">Tab 4</span>
-								<span class="d-sm-block d-none">富胖達(Foodpanda)</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="#default-tab-5" data-bs-toggle="tab" class="nav-link">
-								<span class="d-sm-none">Tab 5</span>
-								<span class="d-sm-block d-none">線上點餐(快一點)</span>
-							</a>
-						</li>
-					</ul>
-					<!-- END nav-tabs -->
-					<!-- BEGIN tab-content -->
-					<div class="tab-content panel rounded-0 p-3 m-0">
-						<!-- BEGIN tab-pane -->
-						<!--div class="tab-pane fade active show" id="default-tab-1">
-							<div class="panel-body">
-                                <table id="data-table-fixed-columns" class="table table-striped table-bordered align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th width="1%"></th>
-                                            <th width="1%" data-orderable="false"></th>
-                                            <th class="text-nowrap">Rendering engine</th>
-                                            <th class="text-nowrap">Browser</th>
-                                            <th class="text-nowrap">Platform(s)</th>
-                                            <th class="text-nowrap">Engine version</th>
-                                            <th class="text-nowrap">CSS grade</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td width="1%" class="fw-bold">1</td>
-                                            <td width="1%"><img src="../assets/img/user/user-1.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td>4</td>
-                                            <td>X</td>
-                                        </tr>
-                                        <tr class="even gradeC">
-                                            <td width="1%" class="fw-bold">2</td>
-                                            <td width="1%"><img src="../assets/img/user/user-2.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>5</td>
-                                            <td>C</td>
-                                        </tr>
-                                        <tr class="odd gradeA">
-                                            <td width="1%" class="fw-bold">3</td>
-                                            <td width="1%"><img src="../assets/img/user/user-3.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.5</td>
-                                            <td>Win 95+</td>
-                                            <td>5.5</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="even gradeA">
-                                            <td width="1%" class="fw-bold">4</td>
-                                            <td width="1%"><img src="../assets/img/user/user-4.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 6</td>
-                                            <td>Win 98+</td>
-                                            <td>6</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="odd gradeA">
-                                            <td width="1%" class="fw-bold">5</td>
-                                            <td width="1%"><img src="../assets/img/user/user-5.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 7</td>
-                                            <td>Win XP SP2+</td>
-                                            <td>7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="even gradeA">
-                                            <td width="1%" class="fw-bold">6</td>
-                                            <td width="1%"><img src="../assets/img/user/user-6.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Trident</td>
-                                            <td>AOL browser (AOL desktop)</td>
-                                            <td>Win XP</td>
-                                            <td>6</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">7</td>
-                                            <td width="1%"><img src="../assets/img/user/user-7.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Firefox 1.0</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">8</td>
-                                            <td width="1%"><img src="../assets/img/user/user-8.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Firefox 1.5</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">9</td>
-                                            <td width="1%"><img src="../assets/img/user/user-9.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Firefox 2.0</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">10</td>
-                                            <td width="1%"><img src="../assets/img/user/user-10.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Firefox 3.0</td>
-                                            <td>Win 2k+ / OSX.3+</td>
-                                            <td>1.9</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">11</td>
-                                            <td width="1%"><img src="../assets/img/user/user-11.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Camino 1.0</td>
-                                            <td>OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">12</td>
-                                            <td width="1%"><img src="../assets/img/user/user-12.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Camino 1.5</td>
-                                            <td>OSX.3+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">13</td>
-                                            <td width="1%"><img src="../assets/img/user/user-13.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Netscape 7.2</td>
-                                            <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">14</td>
-                                            <td width="1%"><img src="../assets/img/user/user-14.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Netscape Browser 8</td>
-                                            <td>Win 98SE+</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">15</td>
-                                            <td width="1%"><img src="../assets/img/user/user-1.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Netscape Navigator 9</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">16</td>
-                                            <td width="1%"><img src="../assets/img/user/user-2.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.0</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">17</td>
-                                            <td width="1%"><img src="../assets/img/user/user-3.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.1</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1.1</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">18</td>
-                                            <td width="1%"><img src="../assets/img/user/user-4.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.2</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1.2</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">19</td>
-                                            <td width="1%"><img src="../assets/img/user/user-5.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.3</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1.3</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">20</td>
-                                            <td width="1%"><img src="../assets/img/user/user-6.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.4</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1.4</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">21</td>
-                                            <td width="1%"><img src="../assets/img/user/user-7.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.5</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1.5</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">22</td>
-                                            <td width="1%"><img src="../assets/img/user/user-8.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.6</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1.6</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">23</td>
-                                            <td width="1%"><img src="../assets/img/user/user-9.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.7</td>
-                                            <td>Win 98+ / OSX.1+</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">24</td>
-                                            <td width="1%"><img src="../assets/img/user/user-10.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Mozilla 1.8</td>
-                                            <td>Win 98+ / OSX.1+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">25</td>
-                                            <td width="1%"><img src="../assets/img/user/user-11.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Seamonkey 1.1</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">26</td>
-                                            <td width="1%"><img src="../assets/img/user/user-12.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Gecko</td>
-                                            <td>Epiphany 2.20</td>
-                                            <td>Gnome</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">27</td>
-                                            <td width="1%"><img src="../assets/img/user/user-13.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Webkit</td>
-                                            <td>Safari 1.2</td>
-                                            <td>OSX.3</td>
-                                            <td>125.5</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">28</td>
-                                            <td width="1%"><img src="../assets/img/user/user-14.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Webkit</td>
-                                            <td>Safari 1.3</td>
-                                            <td>OSX.3</td>
-                                            <td>312.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">29</td>
-                                            <td width="1%"><img src="../assets/img/user/user-1.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Webkit</td>
-                                            <td>Safari 2.0</td>
-                                            <td>OSX.4+</td>
-                                            <td>419.3</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">30</td>
-                                            <td width="1%"><img src="../assets/img/user/user-2.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Webkit</td>
-                                            <td>Safari 3.0</td>
-                                            <td>OSX.4+</td>
-                                            <td>522.1</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">31</td>
-                                            <td width="1%"><img src="../assets/img/user/user-3.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Webkit</td>
-                                            <td>OmniWeb 5.5</td>
-                                            <td>OSX.4+</td>
-                                            <td>420</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">32</td>
-                                            <td width="1%"><img src="../assets/img/user/user-4.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Webkit</td>
-                                            <td>iPod Touch / iPhone</td>
-                                            <td>iPod</td>
-                                            <td>420.1</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">33</td>
-                                            <td width="1%"><img src="../assets/img/user/user-5.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Webkit</td>
-                                            <td>S60</td>
-                                            <td>S60</td>
-                                            <td>413</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">34</td>
-                                            <td width="1%"><img src="../assets/img/user/user-6.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera 7.0</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">35</td>
-                                            <td width="1%"><img src="../assets/img/user/user-7.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera 7.5</td>
-                                            <td>Win 95+ / OSX.2+</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">36</td>
-                                            <td width="1%"><img src="../assets/img/user/user-8.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera 8.0</td>
-                                            <td>Win 95+ / OSX.2+</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">37</td>
-                                            <td width="1%"><img src="../assets/img/user/user-9.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera 8.5</td>
-                                            <td>Win 95+ / OSX.2+</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">38</td>
-                                            <td width="1%"><img src="../assets/img/user/user-10.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera 9.0</td>
-                                            <td>Win 95+ / OSX.3+</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">39</td>
-                                            <td width="1%"><img src="../assets/img/user/user-11.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera 9.2</td>
-                                            <td>Win 88+ / OSX.3+</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">40</td>
-                                            <td width="1%"><img src="../assets/img/user/user-12.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera 9.5</td>
-                                            <td>Win 88+ / OSX.3+</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">41</td>
-                                            <td width="1%"><img src="../assets/img/user/user-13.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Opera for Wii</td>
-                                            <td>Wii</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">42</td>
-                                            <td width="1%"><img src="../assets/img/user/user-14.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Nokia N800</td>
-                                            <td>N800</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">43</td>
-                                            <td width="1%"><img src="../assets/img/user/user-1.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Presto</td>
-                                            <td>Nintendo DS browser</td>
-                                            <td>Nintendo DS</td>
-                                            <td>8.5</td>
-                                            <td>C/A<sup>1</sup></td>
-                                        </tr>
-                                        <tr class="gradeC">
-                                            <td width="1%" class="fw-bold">44</td>
-                                            <td width="1%"><img src="../assets/img/user/user-2.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>KHTML</td>
-                                            <td>Konqureror 3.1</td>
-                                            <td>KDE 3.1</td>
-                                            <td>3.1</td>
-                                            <td>C</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">45</td>
-                                            <td width="1%"><img src="../assets/img/user/user-3.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>KHTML</td>
-                                            <td>Konqureror 3.3</td>
-                                            <td>KDE 3.3</td>
-                                            <td>3.3</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">46</td>
-                                            <td width="1%"><img src="../assets/img/user/user-4.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>KHTML</td>
-                                            <td>Konqureror 3.5</td>
-                                            <td>KDE 3.5</td>
-                                            <td>3.5</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeX">
-                                            <td width="1%" class="fw-bold">47</td>
-                                            <td width="1%"><img src="../assets/img/user/user-5.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Tasman</td>
-                                            <td>Internet Explorer 4.5</td>
-                                            <td>Mac OS 8-9</td>
-                                            <td>-</td>
-                                            <td>X</td>
-                                        </tr>
-                                        <tr class="gradeC">
-                                            <td width="1%" class="fw-bold">48</td>
-                                            <td width="1%"><img src="../assets/img/user/user-6.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Tasman</td>
-                                            <td>Internet Explorer 5.1</td>
-                                            <td>Mac OS 7.6-9</td>
-                                            <td>1</td>
-                                            <td>C</td>
-                                        </tr>
-                                        <tr class="gradeC">
-                                            <td width="1%" class="fw-bold">49</td>
-                                            <td width="1%"><img src="../assets/img/user/user-7.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Tasman</td>
-                                            <td>Internet Explorer 5.2</td>
-                                            <td>Mac OS 8-X</td>
-                                            <td>1</td>
-                                            <td>C</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">50</td>
-                                            <td width="1%"><img src="../assets/img/user/user-8.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Misc</td>
-                                            <td>NetFront 3.1</td>
-                                            <td>Embedded devices</td>
-                                            <td>-</td>
-                                            <td>C</td>
-                                        </tr>
-                                        <tr class="gradeA">
-                                            <td width="1%" class="fw-bold">51</td>
-                                            <td width="1%"><img src="../assets/img/user/user-9.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Misc</td>
-                                            <td>NetFront 3.4</td>
-                                            <td>Embedded devices</td>
-                                            <td>-</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr class="gradeX">
-                                            <td width="1%" class="fw-bold">52</td>
-                                            <td width="1%"><img src="../assets/img/user/user-10.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Misc</td>
-                                            <td>Dillo 0.8</td>
-                                            <td>Embedded devices</td>
-                                            <td>-</td>
-                                            <td>X</td>
-                                        </tr>
-                                        <tr class="gradeX">
-                                            <td width="1%" class="fw-bold">53</td>
-                                            <td width="1%"><img src="../assets/img/user/user-11.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Misc</td>
-                                            <td>Links</td>
-                                            <td>Text only</td>
-                                            <td>-</td>
-                                            <td>X</td>
-                                        </tr>
-                                        <tr class="gradeX">
-                                            <td width="1%" class="fw-bold">54</td>
-                                            <td width="1%"><img src="../assets/img/user/user-12.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Misc</td>
-                                            <td>Lynx</td>
-                                            <td>Text only</td>
-                                            <td>-</td>
-                                            <td>X</td>
-                                        </tr>
-                                        <tr class="gradeC">
-                                            <td width="1%" class="fw-bold">55</td>
-                                            <td width="1%"><img src="../assets/img/user/user-13.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Misc</td>
-                                            <td>IE Mobile</td>
-                                            <td>Windows Mobile 6</td>
-                                            <td>-</td>
-                                            <td>C</td>
-                                        </tr>
-                                        <tr class="gradeC">
-                                            <td width="1%" class="fw-bold">57</td>
-                                            <td width="1%"><img src="../assets/img/user/user-14.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Misc</td>
-                                            <td>PSP browser</td>
-                                            <td>PSP</td>
-                                            <td>-</td>
-                                            <td>C</td>
-                                        </tr>
-                                        <tr class="gradeU">
-                                            <td width="1%" class="fw-bold">58</td>
-                                            <td width="1%"><img src="../assets/img/user/user-1.jpg" class="rounded h-30px my-n1 mx-n1" /></td>
-                                            <td>Other browsers</td>
-                                            <td>All others</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>U</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-						</div-->
-                        <div class="tab-pane fade active show" id="default-tab-1">
-							<!--h3 class="mt-10px"><i class="fa fa-cog"></i> Lorem ipsum dolor sit amet</h3-->
-                            <table class="table table-striped table-bordered align-middle" style="width:100%;table-layout:fixed;">
+                    <div class="card data-table">
+                        <div class="card-body p-0">
+                            <table id="data-table-default" class="table table-striped table-bordered align-middle">
                                 <thead>
                                     <tr>
-                                        <th class="text-nowrap">總營業額</th>
-                                        <th class="text-nowrap">POS(現金含第三方支付)</th>
-                                        <th class="text-nowrap">UBER Eats</th>
-                                        <th class="text-nowrap">富胖達 foodpanda</th>
-                                        <th class="text-nowrap">快一點 線上點餐</th>
-                                        <th class="text-nowrap">日平均營業額</th>
+                                        <th width="1%" class="num"></th>
+                                        <th class="text-nowrap">日期</th>
+                                        <th class="text-nowrap">營業點</th>
+                                        <th class="text-nowrap">來源類型</th>
+                                        <th class="text-nowrap">建立模式</th>
+                                        <th class="text-nowrap">營業額小計</th>
+                                        <th class="text-nowrap sorting_disabled">管理</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
-                                        <td>598,042</td>
-                                        <td>320,704 <span class="badge bg-info">59.62%</span></td>
-                                        <td>84,428 <span class="badge bg-info">15.70%</span></td>
-                                        <td>116,789 <span class="badge bg-info">21.71%</span></td>
-                                        <td>15,988 <span class="badge bg-info">2.97%</span></td>
-                                        <td>106,901</td>
+                                        <td class="fw-bold">1</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>9,385 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">2</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>10,285</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">3</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">4</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">5</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>6,240 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">6</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>10,2850</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">7</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>0</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">8</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">9</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>6,240 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">10</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>10,285</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">11</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">12</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>POS </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">13</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>POS </td>
+                                        <td>自建</td>
+                                        <td>6,240 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">14</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>POS </td>
+                                        <td>匯入</td>
+                                        <td>10,2850</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">15</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>POS </td>
+                                        <td>匯入</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">16</td>
+                                        <td>2023/11/20</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>POS </td>
+                                        <td>匯入</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">17</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">(UBER)000000 台南成功店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>7,329 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">18</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>4,770</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">19</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">20</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">21</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>6,240 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">22</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>10,2850</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">23</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>0</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">24</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">25</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>6,240 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">26</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>10,285</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">27</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">28</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">29</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>6,240 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">30</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>10,2850</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">31</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">32</td>
+                                        <td>2023/11/20</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>UBER Eats </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">33</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">(快一點)000000 台南成功店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>500 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">34</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>165 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">35</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>505  </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">36</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>7,662 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">37</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>9,385 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">38</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>10,285</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">39</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">40</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">41</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>6,240 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">42</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>10,285</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">43</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>6,240</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">44</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000003 文山景美店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>5,727</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">45</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>3,145 </td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">46</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000001 蘆洲民族店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>10,285</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">47</td>
+                                        <td>2023/11/21</td>
+                                        <td class="text-nowrap">000002	中壢實踐店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>3,145</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td class="fw-bold">48</td>
+                                        <td>2023/11/20</td>
+                                        <td class="text-nowrap">000000 台南成功店</td>
+                                        <td>快一點 </td>
+                                        <td>串接</td>
+                                        <td>1,285</td>
+                                        <td class="text-nowrap">
+                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
+                                        </td>
                                     </tr>
                                 </tbody>
+
                             </table>
-							<div class="panel-body fixed-table">
-                                <table id="data-table-fixed-columns" class="table table-striped table-fixed table-bordered align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th width="1%"></th>
-                                            <th class="text-nowrap">項目</th>
-                                            <th class="text-nowrap">000000 台南成功店</th>
-                                            <th class="text-nowrap">000001 蘆洲民族店</th>
-                                            <th class="text-nowrap">000002 中壢實踐店</th>
-                                            <th class="text-nowrap">000003 文山景美店</th>
-                                            <th class="text-nowrap">000004 高雄大社店</th>
-                                            <th class="text-nowrap">000005 善化民權店</th>
-                                            <th class="text-nowrap">000006 台南東寧店</th>
-                                            <th class="text-nowrap">000008 永康大灣店</th>
-                                            <th class="text-nowrap">000009 台南安中店</th>
-                                            <th class="text-nowrap">000010 中壢新生店</th>
-                                            <th class="text-nowrap">000011 花蓮中山店</th>
-                                            <th class="text-nowrap">000012 中和莒光店</th>
-                                        </tr>
-                                        <!--tr>
-                                            <th width="1%" rowspan="2"></th>
-                                            <th class="text-nowrap" rowspan="2">項目</th>
-                                            <th class="text-nowrap" colspan="2">000000 台南成功店</th>
-                                            <th class="text-nowrap" colspan="2">000001 蘆洲民族店</th>
-                                            <th class="text-nowrap" colspan="2">000002 中壢實踐店</th>
-                                            <th class="text-nowrap" colspan="2">000003 文山景美店</th>
-                                            <th class="text-nowrap" colspan="2">000004 高雄大社店</th>
-                                            <th class="text-nowrap" colspan="2">000005 善化民權店</th>
-                                            <th class="text-nowrap" colspan="2">000006 台南東寧店</th>
-                                            <th class="text-nowrap" colspan="2">000008 永康大灣店</th>
-                                            <th class="text-nowrap" colspan="2">000009 台南安中店</th>
-                                            <th class="text-nowrap" colspan="2">000010 中壢新生店</th>
-                                            <th class="text-nowrap" colspan="2">000011 花蓮中山店</th>
-                                            <th class="text-nowrap" colspan="2">000012 中和莒光店</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                            <th class="text-nowrap">金額</th>
-                                            <th class="text-nowrap">百分比</th>
-                                        </tr-->
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">1</th>
-                                            <th class="text-nowrap">營業額</th>
-                                            <td class="text-center">106,936  <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">81,834  <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">2</th>
-                                            <th class="text-nowrap">POS(現金含第三方支付)</th>
-                                            <td>47,457 <span class="badge bg-info">44.38% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>60,660 <span class="badge bg-warning">12.04% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-info">57.10% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-info">57.10% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">3</th>
-                                            <th class="text-nowrap">UBER Eats</th>
-                                            <td>35,828  <span class="badge bg-info">33.50% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>47,457 <span class="badge bg-warning">57.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>10,006 <span class="badge bg-info">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">4</th>
-                                            <th class="text-nowrap">富胖達 foodpanda</th>
-                                            <td>21,420  <span class="badge bg-info">20.03% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-warning">28.17% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-info">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">5</th>
-                                            <th class="text-nowrap">快一點 線上點餐</th>
-                                            <td>2,231  <span class="badge bg-info">2.09% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-info">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">6</th>
-                                            <th class="text-nowrap">月目標營業額</th>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">7</th>
-                                            <th class="text-nowrap">週目標營業額</th>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">8</th>
-                                            <th class="text-nowrap">達成率(%)</th>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">89.65% <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">109.87% <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">9</th>
-                                            <th class="text-nowrap">累計營業天數</th>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">5</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">6</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold">10</th>
-                                            <th class="text-nowrap">日平均營業額</th>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                            <td class="text-center">12,184</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold"></th>
-                                            <th class="text-nowrap">固定公休日</th>
-                                            <td class="text-center">週日</td>
-                                            <td class="text-center">週一, 週四</td>
-                                            <td class="text-center">無</td>
-                                            <td class="text-center">週六</td>
-                                            <td class="text-center">週六</td>
-                                            <td class="text-center">週日</td>
-                                            <td class="text-center">無</td>
-                                            <td class="text-center">無</td>
-                                            <td class="text-center">週日</td>
-                                            <td class="text-center">週日</td>
-                                            <td class="text-center">週一</td>
-                                            <td class="text-center">週日</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold"></th>
-                                            <th class="text-nowrap">本月預定營業天數</th>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">30</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold"></th>
-                                            <th class="text-nowrap">去年同期平均日營收</th>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">9,999</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <th class="fw-bold"></th>
-                                            <th class="text-nowrap">目標成長率(%)</th>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">7%</td>
-                                            <td class="text-center">15%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                        </tr>
-                                     </tbody>
-                                </table>
-                            </div>
-						</div>
-						<!-- END tab-pane -->
-						<!-- BEGIN tab-pane -->
-						<div class="tab-pane fade" id="default-tab-2">
-							<div class="panel-body">
-                                <table class="table table-striped table-bordered align-middle" style="width:100%;table-layout:fixed;">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-nowrap">營業額</th>
-                                            <th class="text-nowrap">現金</th>
-                                            <th class="text-nowrap">台灣Pay</th>
-                                            <th class="text-nowrap">LINE Pay</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                            <th class="text-nowrap">日平均營業額</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>320,704  </td>
-                                            <td>252,902   <span class="badge bg-info">78.86%</span></td>
-                                            <td>2,480   <span class="badge bg-info">0.77%</span></td>
-                                            <td>65,322   <span class="badge bg-info">20.37%</span></td>
-                                            <td>1,871 </td>
-                                            <td>320 </td>
-                                            <td>106,901</td>
-                                       </tr>
-                                    </tbody>
-                                </table>
-                                <table id="data-table-default" class="table table-striped table-bordered align-middle" style="width: 100%;">
-                                    <thead>
-                                        <tr>
-                                            <th width="1%"></th>
-                                            <th class="text-nowrap">日期</th>
-                                            <th class="text-nowrap">營業點</th>
-                                            <th class="text-nowrap">營業額小計</th>
-                                            <th class="text-nowrap">現金</th>
-                                            <th class="text-nowrap">台灣Pay</th>
-                                            <th class="text-nowrap">LINE Pay</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">1</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">2</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,2850</td>
-                                            <td>10,285</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">3</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">4</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">5</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">6</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>10,2850</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">7</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>9,385 </td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">8</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">9</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">10</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,2850</td>
-                                            <td>10,285</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">11</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">12</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">13</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">14</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>10,2850</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">15</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">16</td>
-                                            <td>2023/11/20</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-						</div>
-						<!-- END tab-pane -->
-						<!-- BEGIN tab-pane -->
-						<div class="tab-pane fade" id="default-tab-3">
-							<div class="panel-body">
-                                <table class="table table-striped table-bordered align-middle" style="width:100%;table-layout:fixed;">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-nowrap">營業額</th>
-                                            <th class="text-nowrap">退款</th>
-                                            <th class="text-nowrap">UBER抽成費</th>
-                                            <th class="text-nowrap">收入小計</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                            <th class="text-nowrap">日平均營業額</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>184,428 </td>
-                                            <td>20 <span class="badge bg-info">0.02%</span></td>
-                                            <td>27,857 <span class="badge bg-info">33.00%</span></td>
-                                            <td>56,571 <span class="badge bg-info">66.98%</span></td>
-                                            <td>42 </td>
-                                            <td>118 </td>
-                                            <td>28,143 </td>
-                                       </tr>
-                                    </tbody>
-                                </table>
-                                <table id="data-table-default2" class="table table-striped table-bordered align-middle" style="width: 100%;">
-                                    <thead>
-                                        <tr>
-                                            <th width="1%"></th>
-                                            <th class="text-nowrap">日期</th>
-                                            <th class="text-nowrap">營業點</th>
-                                            <th class="text-nowrap">銷售額</th>
-                                            <th class="text-nowrap">退款</th>
-                                            <th class="text-nowrap">UBER抽成費</th>
-                                            <th class="text-nowrap">收入小計</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">1</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">(UBER)000000 台南成功店</td>
-                                            <td>7,329 </td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>4,912 </td>
-                                            <td>23 </td>
-                                            <td>319 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">2</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>4,770</td>
-                                            <td>0</td>
-                                            <td>1,571</td>
-                                            <td>3,199</td>
-                                            <td>19</td>
-                                            <td>251</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">3</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">4</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">5</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">6</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>10,2850</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">7</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>9,385 </td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">8</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">9</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">10</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,2850</td>
-                                            <td>10,285</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">11</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">12</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">13</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">14</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>10,2850</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">15</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">16</td>
-                                            <td>2023/11/20</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-						</div>
-						<!-- END tab-pane -->
-						<!-- BEGIN tab-pane -->
-						<div class="tab-pane fade" id="default-tab-4">
-							<div class="panel-body">
-                                <table class="table table-striped table-bordered align-middle" style="width:100%;table-layout:fixed;">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-nowrap">營業額</th>
-                                            <th class="text-nowrap">線上支付</th>
-                                            <th class="text-nowrap">現金</th>
-                                            <th class="text-nowrap">富胖達抽成</th>
-                                            <th class="text-nowrap">收入小計</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                            <th class="text-nowrap">日平均營業額</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>116,789 </td>
-                                            <td>86,585 <span class="badge bg-info">74.14%</span></td>
-                                            <td>30,204 <span class="badge bg-info">25.86%</span></td>
-                                            <td>36,205 <span class="badge bg-info">31.00%</span></td>
-                                            <td>80,584 <span class="badge bg-info">69.00%</span></td>
-                                            <td>373 </td>
-                                            <td>313 </td>
-                                            <td>38,930 </td>
-                                       </tr>
-                                    </tbody>
-                                </table>
-                                <table id="data-table-default3" class="table table-striped table-bordered align-middle" style="width: 100%;">
-                                    <thead>
-                                        <tr>
-                                            <th width="1%"></th>
-                                            <th class="text-nowrap">日期</th>
-                                            <th class="text-nowrap">營業點</th>
-                                            <th class="text-nowrap">營業額小計</th>
-                                            <th class="text-nowrap">線上支付</th>
-                                            <th class="text-nowrap">現金</th>
-                                            <th class="text-nowrap">抽成費</th>
-                                            <th class="text-nowrap">收入小計</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">1</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">(Foodpanda)000000 台南成功店</td>
-                                            <td>2,862 </td>
-                                            <td>2,221 </td>
-                                            <td>641 </td>
-                                            <td>887 </td>
-                                            <td>1,975 </td>
-                                            <td>7 </td>
-                                            <td>409 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">2</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>2,860 </td>
-                                            <td>2,004 </td>
-                                            <td>856 </td>
-                                            <td>887 </td>
-                                            <td>1,973 </td>
-                                            <td>11 </td>
-                                            <td>260 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">3</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">4</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>0</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">5</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">6</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>10,2850</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">7</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>9,385 </td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">8</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>0</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">9</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">10</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,2850</td>
-                                            <td>10,285</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">11</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">12</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>0</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">13</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240 </td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">14</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>10,2850</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">15</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>9,385 </td>
-                                            <td>6,240</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">16</td>
-                                            <td>2023/11/20</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>7,662 </td>
-                                            <td>5,727</td>
-                                            <td>650</td>
-                                            <td>0</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-						</div>
-						<!-- END tab-pane -->
-						<!-- BEGIN tab-pane -->
-						<div class="tab-pane fade" id="default-tab-5">
-							<div class="panel-body">
-                                <table class="table table-striped table-bordered align-middle" style="width:100%;table-layout:fixed;">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-nowrap">營業額</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                            <th class="text-nowrap">日平均營業額</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>15,988  </td>
-                                            <td>65 </td>
-                                            <td>246  </td>
-                                            <td>5,329 </td>
-                                       </tr>
-                                    </tbody>
-                                </table>
-                                <table id="data-table-default4" class="table table-striped table-bordered align-middle" style="width: 100%;">
-                                    <thead>
-                                        <tr>
-                                            <th width="1%"></th>
-                                            <th class="text-nowrap">日期</th>
-                                            <th class="text-nowrap">營業點</th>
-                                            <th class="text-nowrap">銷售額</th>
-                                            <th class="text-nowrap">客單數</th>
-                                            <th class="text-nowrap">平均客單價</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">1</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">(快一點)000000 台南成功店</td>
-                                            <td>500 </td>
-                                            <td>2 </td>
-                                            <td>250 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">2</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>165 </td>
-                                            <td>1</td>
-                                            <td>165 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">3</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>505  </td>
-                                            <td>3</td>
-                                            <td>168</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">4</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>7,662 </td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">5</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>9,385 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">6</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">7</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>6,240</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">8</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>5,727</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">9</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>6,240 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">10</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">11</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>6,240</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">12</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000003 文山景美店</td>
-                                            <td>5,727</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">13</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>3,145 </td>
-                                            <td>54 </td>
-                                            <td>369 </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">14</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000001 蘆洲民族店</td>
-                                            <td>10,285</td>
-                                            <td>61</td>
-                                            <td>354</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">15</td>
-                                            <td>2023/11/21</td>
-                                            <td class="text-nowrap">000002	中壢實踐店</td>
-                                            <td>3,145</td>
-                                            <td>54</td>
-                                            <td>369</td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                            <td class="fw-bold">16</td>
-                                            <td>2023/11/20</td>
-                                            <td class="text-nowrap">000000 台南成功店</td>
-                                            <td>1,285</td>
-                                            <td>50</td>
-                                            <td>348</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-						</div>
-						<!-- END tab-pane -->
-					</div>
-					<!-- END tab-content -->
+                        </div>
+
+                    </div>
 
                 </div>
 				<!-- END col-8 -->
@@ -2438,17 +1384,12 @@
 
 	<script src="../assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="../assets/plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-	<!--script src="../assets/plugins/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js"></script>
-	<script src="../assets/plugins/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
-	<script src="../assets/js/demo/table-manage-fixed-columns.demo.js"></script-->
 
     <script src="../assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
     <script src="../assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
     <script src="../assets/plugins/select-picker/dist/picker.min.js"></script>
     
     <!-- ================== END page-js ================== -->
-
-	
 
 </body>
 </html>
