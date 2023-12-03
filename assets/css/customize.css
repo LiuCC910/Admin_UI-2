@@ -47,7 +47,7 @@
 .app-sidebar .menu .menu-profile {background-color: #fff !important;}
 .app-sidebar .menu .menu-profile .menu-profile-cover {background-image: none;}
 
-td span.badge {width:50px;float:inline-end;}
+div.fixed-table td span.badge {width:50px;float:inline-end;}
 
 div.fixed-table {width: 100%; height:450px !important; overflow: auto; padding: 0 !important;}
 table.table-fixed {
