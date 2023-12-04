@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Drink & Dine Admin | Dashboard</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN core-css ================== -->
+	<link href="../assets/css/vendor.min.css" rel="stylesheet" />
+	<link href="../assets/css/default/app.min.css" rel="stylesheet" />
+	<!-- ================== END core-css ================== -->
+	
+	<!-- ================== BEGIN page-css ================== -->
+	<link href="../assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
+	<link href="../assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+	<link href="../assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
+	<link href="../assets/plugins/datepickk/dist/datepickk.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+	<link href="../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- ================== END page-css ================== -->
+
+	<!-- 客製化CSS暫用 -->
+	<link href="../assets/css/customize.css" rel="stylesheet" />
+	<link href="../favicon.png" rel="icon" type="image/x-icon">
+</head>
+<body>
+	<!-- BEGIN #loader -->
+	<div id="loader" class="app-loader">
+		<span class="spinner"></span>
+	</div>
+	<!-- END #loader -->
+
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-header-fixed app-sidebar-fixed">
+		<!-- BEGIN #header -->
+		<div id="header" class="app-header">
+			<!-- BEGIN navbar-header -->
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand"><img src="../index_list/Logo_Dark_s.png"> <b class="me-3px"> Drink & Dine</b> Admin</a>
+				<button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- END navbar-header -->
+			<!-- BEGIN header-nav -->
+			<div class="navbar-nav">
+				<!--div class="navbar-item navbar-form">
+					<form action="" method="POST" name="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Enter keyword" />
+							<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</div-->
+				<div class="navbar-item dropdown">
+					<a href="#" data-bs-toggle="dropdown" class="navbar-link dropdown-toggle icon">
+						<i class="fa fa-bell"></i>
+						<span class="badge">5</span>
+					</a>
+					<div class="dropdown-menu media-list dropdown-menu-end">
+						<div class="dropdown-header">系統訊息 (5)</div>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-bug media-object bg-gray-500"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Server Error Reports <i class="fa fa-exclamation-circle text-danger"></i></h6>
+								<div class="text-muted fs-10px">3 minutes ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<img src="../assets/img/user/user-1.jpg" class="media-object" alt="" />
+								<i class="fab fa-facebook-messenger text-blue media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">John Smith</h6>
+								<p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+								<div class="text-muted fs-10px">25 minutes ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<img src="../assets/img/user/user-2.jpg" class="media-object" alt="" />
+								<i class="fab fa-facebook-messenger text-blue media-object-icon"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading">Olivia</h6>
+								<p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+								<div class="text-muted fs-10px">35 minutes ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-plus media-object bg-gray-500"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading"> New User Registered</h6>
+								<div class="text-muted fs-10px">1 hour ago</div>
+							</div>
+						</a>
+						<a href="javascript:;" class="dropdown-item media">
+							<div class="media-left">
+								<i class="fa fa-envelope media-object bg-gray-500"></i>
+								<i class="fab fa-google text-warning media-object-icon fs-14px"></i>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading"> New Email From John</h6>
+								<div class="text-muted fs-10px">2 hour ago</div>
+							</div>
+						</a>
+						<div class="dropdown-footer text-center">
+							<a href="javascript:;" class="text-decoration-none">View more</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="navbar-item navbar-user dropdown">
+					<a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+						<img src="../assets/img/user/user-4.png" alt="" /> 
+						<span>
+							<span class="d-none d-md-inline">Admin, Liucc</span>
+							<b class="caret"></b>
+						</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-end me-1">
+						<a href="extra_profile.html" class="dropdown-item">編輯個人資料</a>
+						<a href="email_inbox.html" class="dropdown-item d-flex align-items-center">
+							訊息
+							<span class="badge bg-danger rounded-pill ms-auto pb-4px">2</span> 
+						</a>
+						<a href="calendar.html" class="dropdown-item">我的班表</a>
+						<a href="settings.html" class="dropdown-item">個人設定</a>
+						<div class="dropdown-divider"></div>
+						<a href="login.html" class="dropdown-item">登出</a>
+					</div>
+				</div>
+			</div>
+			<!-- END header-nav -->
+		</div>
+		<!-- END #header -->
+	
+		<!-- BEGIN #sidebar --><!--左側共用MENU項目-->
+		<div id="sidebar" class="app-sidebar" data-bs-theme="light">
+			<!-- BEGIN scrollbar -->
+			<div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+				<!-- BEGIN menu -->
+				<div class="menu">
+					<div class="menu-profile">
+						<a href="javascript:;" class="menu-profile-link" data-toggle="app-sidebar-profile" data-target="#appSidebarProfileMenu">
+							<div class="menu-profile-cover with-shadow"></div>
+							<div class="menu-profile-info">
+								<div class="d-flex align-items-center">
+									<div class="flex-grow-1">
+										服務總管理員 (Admin)
+									</div>
+									<div class="menu-caret ms-auto"></div>
+								</div>
+								<small>完整管理權限</small>
+							</div>
+						</a>
+					</div>
+					<div id="appSidebarProfileMenu" class="collapse">
+						<!--div class="menu-item">
+							<a href="../template_pos/pos_customer_order.html" target="_blank" class="menu-link">
+								<div class="menu-icon"><i class="fa fa-cash-register"></i></div>
+								<div class="menu-text"> 啟動POS端</div>
+							</a>
+						</div-->
+						<div class="menu-item">
+							<a href="javascript:;" class="menu-link">
+								<div class="menu-icon"><i class="fa fa-cog"></i></div>
+								<div class="menu-text"> 個人設定</div>
+							</a>
+						</div>
+						<div class="menu-item">
+							<a href="javascript:;" class="menu-link">
+								<div class="menu-icon"><i class="fa fa-question-circle"></i></div>
+								<div class="menu-text"> 系統教學</div>
+							</a>
+						</div>
+						<div class="menu-divider m-0"></div>
+					</div>
+					<div class="menu-header">功能選單</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-key"></i>
+							</div>
+							<div class="menu-text">系統管理 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div> 
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="list_headquarters.html" class="menu-link">
+									<div class="menu-text">總部資源設定</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">使用者帳號管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">POS授權設定</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item has-sub active">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-sitemap"></i>
+							</div>
+							<div class="menu-text">資訊摘要</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="#" class="menu-link"><div class="menu-text">總部資訊儀表板</div></a>
+							</div>
+							<div class="menu-item active">
+								<a href="index_dashboard-store.html" class="menu-link"><div class="menu-text">門店儀表板</div></a>
+							</div>
+							<div class="menu-item">
+								<a href="index_store-sales.html" class="menu-link"><div class="menu-text">門店區間業績表</div></a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-list-ol"></i>
+							</div>
+							<div class="menu-text">門店資源管理</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="#" class="menu-link"><div class="menu-text">門店清單</div></a>
+							</div>
+							<div class="menu-item">
+								<a href="list_store-sales.html" class="menu-link"><div class="menu-text">門店銷售紀錄</div></a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link"><div class="menu-text">非固定支出紀錄</div></a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link"><div class="menu-text">人事成本</div></a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link"><div class="menu-text">原物料進貨成本</div></a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link"><div class="menu-text">原物料成本管理</div></a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-cogs"></i>
+							</div>
+							<div class="menu-text">資源串接管理 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="list_connect-setting.html" class="menu-link">
+									<div class="menu-text">介接設定管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">介接紀錄</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item">
+						<a href="#" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-hdd"></i>
+							</div>
+							<div class="menu-text">智慧提示</div>
+							<div class="menu-badge bg-red">10</div>
+						</a>
+					</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-cash-register"></i>
+							</div>
+							<div class="menu-text">商品管理</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">商品設定 <i class="fas fa-lg fa-fw me-10px fa-up-down text-theme"></i></div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">製程管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">料表設定</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">原料清單</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!--div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-cash-register"></i>
+							</div>
+							<div class="menu-text">POS資料管理</div> 
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item has-sub">
+								<a href="javascript:;" class="menu-link">
+									<div class="menu-text">銷售單管理</div>
+									<div class="menu-caret"></div>
+								</a>
+								<div class="menu-submenu">
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">銷售單一覽</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">對帳結算</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="menu-item">
+								<a href="#" target="_blank" class="menu-link">
+									<div class="menu-text">訂位(預約)管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" target="_blank" class="menu-link">
+									<div class="menu-text">顧客資料管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" target="_blank" class="menu-link">
+									<div class="menu-text">菜單內容管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" target="_blank" class="menu-link">
+									<div class="menu-text">販售(促銷)管理</div>
+								</a>
+							</div>
+						</div>
+					</div-->
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-table"></i>
+							</div>
+							<div class="menu-text">採購管理</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item has-sub">
+								<a href="javascript:;" class="menu-link">
+									<div class="menu-text">採購紀錄</div>
+									<div class="menu-caret"></div>
+								</a>
+								<div class="menu-submenu">
+									<div class="menu-item">
+										<a href="table_manage.html" class="menu-link">
+											<div class="menu-text">總店訂貨管理</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="table_manage_buttons.html" class="menu-link">
+											<div class="menu-text">門店採購</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="table_manage_fixed_columns.html" class="menu-link">
+											<div class="menu-text">供應商管理</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="table_manage_fixed_header.html" class="menu-link">
+											<div class="menu-text">採購商品管理</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="menu-item">
+								<a href="table_basic.html" class="menu-link">
+									<div class="menu-text">庫存盤點</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-chart-pie"></i>
+							</div>
+							<div class="menu-text">統計報表</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item has-sub">
+								<a href="javascript:;" class="menu-link">
+									<div class="menu-text">門店銷售報表</div>
+									<div class="menu-caret"></div>
+								</a>
+								<div class="menu-submenu">
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">銷售(額)統計分析</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">銷售(細項)統計分析</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">折扣(促銷)統計</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">客戶(來客)統計</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">商品(銷售)統計</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="menu-item has-sub">
+								<a href="javascript:;" class="menu-link">
+									<div class="menu-text">營業成本報表</div>
+									<div class="menu-caret"></div>
+								</a>
+								<div class="menu-submenu">
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">進貨統計</div>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a href="#" class="menu-link">
+											<div class="menu-text">庫存／銷貨統計</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="menu-item active">
+								<a href="#" class="menu-link"><div class="menu-text">財務報表</div></a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-calendar"></i> 
+							</div>
+							<div class="menu-text">人事管理</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="../../../frontend/template/template_one_page_parallax/index.html" target="_blank" class="menu-link">
+									<div class="menu-text">人員資訊管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="../template_html/calendar.html" target="_blank" class="menu-link">
+									<div class="menu-text">班表(排班)設定</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="../../../frontend/template/template_forum/index.html" target="_blank" class="menu-link">
+									<div class="menu-text">出勤管理</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-align-left"></i>
+							</div>
+							<div class="menu-text">代碼設定</div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">代碼群組</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">代碼設定</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">系統參數</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-cubes"></i>
+							</div>
+							<div class="menu-text">AI智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">AI知識庫問答</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">AI資源管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">AI智慧排班</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">AI輿情預測</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">AI營運分析</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">虛擬資料蒐集紀錄</div>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<hr/>
+
+					<!-- BEGIN minify-button -->
+					<div class="menu-item d-flex">
+						<a href="javascript:;" class="app-sidebar-minify-btn ms-auto d-flex align-items-center text-decoration-none" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
+					</div>
+					<!-- END minify-button -->
+					
+				</div>
+				<!-- END menu -->
+			</div>
+			<!-- END scrollbar -->
+		</div>
+		<div class="app-sidebar-bg" data-bs-theme="dark"></div>
+		<div class="app-sidebar-mobile-backdrop"><a href="#" data-dismiss="app-sidebar-mobile" class="stretched-link"></a></div>
+		<!-- END #sidebar -->
+		
+		<!-- BEGIN #content -->
+		<div id="content" class="app-content">
+			<!-- BEGIN breadcrumb -->
+			<ol class="breadcrumb float-xl-end">
+				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+				<li class="breadcrumb-item"><a href="javascript:;">資訊摘要</a></li>
+				<li class="breadcrumb-item active">門店儀表板</li>
+			</ol>
+			<!-- END breadcrumb -->
+			<!-- BEGIN page-header -->
+			<h1 class="page-header">門店儀表板 <small>2023-09-04(日) <span id="time"></span></small></h1>
+			<!-- END page-header -->
+
+			<!-- BEGIN row -->
+			<div class="row">
+				<!-- BEGIN daterange-filter -->
+                <div class="col-lg-12">
+                    <div class="d-sm-flex align-items-center mb-3">
+                        <select class="multiple-select2 form-control bg-gray-700 text-white" multiple>
+                            <optgroup label="北部：臺北市、新北市、基隆市、新竹市、桃園市、新竹縣及宜蘭縣">
+                                <option value="AAA" selected>台北－AAA店家</option>
+                                <option value="BBB" selected>桃園－BBB店家</option>
+                            </optgroup>
+                            <optgroup label="中部：臺中市、苗栗縣、彰化縣、南投縣及雲林縣">
+                                <option value="CCC">台中-CCC店家</option>
+                            </optgroup>
+                            <optgroup label="南部：高雄市、臺南市、嘉義市、嘉義縣、屏東縣及澎湖縣">
+                                <option value="DDD">台南-DDD店家</option>
+                                <option value="EEE">台南-EEE店家</option>
+                            </optgroup>
+                            <optgroup label="東部與其他：東部區域：包括花蓮縣及臺東縣，金門縣與連江縣">
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+				<!-- END daterange-filter -->
+
+				<div class="col-sm-3">
+					<div class="widget widget-stats bg-teal">
+						<div class="stats-icon stats-icon-lg"><i class="fa fa-archive fa-fw"></i></div>
+						<div class="stats-content">
+							<div class="stats-title">今日銷售單數(目標)</div>
+							<div class="stats-number">21 <small class="before">(今日目標: 559)</small></div>
+							<div class="stats-progress progress">
+								<div class="progress-bar" style="width: 3.91%;"></div>
+							</div>
+							<div class="mb-3 text-gray-500"><span data-animation="number" data-value="3.91">0.00</span>%</div>
+							<div class="stats-desc">過去一個月平均日單數: 537</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="widget widget-stats bg-blue">
+						<div class="stats-icon stats-icon-lg"><i class="fa fa-dollar-sign fa-fw"></i></div>
+						<div class="stats-content">
+							<div class="stats-title">今日銷售額(目標)</div>
+							<div class="stats-number">3,760 <small class="before">(今日目標: 129,205)</small></div>
+							<div class="stats-progress progress">
+								<div class="progress-bar" style="width: 3.11%;"></div>
+							</div>
+							<div class="mb-3 text-gray-500"><span data-animation="number" data-value="3.11">0.00</span>%</div>
+							<div class="stats-desc">過去一個月平均日銷售: 120,825</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 ">
+					<div class="widget widget-stats overflow-hidden bg-indigo text-white">
+						<div class="stats-icon stats-icon-lg"><i class="fa fa-globe fa-fw"></i></div>
+						<div class="stats-content">
+							<div class="stats-title">本月銷售總額
+								<span class="ms-2">
+									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="銷售總額" data-bs-placement="top" data-bs-content="Net sales Net sales Net sales (門店銷售總額說明文案)"></i>
+								</span>
+							</div>
+							<div class="stats-number">$<span data-animation="number" data-value="764,559">0.00 </span> 
+								<small class="mb-3 before text-gray-400"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="-1.21">0.00</span>% 與上一個月比較</small>
+							</div>
+							<hr class="bg-white bg-opacity-50" />
+							<!-- BEGIN row -->
+							<div class="row text-truncate">
+								<!-- BEGIN col-4 -->
+								<div class="col-4">
+									<div class=" text-gray-500">總銷售單數</div>
+									<div class="fs-18px mb-5px fw-bold" data-animation="number" data-value="15680">0</div>
+								</div>
+								<!-- END col-4 -->
+								<!-- BEGIN col-4 -->
+								<div class="col-4">
+									<div class=" text-gray-500">平均每日銷售單數</div>
+									<div class="fs-18px mb-5px fw-bold"><span data-animation="number" data-value="521">0.00</span></div>
+								</div>
+								<!-- END col-4 -->
+								<!-- BEGIN col-4 -->
+								<div class="col-4">
+									<div class=" text-gray-500">平均每單銷售金額</div>
+									<div class="fs-18px mb-5px fw-bold">$<span data-animation="number" data-value="246">0.00</span></div>
+								</div>
+								<!-- END col-4 -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END row -->
+
+			<!-- BEGIN row -->
+			<div class="row">
+				<div class="col-xl-3">
+					<!-- BEGIN card -->
+					<div class="card border-0 text-truncate mb-3 bg-gray-800 text-white">
+						<!-- BEGIN card-body -->
+						<div class="card-body">
+							<!-- BEGIN title -->
+							<div class="mb-3 text-gray-500">
+								<b class="mb-3">利潤/淨利</b> 
+								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="營業利潤(淨利)" data-bs-placement="top" data-bs-content="淨利=營業收入-原物料成本-固定成本-其他費用" data-original-title="" title=""></i></span>
+							</div>
+							<!-- END title -->
+							<!-- BEGIN conversion-rate -->
+							<div class="d-flex align-items-center mb-1">
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="123995">0.00</span></h2>
+							</div>
+							<!-- END conversion-rate -->
+							<!-- BEGIN percentage -->
+							<div class="mb-4 text-gray-500 ">
+								<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="3.50">0.00</span>% 與上一個月比較
+							</div>
+							<!-- END percentage -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-red fs-8px me-2"></i>
+									原物料成本
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="10.00">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="320155">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-warning fs-8px me-2"></i>
+									人事成本
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="6.00">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="208000">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									營業成本
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="0.50">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="97850">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+						</div>
+						<!-- END card-body -->
+					</div>
+					<!-- END card -->
+				</div>
+				<div class="col-xl-3">
+					<!-- BEGIN card -->
+					<div class="card border-0 text-truncate mb-3 bg-gray-800 text-white">
+						<!-- BEGIN card-body -->
+						<div class="card-body">
+							<!-- BEGIN title -->
+							<div class="mb-3 text-gray-500">
+								<b class="mb-3">原物料成本</b> 
+								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
+							</div>
+							<!-- END title -->
+							<!-- BEGIN conversion-rate -->
+							<div class="d-flex align-items-center mb-1">
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="320155">0.00</span></h2>
+							</div>
+							<!-- END conversion-rate -->
+							<!-- BEGIN percentage -->
+							<div class="mb-4 text-gray-500 ">
+								<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="10.00">0.00</span>% 與上一個月比較
+							</div>
+							<!-- END percentage -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-red fs-8px me-2"></i>
+									進貨/採購
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="26">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="220155">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-warning fs-8px me-2"></i>
+									上月底庫存
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="11">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="120000">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									當月庫存
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="27">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="20000">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+						</div>
+						<!-- END card-body -->
+					</div>
+					<!-- END card -->
+				</div>
+				<div class="col-xl-3">
+					<!-- BEGIN card -->
+					<div class="card border-0 text-truncate mb-3 bg-gray-800 text-white">
+						<!-- BEGIN card-body -->
+						<div class="card-body">
+							<!-- BEGIN title -->
+							<div class="mb-3 text-gray-500">
+								<b class="mb-3">人事成本</b> 
+								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
+							</div>
+							<!-- END title -->
+							<!-- BEGIN conversion-rate -->
+							<div class="d-flex align-items-center mb-1">
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="208000">0.00</span></h2>
+							</div>
+							<!-- END conversion-rate -->
+							<!-- BEGIN percentage -->
+							<div class="mb-4 text-gray-500 ">
+								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="6.00">0.00</span>% 與上一個月比較
+							</div>
+							<!-- END percentage -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-red fs-8px me-2"></i>
+									累計薪資
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="6">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="200000">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-warning fs-8px me-2"></i>
+									累計出勤時數
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="5">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold"><span data-animation="number" data-value="1660">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									其他(勞健保、雜支)
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa-solid fa-equals"></i> <span data-animation="number" data-value="0">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="8000">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+						</div>
+						<!-- END card-body -->
+					</div>
+					<!-- END card -->
+				</div>
+				<div class="col-xl-3">
+					<!-- BEGIN card -->
+					<div class="card border-0 text-truncate mb-3 bg-gray-800 text-white">
+						<!-- BEGIN card-body -->
+						<div class="card-body">
+							<!-- BEGIN title -->
+							<div class="mb-3 text-gray-500">
+								<b class="mb-3">營業成本</b> 
+								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
+							</div>
+							<!-- END title -->
+							<!-- BEGIN conversion-rate -->
+							<div class="d-flex align-items-center mb-1">
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="97850">0.00</span></h2>
+							</div>
+							<!-- END conversion-rate -->
+							<!-- BEGIN percentage -->
+							<div class="mb-4 text-gray-500 ">
+								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="0.50">0.00</span>% 與上一個月比較
+							</div>
+							<!-- END percentage -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-red fs-8px me-2"></i>
+									房租
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa-solid fa-equals"></i> <span data-animation="number" data-value="0">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="65000">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex mb-2">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-warning fs-8px me-2"></i>
+									水電瓦斯
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="5">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="25000">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+							<!-- BEGIN info-row -->
+							<div class="d-flex">
+								<div class="d-flex align-items-center">
+									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									其他(電信系統、雜支)
+								</div>
+								<div class="d-flex align-items-center ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="5.5">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="6850">0.00</span></div>
+								</div>
+							</div>
+							<!-- END info-row -->
+						</div>
+						<!-- END card-body -->
+					</div>
+					<!-- END card -->
+				</div>
+			</div>
+			<!-- END row -->
+
+			<!-- BEGIN row -->
+			<div class="row">
+				<!-- BEGIN col-8 -->
+				<div class="col-xl-8 col-lg-6">
+					<!-- BEGIN daterange-filter -->
+					<div class="d-sm-flex align-items-center mb-3">
+						<a href="#" class="btn me-2 bg-gray-700 text-white" id="daterange-filter">
+							<i class="fa fa-calendar fa-fw text-opacity-50 ms-n1"></i> 
+							<span>2023-08-11 - 2023-08-20</span>
+							<b class="caret ms-1 opacity-5"></b>
+						</a>
+						<!--div class="text-gray-600 fw-bold mt-2 mt-sm-0">比較: <span id="daterange-prev-date">2023-08-01 - 2023-08-10</span></div-->
+					</div>
+					<!-- END daterange-filter -->
+					<!-- BEGIN card -->
+					<div class="card border-0 mb-3 bg-gray-700 text-white">
+						<div class="card-body">
+							<h4 class="mb-3"><b>週銷售額目標達成率</b> 
+								<span class="ms-2">
+									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels." data-original-title="" title=""></i>
+								</span>
+						</div>
+						<div class="card-body p-0">
+							<div>
+								<figure class="highcharts-figure">
+									<div id="axes_line_column1" class="text-white" style="height: 250px;"></div>
+								</figure>
+								<!--div id="visitors-line-chart" class="widget-chart-full-width" data-bs-theme="dark" style="height: 254px"></div-->
+							</div>
+						</div>
+					</div>
+					<!-- END card -->
+				</div>
+				<!-- END col-8 -->
+				<!-- BEGIN col-4 -->
+				<div class="col-xl-4">
+					<!-- BEGIN panel -->
+					<div class="card border-0 mb-3 overflow-hidden">
+						<div class="card-body">
+							<h4>目標/代辦事項
+								<span class="ms-2">
+									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels." data-original-title="" title=""></i>
+								</span>
+							</h4>
+							<div class="todolist">
+								<div class="todolist-item active">
+									<div class="todolist-input">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="todolist1" data-change="todolist" checked />
+										</div>
+									</div>
+									<label class="todolist-label" for="todolist1">今日預定進貨：央廚 <a href="#">P123456789</a></label>
+								</div>
+								<div class="todolist-item">
+									<div class="todolist-input">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="todolist4" data-change="todolist" />
+										</div>
+									</div>
+									<label class="todolist-label" for="todolist4">今日預定進貨：供應商 <a href="#">S123456789</a></label>
+								</div>
+								<div class="todolist-item">
+									<div class="todolist-input">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="todolist3" data-change="todolist" />
+										</div>
+									</div>
+									<label class="todolist-label" for="todolist3">今日班表：<a href="#">2023/8/21</a></label>
+								</div>
+								<div class="todolist-item">
+									<div class="todolist-input">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="todolist2" data-change="todolist" />
+										</div>
+									</div>
+									<label class="todolist-label" for="todolist2">今日營業額目標：129,205</label>
+								</div>
+								<div class="todolist-item">
+									<div class="todolist-input">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="todolist5" data-change="todolist" />
+										</div>
+									</div>
+									<label class="todolist-label" for="todolist5">Duis pharetra mi sit amet dictum congue.</label>
+								</div>
+								<div class="todolist-item">
+									<div class="todolist-input">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="todolist6" data-change="todolist" />
+										</div>
+									</div>
+									<label class="todolist-label" for="todolist6">Phasellus bibendum, odio nec vestibulum ullamcorper.</label>
+								</div>
+								<div class="todolist-item">
+									<div class="todolist-input">
+										<div class="form-check">
+											<input type="checkbox" class="form-check-input" id="todolist7" data-change="todolist" />
+										</div>
+									</div>
+									<label class="todolist-label" for="todolist7">Donec vehicula pretium nisl, id lacinia nisl tincidunt id.</label>
+								</div>
+							</div>
+						</div>
+						<div class="card-footer text-center"><a href="#" class="btn btn-xs btn-warning fs-10px ps-2 pe-2">還有 7 筆 (檢視全部)</a>
+						</div>
+					</div>
+					<!-- END panel -->
+				</div>
+				<!-- END col-4 -->
+			</div>
+			<!-- END row -->
+
+
+		</div>
+		<!-- END #content -->
+		
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+	
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="../assets/js/vendor.min.js"></script>
+	<script src="../assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+	
+	<!-- ================== BEGIN page-js ================== -->
+	<script src="../assets/plugins/apexcharts/dist/apexcharts.min.js"></script>
+	
+	<script src="../assets/plugins/d3/d3.min.js"></script>
+	<!--script src="../assets/plugins/datepickk/dist/datepickk.min.js"></script-->
+	<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>
+	<script src="../assets/plugins/jvectormap-next/jquery-jvectormap.min.js"></script>
+	<script src="../assets/plugins/jvectormap-content/world-mill.js"></script>
+	<script src="../assets/plugins/moment/min/moment.min.js"></script>
+	<script src="../assets/plugins/nvd3/build/nv.d3.min.js"></script>
+
+	<script src="../assets/js/demo/pos-header.demo.js"></script>
+	<script src="../assets/js/demo/dashboard-demo.js"></script>
+	<script src="../assets/js/demo/dashboard-demo2.js"></script>
+
+	<script src="../assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+	<script src="../assets/js/demo/dashboard.js"></script>
+
+	<script src="../assets/plugins/select2/dist/js/select2.min.js"></script>
+	<script src="../assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script src="../assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+	<script src="../assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+	<script src="../assets/plugins/tag-it/js/tag-it.min.js"></script>
+	<script src="../assets/plugins/clipboard/dist/clipboard.min.js"></script>
+	<script src="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+
+    <script src="../assets/js/demo/form-plugins.demo.js"></script>
+	<script src="../assets/js/demo/render.highlight.js"></script>
+
+    <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="../assets/js/demo/dashboard-v3.js"></script>
+
+    <!-- ================== END page-js ================== -->
+
+	<!-- highchart plugin -->
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-more.js"></script>
+	<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+	<script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
+
+<script>
+    var _Color = ['#20A4F3', '#54CEC3', '#ffbc08', '#fe7b62', '#00b44b', '#2869b9', '#d84400', '#009e7a', '#2e3c56', '#754a28'];
+	// 折線圖比較: 同樣的數值單位
+	Highcharts.chart('axes_line_column1', {
+
+		chart: {
+			backgroundColor: 'transparent'
+//			style: {
+//				fontFamily: 'serif',
+//				stroke: '#dddddd'
+//			}
+		},
+
+		title: {
+		text: '',
+		align: 'center'
+		},
+
+		subtitle: {
+		text: '',
+		align: 'center'
+		},
+
+		yAxis: {
+			title: {
+				text: '銷售額',
+				style: {
+						color: '#ffffff'
+						}
+			},
+			labels: {
+					style: {
+						color: '#ffffff'
+						}
+				}
+		},
+        colors: _Color,
+        xAxis: [{
+            categories: ['8/28', '8/29', '8/30', '8/31', '9/1', '9/2', '9/3', '9/4'],
+            crosshair: true,
+			labels: {
+				style: {
+					color: '#ffffff'
+					}
+			}
+		}],
+		
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 100,
+            verticalAlign: 'top',
+            y: 0,
+            floating: true,
+            backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || // theme
+                'rgba(255,255,255,0.25)'
+        },
+
+		plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+	    },
+        tooltip: {
+            shared: true
+        },
+
+		series: [{
+		name: '2023/8/28 - 2023/9/4',
+		type: 'spline',
+		data: [100111, 120825, 150999, 130321, 199825, 170426, 110825, 1360]
+		}, {
+		name: '每日目標',
+		type: 'spline',
+		data: [145525, 145525, 145525, 145525, 145525, 145525, 145525, 145525]
+		}],
+
+		responsive: {
+		rules: [{
+			condition: {
+				maxWidth: 500,
+			},
+			chartOptions: {
+				legend: {
+					layout: 'horizontal',
+					align: 'center',
+					verticalAlign: 'bottom'
+				}
+			}
+		}]
+		}
+
+		});
+	// 柱狀堆疊圖
+	Highcharts.chart('test2', {
+
+		chart: {
+			type: 'column',
+			backgroundColor: 'transparent'
+		},
+
+		title: {
+			text: '',
+			align: 'left'
+		},
+
+		xAxis: {
+			categories: ['AAA 門店', 'B 門店', 'C 門店']
+		},
+
+		yAxis: {
+			visible: false
+		},
+
+		exporting: {
+			enabled: false
+		},
+        tooltip: {
+            shared: true
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            floating: true,
+            backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || // theme
+                'rgba(255,255,255,0.75)'
+        },
+
+		plotOptions: {
+			column: {
+				stacking: 'normal'
+			}
+		},
+
+		series: [{
+			name: 'Norway',
+			data: [148, 133, 124],
+			stack: 'Europe'
+		}, {
+			name: 'Germany',
+			data: [102, 98, 65],
+			stack: 'Europe'
+		}, {
+			name: 'United States',
+			data: [113, 122, 95],
+			stack: 'North America'
+		}, {
+			name: 'Canada',
+			data: [77, 72, 80],
+			stack: 'North America'
+		}]
+		});
+
+	// 折線圖比較: 兩種不同的數值單位
+    Highcharts.chart('test3', {
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: '門店區間日銷售額'
+        },
+        subtitle: {
+            text: 'Source: wwww.com'
+        },
+        colors: _Color,
+        xAxis: [{
+            categories: ['8/29', '8/30', '8/31', '9/1', '9/2', '9/3', '9/4', '9/5'],
+            crosshair: true
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '${value}',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: '銷售額',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: '',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            labels: {
+                format: '${value}',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            opposite: true
+        }],
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || // theme
+                'rgba(255,255,255,0.25)'
+        },
+        series: [{
+            name: '2023/8/29 - 2023/9/5',
+            type: 'spline',
+            yAxis: 1,
+            data: [100111, 120825, 150999, 130321, 199825, 170426, 110825, 1360],
+            tooltip: {
+                valueSuffix: ''
+            }
+        }, {
+            name: '2023/8/29 - 2023/9/5',
+            type: 'spline',
+            data: [150825, 108534, 111111, 100825, 130005, 110625, 160675, 1425],
+            tooltip: {
+                valueSuffix: ''
+            }
+        }]
+    });
+</script>
+	
+
+</body>
+</html>
+<script>
+
+</script>
