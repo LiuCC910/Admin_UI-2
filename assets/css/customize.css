@@ -85,18 +85,13 @@ table.table-fixed tbody tr th:nth-child(2) {
     align-items: center;
     text-transform: uppercase;
 } 
- 
 .divider::before, .divider::after {
     content: '';
     height: 1px;
     background-color: #adb5bd;
     flex-grow: 1;
 }
-  
-.divider::before {
-    margin-right: var(--text-divider-gap);
-}
-  
-.divider::after {
-    margin-left: var(--text-divider-gap);
-}
+.divider::before {margin-right: var(--text-divider-gap);}
+.divider::after {margin-left: var(--text-divider-gap);}
+
+.form-check-inline {min-width: 8rem;}
