@@ -183,21 +183,15 @@ $(document).ready(function(){
 							<div class="menu-profile-info">
 								<div class="d-flex align-items-center">
 									<div class="flex-grow-1">
-										User (Admin)
+										服務總管理員 (Admin)
 									</div>
 									<div class="menu-caret ms-auto"></div>
 								</div>
-								<small>Developer, full access</small>
+								<small>完整管理權限</small>
 							</div>
 						</a>
 					</div>
 					<div id="appSidebarProfileMenu" class="collapse">
-						<div class="menu-item">
-							<a href="../template_pos/pos_customer_order.html" target="_blank" class="menu-link">
-								<div class="menu-icon"><i class="fa fa-cash-register"></i></div>
-								<div class="menu-text"> 啟動POS端</div>
-							</a>
-						</div>
 						<div class="menu-item">
 							<a href="javascript:;" class="menu-link">
 								<div class="menu-icon"><i class="fa fa-cog"></i></div>
@@ -213,6 +207,32 @@ $(document).ready(function(){
 						<div class="menu-divider m-0"></div>
 					</div>
 					<div class="menu-header">功能選單</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-key"></i>
+							</div>
+							<div class="menu-text">系統管理 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div> 
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="list_headquarters.html" class="menu-link">
+									<div class="menu-text">總部資源設定</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">使用者帳號管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">POS授權設定</div>
+								</a>
+							</div>
+						</div>
+					</div>
 					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
@@ -323,55 +343,6 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<!--div class="menu-item has-sub">
-						<a href="javascript:;" class="menu-link">
-							<div class="menu-icon">
-								<i class="fa fa-cash-register"></i>
-							</div>
-							<div class="menu-text">POS資料管理</div> 
-							<div class="menu-caret"></div>
-						</a>
-						<div class="menu-submenu">
-							<div class="menu-item has-sub">
-								<a href="javascript:;" class="menu-link">
-									<div class="menu-text">銷售單管理</div>
-									<div class="menu-caret"></div>
-								</a>
-								<div class="menu-submenu">
-									<div class="menu-item">
-										<a href="#" class="menu-link">
-											<div class="menu-text">銷售單一覽</div>
-										</a>
-									</div>
-									<div class="menu-item">
-										<a href="#" class="menu-link">
-											<div class="menu-text">對帳結算</div>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="menu-item">
-								<a href="#" target="_blank" class="menu-link">
-									<div class="menu-text">訂位(預約)管理</div>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a href="#" target="_blank" class="menu-link">
-									<div class="menu-text">顧客資料管理</div>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a href="#" target="_blank" class="menu-link">
-									<div class="menu-text">菜單內容管理</div>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a href="#" target="_blank" class="menu-link">
-									<div class="menu-text">販售(促銷)管理</div>
-								</a>
-							</div>
-						</div>
-					</div-->
 					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
@@ -574,32 +545,6 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub">
-						<a href="javascript:;" class="menu-link">
-							<div class="menu-icon">
-								<i class="fa fa-key"></i>
-							</div>
-							<div class="menu-text">系統管理 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div> 
-							<div class="menu-caret"></div>
-						</a>
-						<div class="menu-submenu">
-							<div class="menu-item">
-								<a href="#" class="menu-link">
-									<div class="menu-text">帳號管理</div>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a href="#" class="menu-link">
-									<div class="menu-text">門店機台設定</div>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a href="#" class="menu-link">
-									<div class="menu-text">POS授權設定</div>
-								</a>
-							</div>
-						</div>
-					</div>
 
 					<hr/>
 
@@ -651,8 +596,10 @@ $(document).ready(function(){
 									<label class="form-label col-form-label col-md-2">日期</label>
 									<div class="col-md-10">
 										<div class="input-group">
-                                            <input type="date" class="form-control" name="start" placeholder="Date Start">
-                                        </div>
+											<input type="date" class="form-control" name="start" placeholder="Date Start" value="2021-03-01">
+											<span class="input-group-text input-group-addon">至</span>
+											<input type="date" class="form-control" name="end" placeholder="Date End" value="2024-02-28">
+										</div>
 									</div>
 								</div>
 								<div class="row mb-15px">

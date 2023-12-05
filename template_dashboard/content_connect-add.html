@@ -181,21 +181,15 @@ $(document).ready(function(){
 							<div class="menu-profile-info">
 								<div class="d-flex align-items-center">
 									<div class="flex-grow-1">
-										User (Admin)
+										服務總管理員 (Admin)
 									</div>
 									<div class="menu-caret ms-auto"></div>
 								</div>
-								<small>Developer, full access</small>
+								<small>完整管理權限</small>
 							</div>
 						</a>
 					</div>
 					<div id="appSidebarProfileMenu" class="collapse">
-						<div class="menu-item">
-							<a href="../template_pos/pos_customer_order.html" target="_blank" class="menu-link">
-								<div class="menu-icon"><i class="fa fa-cash-register"></i></div>
-								<div class="menu-text"> 啟動POS端</div>
-							</a>
-						</div>
 						<div class="menu-item">
 							<a href="javascript:;" class="menu-link">
 								<div class="menu-icon"><i class="fa fa-cog"></i></div>
@@ -211,6 +205,32 @@ $(document).ready(function(){
 						<div class="menu-divider m-0"></div>
 					</div>
 					<div class="menu-header">功能選單</div>
+					<div class="menu-item has-sub">
+						<a href="javascript:;" class="menu-link">
+							<div class="menu-icon">
+								<i class="fa fa-key"></i>
+							</div>
+							<div class="menu-text">系統管理 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div> 
+							<div class="menu-caret"></div>
+						</a>
+						<div class="menu-submenu">
+							<div class="menu-item">
+								<a href="list_headquarters.html" class="menu-link">
+									<div class="menu-text">總部資源設定</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">使用者帳號管理</div>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a href="#" class="menu-link">
+									<div class="menu-text">POS授權設定</div>
+								</a>
+							</div>
+						</div>
+					</div>
 					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
@@ -572,32 +592,6 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub">
-						<a href="javascript:;" class="menu-link">
-							<div class="menu-icon">
-								<i class="fa fa-key"></i>
-							</div>
-							<div class="menu-text">系統管理 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div> 
-							<div class="menu-caret"></div>
-						</a>
-						<div class="menu-submenu">
-							<div class="menu-item">
-								<a href="#" class="menu-link">
-									<div class="menu-text">帳號管理</div>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a href="#" class="menu-link">
-									<div class="menu-text">門店機台設定</div>
-								</a>
-							</div>
-							<div class="menu-item">
-								<a href="#" class="menu-link">
-									<div class="menu-text">POS授權設定</div>
-								</a>
-							</div>
-						</div>
-					</div>
 
 					<hr/>
 
@@ -621,12 +615,12 @@ $(document).ready(function(){
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">資訊摘要</a></li>
-				<li class="breadcrumb-item active">門店銷售清單</li>
+				<li class="breadcrumb-item"><a href="javascript:;">資源串接管理</a></li>
+				<li class="breadcrumb-item active">介接設定管理</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">串接資源設定</h1>
+			<h1 class="page-header">介接設定管理</h1>
 			<!-- END page-header -->
             <div class="row">
                 <div class="col-xl-6">
@@ -714,7 +708,7 @@ $(document).ready(function(){
 								</div>
                                 <hr/>
 								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">抓取模式</label>
+									<label class="form-label col-form-label col-md-2">儲存類型</label>
 									<div class="col-md-10">
 										<div class="row">
 											<div class="col-md-6">
@@ -1013,7 +1007,7 @@ $(document).ready(function(){
 						新增成功，資料已儲存。
 					</div>
 					<div class="modal-footer">
-						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal" onclick="window.location.href='list_store-sales.html';">關閉</a>
+						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal" onclick="window.location.href='list_connect-setting.html';">關閉</a>
 					</div>
 				</div>
 			</div>

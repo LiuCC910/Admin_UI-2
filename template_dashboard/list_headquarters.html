@@ -192,7 +192,7 @@
 						<div class="menu-divider m-0"></div>
 					</div>
 					<div class="menu-header">功能選單</div>
-					<div class="menu-item has-sub">
+					<div class="menu-item has-sub active">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-key"></i>
@@ -201,7 +201,7 @@
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item">
+							<div class="menu-item active">
 								<a href="list_headquarters.html" class="menu-link">
 									<div class="menu-text">總部資源設定</div>
 								</a>
@@ -267,7 +267,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub active">
+					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cogs"></i>
@@ -276,7 +276,7 @@
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item active">
+							<div class="menu-item">
 								<a href="list_connect-setting.html" class="menu-link">
 									<div class="menu-text">介接設定管理</div>
 								</a>
@@ -602,12 +602,12 @@
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">資源串接管理</a></li>
-				<li class="breadcrumb-item active">介接設定管理</li>
+				<li class="breadcrumb-item"><a href="javascript:;">系統管理</a></li>
+				<li class="breadcrumb-item active">總部清單</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">介接設定管理</h1>
+			<h1 class="page-header">總部清單</h1>
 			<!-- END page-header -->
 
 			<!-- BEGIN row -->
@@ -617,8 +617,7 @@
                 </div>
                 <div class="col-xl-6 text-end">
                     <div class="dt-buttons btn-group flex-wrap">
-                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="window.location.href='content_connect-add.html';"><i class="fas fa-circle-plus"></i> <span>新增資料</span></button>
-                        <button class="btn btn-outline-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="showFunction()"><i class="fab fa-searchengin"></i><span>欄位查詢</span></button> 
+                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button"onclick="window.location.href='content_headquarters-add.html';"><i class="fas fa-circle-plus"></i> <span>新增資料</span></button>
 						<script>
 							function showFunction() {
 							  var x = document.getElementById("advSearchDIV");
@@ -633,108 +632,6 @@
 
                 </div>
             </div>
-            <hr/>
-            <div class="row" style="display: none;" id="advSearchDIV">
-				<div class="col-md-6">
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="fullname">日期</label>
-						<div class="col-lg-10">
-							<div class="input-group">
-								<input type="date" class="form-control" name="start" placeholder="Date Start">
-								<span class="input-group-text input-group-addon">至</span>
-								<input type="date" class="form-control" name="end" placeholder="Date End">
-							</div>
-						</div>
-					</div>
-					<!--div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">計畫年度</label>
-						<div class="col-lg-10">
-							<div class="input-group">
-								<select class="form-select">
-									<option>請選擇年度</option>
-									<option>112</option>
-									<option>111</option>
-									<option>110</option>
-									<option>109</option>
-									<option>108</option>
-								</select>
-								<span class="input-group-text input-group-addon">至</span>
-								<select class="form-select">
-									<option>請選擇年度</option>
-									<option>112</option>
-									<option>111</option>
-									<option>110</option>
-									<option>109</option>
-									<option>108</option>
-								</select>
-							</div>
-						</div>
-					</div-->
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">類別</label>
-						<div class="col-lg-10">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <select class="form-select">
-                                        <option>請選擇來源類型</option>
-                                        <option>POS</option>
-                                        <option>UBER Eats</option>
-                                        <option>foodpanda</option>
-                                        <option>快一點</option>
-                                        <option>其他</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <select class="form-select">
-                                        <option>請選擇建立模式</option>
-                                        <option>串接</option>
-                                        <option>自建</option>
-                                        <option>匯入</option>
-                                        <option>其他</option>
-                                    </select>
-                                </div>
-
-                            </div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">營業點</label>
-						<div class="col-lg-10">
-							<select class="form-select">
-								<option>請選擇營業點</option>
-								<option>112</option>
-								<option>111</option>
-								<option>110</option>
-								<option>109</option>
-								<option>108</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2">關鍵字</label>
-						<div class="col-md-10">
-							<input type="email" class="form-control" placeholder="請輸入關鍵字">
-						</div>
-					</div>
-					<!--div class="form-group row">
-						<label class="form-label col-form-label col-lg-2">名稱</label>
-						<div class="col-md-10">
-							<input type="email" class="form-control" placeholder="請輸入關鍵字">
-						</div>
-					</div-->
-				</div>
-				
-				<div class="col-md-12">
-						<div class="form-group row text-center">
-							<div class="col-lg-12">
-								<button type="submit" class="btn btn-primary" onclick="showFunction();">查詢</button>
-								<button type="cancel" class="btn">重設</button>
-							</div>
-						</div>
-				</div>
-			</div>
             <!--資料內容頁籤區-->
             <div class="row" style="margin-top: 25px;">
                 <div class="col-xl-12">
@@ -744,58 +641,63 @@
                                 <thead>
                                     <tr>
                                         <th width="1%" class="num"></th>
-                                        <th class="text-nowrap">串接名稱</th>
-                                        <th class="text-nowrap">資源類別</th>
-                                        <th class="text-nowrap">抓取模式</th>
-                                        <th class="text-nowrap">排程執行內容</th>
-                                        <th class="text-nowrap">運作狀態</th>
+                                        <th class="text-nowrap">ID</th>
+                                        <th class="text-nowrap">總部名稱</th>
+                                        <th class="text-nowrap">申請日期</th>
+                                        <th class="text-nowrap">有效日期</th>
+                                        <th class="text-nowrap">服務狀態</th>
+                                        <th class="text-nowrap">啟用串接/門店數</th>
                                         <th class="text-nowrap sorting_disabled">管理</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
                                         <td class="fw-bold">1</td>
-                                        <td class="text-nowrap">門店POS銷售</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
+                                        <td class="fw-bold">1120004</td>
+                                        <td class="text-nowrap">總部名稱(品牌名稱)</td>
+                                        <td>2023/12/1</td>
+                                        <td></td>
+                                        <td class="text-center"><span class="badge bg-info">申請中</span></td>
+                                        <td></td>
                                         <td class="text-nowrap">
-                                            <a href="content_connect-add.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="content_headquarters-add.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
                                             <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
                                     <tr class="odd gradeX">
                                         <td class="fw-bold">2</td>
-                                        <td class="text-nowrap">UBER Eats</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
+                                        <td class="fw-bold">1120004</td>
+                                        <td class="text-nowrap">鷹展餐飲管理顧問有限公司(麻辣天后)</td>
+                                        <td>2023/12/1</td>
+                                        <td></td>
+                                        <td class="text-center"><span class="badge bg-lime">啟用中</span></td>
+                                        <td>4 / 14</td>
                                         <td class="text-nowrap">
-                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
+                                            <a href="#" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
                                             <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
                                     <tr class="odd gradeX">
                                         <td class="fw-bold">3</td>
-                                        <td class="text-nowrap">富胖達(foodpanda)</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
+                                        <td class="fw-bold">1120003</td>
+                                        <td class="text-nowrap">總部名稱(品牌名稱)</td>
+                                        <td>2023/12/1</td>
+                                        <td>2023/12/15 ~ 2024/3/14</td>
+                                        <td class="text-center"><span class="badge bg-yellow text-black">試用中</span></td>
+                                        <td>1 / 1</td>
                                         <td class="text-nowrap">
                                             <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
                                             <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
-                                    <tr class="odd gradeX">
+                                   <tr class="odd gradeX">
                                         <td class="fw-bold">4</td>
-                                        <td class="text-nowrap">快一點 線上點餐</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
+                                        <td class="fw-bold">1120002</td>
+                                        <td class="text-nowrap">總部名稱(品牌名稱)</td>
+                                        <td>2023/11/1</td>
+                                        <td>2023/11/15 ~ 2024/12/15</td>
+                                        <td class="text-center"><span class="badge bg-secondary text-gray-300">已停用</span></td>
+                                        <td></td>
                                         <td class="text-nowrap">
                                             <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
                                             <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
@@ -803,11 +705,12 @@
                                     </tr>
                                     <tr class="odd gradeX">
                                         <td class="fw-bold">5</td>
-                                        <td class="text-nowrap">foodomo 外送</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每週四 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-secondary text-gray-300">已停用</span></td>
+                                        <td class="fw-bold">1120001</td>
+                                        <td class="text-nowrap">總部名稱(品牌名稱)</td>
+                                        <td>2023/11/1</td>
+                                        <td>2023/9/1 ~ 2024/12/1</td>
+                                        <td class="text-center"><span class="badge bg-yellow text-black">試用中</span></td>
+                                        <td></td>
                                         <td class="text-nowrap">
                                             <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
                                             <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>

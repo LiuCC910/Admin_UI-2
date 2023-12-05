@@ -13,29 +13,44 @@
 	<!-- ================== END core-css ================== -->
 	
 	<!-- ================== BEGIN page-css ================== -->
-	<link href="../assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
+	<link href="../assets/plugins/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="../assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
 	<link href="../assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
 	<link href="../assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
-	<link href="../assets/plugins/datepickk/dist/datepickk.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+	<link href="../assets/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/intro.js/minified/introjs.min.css" rel="stylesheet" />
 
-	<link href="../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
-
-    <link href="../assets/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" />
-
-	<link href="../assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
-	<link href="../assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
-	<link href="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/select-picker/dist/picker.min.css" rel="stylesheet" />
-
-    <!-- ================== END page-css ================== -->
+    <link href="../assets/plugins/dropzone/dist/min/dropzone.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/select-picker/dist/picker.min.css" rel="stylesheet" />
+<!-- ================== END page-css ================== -->
 
 	<!-- 客製化CSS暫用 -->
 	<link href="../assets/css/customize.css" rel="stylesheet" />
 	<link href="../favicon.png" rel="icon" type="image/x-icon">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
+
+
 </head>
 <body>
 	<!-- BEGIN #loader -->
@@ -192,7 +207,7 @@
 						<div class="menu-divider m-0"></div>
 					</div>
 					<div class="menu-header">功能選單</div>
-					<div class="menu-item has-sub">
+					<div class="menu-item has-sub active">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-key"></i>
@@ -201,7 +216,7 @@
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item">
+							<div class="menu-item active">
 								<a href="list_headquarters.html" class="menu-link">
 									<div class="menu-text">總部資源設定</div>
 								</a>
@@ -248,7 +263,7 @@
 						</a>
 						<div class="menu-submenu">
 							<div class="menu-item">
-								<a href="list_store.html" class="menu-link"><div class="menu-text">門店清單</div></a>
+								<a href="content_store-add.html" class="menu-link"><div class="menu-text">門店清單</div></a>
 							</div>
 							<div class="menu-item">
 								<a href="list_store-sales.html" class="menu-link"><div class="menu-text">門店銷售紀錄</div></a>
@@ -267,7 +282,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub active">
+					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cogs"></i>
@@ -276,7 +291,7 @@
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item active">
+							<div class="menu-item">
 								<a href="list_connect-setting.html" class="menu-link">
 									<div class="menu-text">介接設定管理</div>
 								</a>
@@ -602,233 +617,323 @@
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">資源串接管理</a></li>
-				<li class="breadcrumb-item active">介接設定管理</li>
+				<li class="breadcrumb-item"><a href="javascript:;">系統管理</a></li>
+				<li class="breadcrumb-item active">總部清單</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">介接設定管理</h1>
+			<h1 class="page-header">總部清單</h1>
 			<!-- END page-header -->
-
-			<!-- BEGIN row -->
-			<div class="row">
-				<!-- BEGIN col-8 -->
+            <div class="row">
                 <div class="col-xl-6">
+                    <h2 class="page-title">新增資料</h2>
                 </div>
                 <div class="col-xl-6 text-end">
                     <div class="dt-buttons btn-group flex-wrap">
-                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="window.location.href='content_connect-add.html';"><i class="fas fa-circle-plus"></i> <span>新增資料</span></button>
-                        <button class="btn btn-outline-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="showFunction()"><i class="fab fa-searchengin"></i><span>欄位查詢</span></button> 
-						<script>
-							function showFunction() {
-							  var x = document.getElementById("advSearchDIV");
-							  if (x.style.display === "none") {
-								x.style.display = "flex";
-							  } else {
-								x.style.display = "none";
-							  }
-							}
-						</script>
+                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="history.back()"><i class="icon-arrow-left"></i> <span>返回前頁</span></button> 
                     </div>
 
                 </div>
             </div>
             <hr/>
-            <div class="row" style="display: none;" id="advSearchDIV">
-				<div class="col-md-6">
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="fullname">日期</label>
-						<div class="col-lg-10">
-							<div class="input-group">
-								<input type="date" class="form-control" name="start" placeholder="Date Start">
-								<span class="input-group-text input-group-addon">至</span>
-								<input type="date" class="form-control" name="end" placeholder="Date End">
-							</div>
-						</div>
-					</div>
-					<!--div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">計畫年度</label>
-						<div class="col-lg-10">
-							<div class="input-group">
-								<select class="form-select">
-									<option>請選擇年度</option>
-									<option>112</option>
-									<option>111</option>
-									<option>110</option>
-									<option>109</option>
-									<option>108</option>
-								</select>
-								<span class="input-group-text input-group-addon">至</span>
-								<select class="form-select">
-									<option>請選擇年度</option>
-									<option>112</option>
-									<option>111</option>
-									<option>110</option>
-									<option>109</option>
-									<option>108</option>
-								</select>
-							</div>
-						</div>
-					</div-->
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">類別</label>
-						<div class="col-lg-10">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <select class="form-select">
-                                        <option>請選擇來源類型</option>
-                                        <option>POS</option>
-                                        <option>UBER Eats</option>
-                                        <option>foodpanda</option>
-                                        <option>快一點</option>
-                                        <option>其他</option>
-                                    </select>
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <div class="row mb-15px">
+									<label class="form-label col-form-label col-md-2">申請方案</label>
+									<div class="col-md-10">
+										<div class="row">
+                                            <div class="col-md-6">
+                                                <select class="form-select source">
+                                                    <option>請選擇</option>
+                                                    <option selected="">試用方案(免費試用一個月)</option>
+                                                    <option>雲市集一年總部串接方案</option>
+                                                    <option>方案名稱</option>
+                                                    <option>方案名稱</option>
+                                                </select>
+                                            </div>
+											<div class="col-md-6">
+                                            </div>
+                                        </div>
+									</div>
+								</div>
+                                <div class="row" style="margin-top:15px;">
+                                    <label class="form-label col-form-label col-md-2">使用日期起迄</label>
+                                    <div class="col-md-10">
+                                        <div class="input-group">
+                                            <input type="date" class="form-control" name="start" placeholder="Date Start">
+                                            <span class="input-group-text input-group-addon">至</span>
+                                            <input type="date" class="form-control" name="end" placeholder="Date End">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <select class="form-select">
-                                        <option>請選擇建立模式</option>
-                                        <option>串接</option>
-                                        <option>自建</option>
-                                        <option>匯入</option>
-                                        <option>其他</option>
-                                    </select>
+                                <div class="row" style="margin-top:15px;">
+                                    <label class="form-label col-form-label col-md-2">企業聯絡資訊</label>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label">負責人姓名</label>
+                                                <input type="number" class="form-control form-check-inline" value="">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label">職稱</label>
+                                                <input type="number" class="form-control mb-5px" value="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">聯絡電話</label>
+                                                <input type="number" class="form-control mb-5px" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="form-label">聯絡人姓名</label>
+                                                <input type="number" class="form-control form-check-inline" value="">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label">職稱</label>
+                                                <input type="number" class="form-control mb-5px" value="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">聯絡電話</label>
+                                                <input type="number" class="form-control mb-5px" value="">
+                                            </div>
+                                        </div>
+                                        <small class="fs-12px text-gray-500-darker">＊申請雲端服務需準備工商憑證、負責人自然人憑證、負責人手機門號</small>
+                                    </div>
                                 </div>
-
+                                <div class="row" style="margin-top:15px;">
+                                    <label class="form-label col-form-label col-md-2">品牌門店數</label>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label">國內</label>
+                                                <input type="number" class="form-control form-check-inline" value="">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">海外</label>
+                                                <input type="number" class="form-control mb-5px" value="">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">其他(雲端)</label>
+                                                <input type="number" class="form-control mb-5px" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:15px;">
+									<label class="form-label col-form-label col-md-2">營業類型</label>
+									<div class="col-md-10" style="padding-top: 10px; font-size: 1.05em;">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlinecheck1" name="inlinecheck">
+											<label class="form-check-label" for="inlineRadio1">快餐、餐廳</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlinecheck2" name="inlinecheck">
+											<label class="form-check-label" for="inlinecheck2">火鍋</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlinecheck3" name="inlinecheck">
+											<label class="form-check-label" for="inlinecheck3">早午餐</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlinecheck4" name="inlinecheck">
+											<label class="form-check-label" for="inlinecheck4">速食、咖啡簡餐</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlinecheck5" name="inlinecheck">
+											<label class="form-check-label" for="inlinecheck5">甜點冰品</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlinecheck6" name="inlinecheck">
+											<label class="form-check-label" for="inlinecheck6">休閒飲料</label>
+										</div>
+									</div>
+								</div>
+                                <hr/>
+                                <small class="fs-12px text-gray-500-darker divider">評估項目</small>
+                                <div class="row" style="margin-top:15px;">
+									<label class="form-label col-form-label col-md-2">現有使用服務</label>
+									<div class="col-md-10">
+                                        <textarea class="form-control" rows="3"></textarea>
+										<!--div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="customcheck1" name="inlinecheck2">
+											<label class="form-check-label" for="customcheck1">POS系統</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="customcheck2" name="inlinecheck2">
+											<label class="form-check-label" for="customcheck2">POS系統</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="customcheck3" name="inlinecheck2">
+											<label class="form-check-label" for="customcheck3">外送平台</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="customcheck4" name="inlinecheck2">
+											<label class="form-check-label" for="customcheck4">線上點餐</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="customcheck5" name="inlinecheck2">
+											<label class="form-check-label" for="customcheck5">會員、集點</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="customcheck6" name="inlinecheck2">
+											<label class="form-check-label" for="customcheck6">其他</label>
+										</div-->
+									</div>
+								</div>
+                                <div class="row mb-15px" style="margin-top:15px;">
+									<label class="form-label col-form-label col-md-2">雲市集資訊</label>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="form-label">帳號</label>
+                                                <input type="text" class="form-control form-check-inline" value="">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label class="form-label">訂單編號</label>
+                                                <input type="text" class="form-control mb-5px" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+								</div>
+                                <div class="row mb-15px">
+									<label class="form-label col-form-label col-md-2">申請證明</label>
+									<div class="col-md-10">
+										<input class="form-control" type="file" id="formFile">
+									</div>
+								</div>
+                           </form>
+                            <hr/>
+                            <div id="dropzone">
+                                <form action="/upload" class="dropzone needsclick" id="demo-upload">
+                                    <label class="form-label col-form-label col-md-3">相關附件</label>
+                                    <div class="dz-message needsclick">
+                                        拖拉檔案到 <b>這裡</b> 或是 <b>點選這裡</b> 來選擇檔案上傳<br />
+                                        <span class="dz-note needsclick">
+                                            (檔案限制: .pdf, .doc, .ppt, .xls，每一檔案上限10M)
+                                        </span>
+                                    </div>
+                                </form>
                             </div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">營業點</label>
-						<div class="col-lg-10">
-							<select class="form-select">
-								<option>請選擇營業點</option>
-								<option>112</option>
-								<option>111</option>
-								<option>110</option>
-								<option>109</option>
-								<option>108</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2">關鍵字</label>
-						<div class="col-md-10">
-							<input type="email" class="form-control" placeholder="請輸入關鍵字">
-						</div>
-					</div>
-					<!--div class="form-group row">
-						<label class="form-label col-form-label col-lg-2">名稱</label>
-						<div class="col-md-10">
-							<input type="email" class="form-control" placeholder="請輸入關鍵字">
-						</div>
-					</div-->
-				</div>
-				
-				<div class="col-md-12">
-						<div class="form-group row text-center">
-							<div class="col-lg-12">
-								<button type="submit" class="btn btn-primary" onclick="showFunction();">查詢</button>
-								<button type="cancel" class="btn">重設</button>
-							</div>
-						</div>
-				</div>
-			</div>
-            <!--資料內容頁籤區-->
-            <div class="row" style="margin-top: 25px;">
-                <div class="col-xl-12">
-                    <div class="card data-table">
-                        <div class="card-body p-0">
-                            <table id="data-table-default" class="table table-striped table-bordered align-middle">
-                                <thead>
-                                    <tr>
-                                        <th width="1%" class="num"></th>
-                                        <th class="text-nowrap">串接名稱</th>
-                                        <th class="text-nowrap">資源類別</th>
-                                        <th class="text-nowrap">抓取模式</th>
-                                        <th class="text-nowrap">排程執行內容</th>
-                                        <th class="text-nowrap">運作狀態</th>
-                                        <th class="text-nowrap sorting_disabled">管理</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">1</td>
-                                        <td class="text-nowrap">門店POS銷售</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="content_connect-add.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">2</td>
-                                        <td class="text-nowrap">UBER Eats</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">3</td>
-                                        <td class="text-nowrap">富胖達(foodpanda)</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">4</td>
-                                        <td class="text-nowrap">快一點 線上點餐</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">5</td>
-                                        <td class="text-nowrap">foodomo 外送</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每週四 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-secondary text-gray-300">已停用</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="javascript:;" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
                         </div>
-
                     </div>
 
-                </div>
-				<!-- END col-8 -->
-			</div>
-			<!-- END row -->
+				</div>
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+								<div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">ID</label>
+									<div class="col-md-9">
+										<input type="id" class="form-control mb-5px" disabled />
+										<small class="fs-12px text-gray-500-darker">自動依產生</small>
+									</div>
+								</div>
+								<div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">企業名稱</label>
+									<div class="col-md-9">
+										<input type="id" class="form-control mb-5px" />
+									</div>
+								</div>
+								<div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">品牌名稱</label>
+									<div class="col-md-9">
+										<input type="id" class="form-control mb-5px" />
+									</div>
+								</div>
+                                <div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">申請日期</label>
+									<div class="col-md-9">
+										<div class="input-group">
+                                            <input type="date" class="form-control" name="start" value="2023-11-15">
+                                        </div>
+									</div>
+								</div>
+                                <hr/>
+								<div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">備註</label>
+									<div class="col-md-9">
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+								<div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">資料狀態</label>
+									<div class="col-md-9">
+										<select class="form-select">
+                                            <option>申請中</option>
+                                            <option>試用期</option>
+                                            <option>啟用中</option>
+                                            <option>已停用</option>
+                                        </select>
+									</div>
+								</div>
+								<div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">編輯紀錄</label>
+									<div class="col-md-9" style="min-height: 55px;">
+									</div>
+								</div>
 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <hr style="clear: both; margin-top: 20px;"/>
+                <div class="col-lg-12 text-center">
+                    <!--a href="#modal-dialog" class="btn btn-sm btn-success w-100px" data-bs-toggle="modal">Demo</a>
+					<a href="#modal-dialog" data-bs-toggle="modal" class="btn btn-primary">編修儲存</a>
+					<button type="submit" class="btn btn-primary" onclick="window.location.href='list_store-sales.html';">編修儲存</button-->
+					<a href="#modal-without-animation" class="btn btn-primary" data-bs-toggle="modal">編修儲存</a>
+                    <button type="cancel" class="btn">重設</button>
+                </div>
+
+            </div>
 
 		</div>
 		<!-- END #content -->
-		
+
+		<!-- #modal-dialog -->
+		<div class="modal fade" id="modal-dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">儲存送出</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							編修送出後將無法修改，若尚未完成請以草稿狀態儲存。<br/>
+							確定儲存送出？
+						</p>
+					</div>
+					<div class="modal-footer">
+						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal">取消</a>
+						<a href="#modal-without-animation" class="btn btn-success" data-bs-toggle="modal">確定</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- #modal-without-animation -->
+		<div class="modal" id="modal-without-animation">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">儲存成功</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+					</div>
+					<div class="modal-body">
+						新增成功，資料已儲存。
+					</div>
+					<div class="modal-footer">
+						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal" onclick="window.location.href='list_store-sales.html';">關閉</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- BEGIN scroll-top-btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
 		<!-- END scroll-top-btn -->
@@ -841,51 +946,42 @@
 	<!-- ================== END core-js ================== -->
 	
 	<!-- ================== BEGIN page-js ================== -->
-	<script src="../assets/plugins/apexcharts/dist/apexcharts.min.js"></script>
-	
 	<script src="../assets/plugins/d3/d3.min.js"></script>
-	<!--script src="../assets/plugins/datepickk/dist/datepickk.min.js"></script-->
-	<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>
+	<script src="../assets/plugins/nvd3/build/nv.d3.min.js"></script>
 	<script src="../assets/plugins/jvectormap-next/jquery-jvectormap.min.js"></script>
 	<script src="../assets/plugins/jvectormap-content/world-mill.js"></script>
-	<script src="../assets/plugins/moment/min/moment.min.js"></script>
-	<script src="../assets/plugins/nvd3/build/nv.d3.min.js"></script>
-
-	<script src="../assets/js/demo/pos-header.demo.js"></script>
-	<script src="../assets/js/demo/dashboard-demo.js"></script>
-	<script src="../assets/js/demo/dashboard-demo2.js"></script>
-
-	<script src="../assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-	<script src="../assets/js/demo/dashboard.js"></script>
-
-	<script src="../assets/plugins/select2/dist/js/select2.min.js"></script>
-	<script src="../assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
-	<script src="../assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
-	<script src="../assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
-	<script src="../assets/plugins/tag-it/js/tag-it.min.js"></script>
-	<script src="../assets/plugins/clipboard/dist/clipboard.min.js"></script>
-	<script src="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.js"></script>
-
-    <script src="../assets/js/demo/form-plugins.demo.js"></script>
-	<script src="../assets/js/demo/render.highlight.js"></script>
-
-    <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-	<script src="../assets/js/demo/dashboard-v3.js"></script>
-
-	<script src="../assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-	<script src="../assets/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-	<script src="../assets/js/demo/table-manage-default.demo.js"></script>
-
-    <script src="../assets/plugins/@highlightjs/cdn-assets/highlight.min.js"></script>
+	<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>
 
 	<script src="../assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="../assets/plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+	<script src="../assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../assets/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+	<script src="../assets/plugins/@highlightjs/cdn-assets/highlight.min.js"></script>
+	<script src="../assets/plugins/intro.js/minified/intro.min.js"></script>
+	<script src="../assets/plugins/moment/min/moment.min.js"></script>
 
-    <script src="../assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-    <script src="../assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
-    <script src="../assets/plugins/select-picker/dist/picker.min.js"></script>
-    
+	<script src="../assets/js/demo/table-manage-default.demo.js"></script>
+	<script src="../assets/js/demo/render.highlight.js"></script>
+
+	<script src="../assets/plugins/dropzone/dist/min/dropzone.min.js"></script>
+	<script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="../assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script src="../assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+	<script src="../assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
+	<script src="../assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+
+	<script src="../assets/plugins/clipboard/dist/clipboard.min.js"></script>
+	<script src="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+	<script src="../assets/plugins/select2/dist/js/select2.min.js"></script>
+	<script src="../assets/plugins/select-picker/dist/picker.min.js"></script>
+	<script src="../assets/plugins/tag-it/js/tag-it.min.js"></script>
+
+	<script src="../assets/js/demo/form-plugins.demo.js"></script>
+	<script src="../assets/js/demo/render.highlight.js"></script>
+
     <!-- ================== END page-js ================== -->
+
 
 </body>
 </html>
