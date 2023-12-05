@@ -658,7 +658,7 @@ $(document).ready(function(){
 									</div>
 								</div>
 								<div class="row aa box">
-									<label class="form-label col-form-label col-md-2">爬蟲抓取資訊</label>
+									<label class="form-label col-form-label col-md-2">抓取資訊</label>
 									<div class="col-md-10">
 										<div class="row">
 											<div class="col-md-12">
@@ -686,7 +686,7 @@ $(document).ready(function(){
                                     </div>
 								</div>
                                 <div class="row dd box" style="display:none;">
-									<label class="form-label col-form-label col-md-2">檔案抓取資訊</label>
+									<label class="form-label col-form-label col-md-2">抓取資訊</label>
 									<div class="col-md-10">
 										<div class="row">
 											<div class="col-md-3">
@@ -748,43 +748,56 @@ $(document).ready(function(){
 											<div class="col-md-3">
                                                 <input type="text" class="form-control mb-5px" value="門店名稱／代碼" disabled>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-7">
 												<input type="text" class="form-control form-check-inline" value="">
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-2">
 												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
 											</div>
 										</div>
 										<div class="row" style="margin-top:5px;">
 											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="日期(起)" disabled>
+                                                <input type="text" class="form-control mb-5px" value="日期" disabled>
+											</div>
+											<div class="col-md-4">
+												<input type="text" class="form-control form-check-inline" value="">
+											</div>
+											<div class="col-md-3">
+												<select class="form-select account">
+                                                    <option>單日(抓取當日)</option>
+                                                    <option>一週(抓取當日回推)</option>
+                                                </select>
+											</div>
+											<div class="col-md-2">
+												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
+											</div>
+											<!--div class="col-md-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
+                                                    <label class="form-check-label" for="inline_form_checkbox">單日</label>
+                                                </div>
+                                            </div-->
+
+										</div>
+										<!--div class="row" style="margin-top:5px;">
+											<div class="col-md-3">
+                                                <input type="text" class="form-control mb-5px" value="日期模式" disabled>
 											</div>
 											<div class="col-md-6">
-												<input type="text" class="form-control form-check-inline" value="">
+												<input type="text" class="form-control form-check-inline" value="" disabled>
 											</div>
 											<div class="col-md-3">
 												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
 											</div>
-										</div>
-										<div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="日期(迄)" disabled>
-											</div>
-											<div class="col-md-6">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-										</div>
+										</div-->
                                         <div class="row" style="margin-top:5px;">
 											<div class="col-md-3">
                                                 <input type="text" class="form-control mb-5px" value="客單數" disabled>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-7">
 												<input type="text" class="form-control form-check-inline" value="">
 											</div>
-											<div class="col-md-3">
+											<div class="col-md-2">
 												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
 											</div>
 										</div>
@@ -794,6 +807,23 @@ $(document).ready(function(){
 									<label class="form-label col-form-label col-md-2">分項來源抓取</label>
 									<div class="col-md-10">
                                         <div class="row" style="margin-top:10px;">
+											<div class="col-md-3">
+                                                <input type="text" class="form-control mb-5px" value="銷售總額">
+											</div>
+											<div class="col-md-4">
+												<input type="text" class="form-control form-check-inline" value="當日營業淨額">
+											</div>
+                                            <div class="col-md-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
+                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
+                                                </div>
+                                            </div>
+											<div class="col-md-3">
+												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
+											</div>
+										</div>
+                                        <div class="row">
 											<div class="col-md-3">
                                                 <input type="text" class="form-control mb-5px" value="現金">
 											</div>
@@ -808,6 +838,7 @@ $(document).ready(function(){
                                             </div>
 											<div class="col-md-3">
 												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
+												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
 											</div>
 										</div>
                                         <div class="row">
@@ -825,6 +856,7 @@ $(document).ready(function(){
                                             </div>
 											<div class="col-md-3">
 												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
+												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
 											</div>
 										</div>
                                         <div class="row">
@@ -842,6 +874,7 @@ $(document).ready(function(){
                                             </div>
 											<div class="col-md-3">
 												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
+												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
 											</div>
 										</div>
                                         <div class="row">

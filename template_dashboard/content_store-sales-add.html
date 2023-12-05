@@ -568,7 +568,7 @@ $(document).ready(function(){
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">資訊摘要</a></li>
+				<li class="breadcrumb-item"><a href="javascript:;">門店資源管理</a></li>
 				<li class="breadcrumb-item active">門店銷售清單</li>
 			</ol>
 			<!-- END breadcrumb -->
@@ -600,6 +600,7 @@ $(document).ready(function(){
 											<span class="input-group-text input-group-addon">至</span>
 											<input type="date" class="form-control" name="end" placeholder="Date End" value="2024-02-28">
 										</div>
+										<small class="fs-12px text-gray-500-darker">銷售額統計區間，單日請設同一日。最長建議為一週(7日)，為能顯示週營運表，請注意起迄週期一致</small>
 									</div>
 								</div>
 								<div class="row mb-15px">
@@ -607,11 +608,11 @@ $(document).ready(function(){
 									<div class="col-md-10">
 										<select class="form-select" onchange="ShowDiv(this.value)">
 											<option>請選擇</option>
-											<option value="aa">POS</option>
-											<option value="bb">UBER Eats</option>
-											<option value="cc">foodpanda</option>
-											<option value="dd">快一點</option>
-											<option value="ee">其他</option>
+											<option value="aa" selected>POS(串接)</option>
+											<option value="bb">UBER Eats(串接)</option>
+											<option value="cc">foodpanda(串接)</option>
+											<option value="dd">快一點(串接)</option>
+											<option value="ee">其他(自建)</option>
 										</select>
 										<small class="fs-12px text-danger">＊請先選擇來源類型</small>
 									</div>
@@ -620,7 +621,7 @@ $(document).ready(function(){
 									<label class="form-label col-form-label col-md-2">付款方式</label>
 									<div class="col-md-10">
 										<!--依來源類型顯示固定欄位，其餘可自行新增-->
-										<div class="aa box" style="display:none;">
+										<div class="aa box">
 											<small class="fs-12px text-gray-500-darker divider">POS來源對應欄位</small>
 											<div class="row">
 												<div class="col-md-3">
@@ -732,7 +733,7 @@ $(document).ready(function(){
 											<div class="row">
 												<div class="col-md-3">
 													<label class="form-label">項目</label>
-													<input type="text" class="form-control form-check-inline" value="當日實收(自動)" disabled>
+													<input type="text" class="form-control form-check-inline" value="當日實收" disabled>
 												</div>
 												<div class="col-md-3">
 													<label class="form-label">金額</label>
