@@ -94,5 +94,5 @@ table.table-fixed tbody tr th:nth-child(2) {
 .divider::before {margin-right: var(--text-divider-gap);}
 .divider::after {margin-left: var(--text-divider-gap);}
 
-.form-check-inline {min-width: 8rem;}
+.check-inline .form-check-inline {min-width: 8rem;}
 .form-check {margin-top: 10px;}
