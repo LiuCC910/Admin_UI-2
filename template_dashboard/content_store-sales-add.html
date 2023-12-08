@@ -596,9 +596,9 @@ $(document).ready(function(){
 									<label class="form-label col-form-label col-md-2">日期</label>
 									<div class="col-md-10">
 										<div class="input-group">
-											<input type="date" class="form-control" name="start" placeholder="Date Start" value="2021-03-01">
+											<input type="date" class="form-control" name="start" placeholder="Date Start" value="2023-11-21">
 											<span class="input-group-text input-group-addon">至</span>
-											<input type="date" class="form-control" name="end" placeholder="Date End" value="2024-02-28">
+											<input type="date" class="form-control" name="end" placeholder="Date End" value="2023-11-21">
 										</div>
 										<small class="fs-12px text-gray-500-darker">銷售額統計區間，單日請設同一日。最長建議為一週(7日)，為能顯示週營運表，請注意起迄週期一致</small>
 									</div>
@@ -618,7 +618,7 @@ $(document).ready(function(){
 									</div>
 								</div>
 								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">付款方式</label>
+									<label class="form-label col-form-label col-md-2">分項數值來源</label>
 									<div class="col-md-10">
 										<!--依來源類型顯示固定欄位，其餘可自行新增-->
 										<div class="aa box">
@@ -632,46 +632,64 @@ $(document).ready(function(){
 													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="6240">
 												</div>
-												<div class="col-md-3">
+												<div class="col-md-3" style="margin-top:20px;">
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
+												</div>
+												<!--div class="col-md-2">
 													<label class="form-label">百分比</label>
 													<input type="text" class="form-control form-check-inline" value="66.49%" disabled>
-												</div>
+												</div-->
 												<div class="col-md-3" style="margin-top: 25px;">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a>
 													<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-plus"></i></a-->
 												</div>
 											</div>
-											<div class="row">
+											<div class="row" style="margin-top:10px;">
 												<div class="col-md-3">
-													<label class="form-label">項目</label>
 													<input type="text" class="form-control form-check-inline" value="LINE PAY" disabled>
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="3145">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="33.51%" disabled>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
-												<div class="col-md-3" style="margin-top: 25px;">
+												<div class="col-md-3">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a-->
 												</div>
 											</div>
-											<div class="row">
+											<div class="row" style="margin-top:10px;">
 												<div class="col-md-3">
-													<label class="form-label">項目</label>
 													<input type="text" class="form-control form-check-inline" value="台灣 PAY" disabled>
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="0">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="0%" disabled>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
-												<div class="col-md-3" style="margin-top: 25px;">
+												<div class="col-md-3">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a-->
 												</div>
 											</div>
@@ -687,68 +705,84 @@ $(document).ready(function(){
 													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="7349">
 												</div>
-												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="100%" disabled>
+												<div class="col-md-3" style="margin-top:20px;">
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
 												<div class="col-md-3" style="margin-top: 25px;">
 												</div>
 											</div>
-											<hr/>
-											<div class="row">
+											<div class="row" style="margin-top:10px;">
 												<div class="col-md-3">
-													<label class="form-label">項目</label>
 													<input type="text" class="form-control form-check-inline" value="退款金額" disabled>
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="20">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="0.27%" disabled>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
-												<div class="col-md-3" style="margin-top: 25px;">
+												<div class="col-md-3">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a-->
 												</div>
 											</div>
-											<div class="row">
+											<div class="row" style="margin-top:10px;">
 												<div class="col-md-3">
-													<label class="form-label">項目</label>
 													<input type="text" class="form-control form-check-inline" value="UBER抽成費" disabled>
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="2417">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="32.89%" disabled>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
-												<div class="col-md-3" style="margin-top: 25px;">
-													<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-pen"></i></a>
-													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a-->
+												<div class="col-md-3">
+													<!--a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-pen"></i></a>
+													<a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a-->
 												</div>
 											</div>
-											<div class="row">
+											<div class="row" style="margin-top:10px;">
 												<div class="col-md-3">
-													<label class="form-label">項目</label>
 													<input type="text" class="form-control form-check-inline" value="當日實收" disabled>
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="4912">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="66.84%" disabled>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
 												<div class="col-md-3" style="margin-top: 25px;">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a>
 													<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-plus"></i></a-->
 												</div>
 											</div>
-
 										</div>
 										<div class="cc box" style="display:none;">
 											<small class="fs-12px text-gray-500-darker divider">foodpanda來源對應欄位</small>
@@ -761,46 +795,59 @@ $(document).ready(function(){
 													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="2862">
 												</div>
-												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="" disabled>
+												<div class="col-md-3" style="margin-top:20px;">
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
-												<div class="col-md-3" style="margin-top: 25px;">
+												<div class="col-md-3" style="margin-top:25px;">
 												</div>
 											</div>
-											<hr/>
-											<div class="row">
+											<div class="row" style="margin-top:10px;">
 												<div class="col-md-3">
-													<label class="form-label">項目</label>
 													<input type="text" class="form-control form-check-inline" value="線上支付" disabled>
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="2221">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="77.06%" disabled>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
-												<div class="col-md-3" style="margin-top: 25px;">
+												<div class="col-md-3">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a>
 													<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-plus"></i></a-->
 												</div>
 											</div>
-											<div class="row">
+											<div class="row" style="margin-top:10px;">
 												<div class="col-md-3">
-													<label class="form-label">項目</label>
 													<input type="text" class="form-control form-check-inline" value="現金" disabled>
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="641">
 												</div>
 												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="22.40%" disabled>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
-												<div class="col-md-3" style="margin-top: 25px;">
+												<div class="col-md-3">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a-->
 												</div>
 											</div>
@@ -849,9 +896,15 @@ $(document).ready(function(){
 													<label class="form-label">金額</label>
 													<input type="number" class="form-control form-check-inline" value="">
 												</div>
-												<div class="col-md-3">
-													<label class="form-label">百分比</label>
-													<input type="text" class="form-control form-check-inline" value="" disabled>
+												<div class="col-md-3" style="margin-top: 20px;">
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked disabled>
+														<label class="form-check-label" for="inline_form_checkbox">加總</label>
+													</div>
+													<div class="form-check form-check-inline">
+														<input class="form-check-input" id="inline_form_checkbox" type="checkbox" disabled>
+														<label class="form-check-label" for="inline_form_checkbox">負值</label>
+													</div>
 												</div>
 												<div class="col-md-3" style="margin-top: 25px;">
 													<!--a href="#" class="btn btn-white btn-sm disabled"><i class="fa fa-fw fa-trash-can"></i></a>
@@ -860,7 +913,7 @@ $(document).ready(function(){
 											</div>
 										</div>
 										<hr/>
-										<small class="fs-12px text-gray-500-darker divider">自訂付款項目</small>
+										<small class="fs-12px text-gray-500-darker divider">自訂項目</small>
 										<div class="row" style="margin-top: 15px;">
 											<div class="col-md-3">
 												<label class="form-label">項目</label>
@@ -870,11 +923,17 @@ $(document).ready(function(){
 												<label class="form-label">金額</label>
 												<input type="number" class="form-control form-check-inline" value="">
 											</div>
-											<div class="col-md-3">
-												<label class="form-label">百分比</label>
-												<input type="text" class="form-control form-check-inline" value="" disabled>
+											<div class="col-md-3" style="margin-top: 20px;">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" id="inline_form_checkbox" type="checkbox">
+													<label class="form-check-label" for="inline_form_checkbox">加總</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" id="inline_form_checkbox" type="checkbox">
+													<label class="form-check-label" for="inline_form_checkbox">負值</label>
+												</div>
 											</div>
-											<div class="col-md-3" style="margin-top: 25px;">
+										<div class="col-md-3" style="margin-top: 25px;">
 												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
 												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-plus"></i></a>
 											</div>
@@ -882,41 +941,38 @@ $(document).ready(function(){
 									</div>
 								</div>
 								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">銷售額小計</label>
+									<label class="form-label col-form-label col-md-2">分項數值小計</label>
 									<div class="col-md-10">
 										<div class="row">
 											<div class="col-md-6">
 												<input type="number" class="form-control mb-5px" value="9385" disabled="true" id="editinput">
 											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="100%" disabled>
-											</div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm" onclick="enable()"><i class="fa fa-fw fa-pen"></i></a>
+											<div class="col-md-6">
+												<!--a href="#" class="btn btn-white btn-sm" onclick="enable()"><i class="fa fa-fw fa-pen"></i></a>
 												<script>
 													function enable(){
 														document.getElementById("editinput").disabled = "";
 													}
-												  </script>
+												  </script-->
 
 											</div>
-											<small class="fs-12px text-gray-500-darker">自動加總分項金額；若需直接輸入總額，請點選編修(直接輸入之金額將全部計入第一項)</small>
+											<small class="fs-12px text-gray-500-darker">自動加總分項金額，至少需一組分項數據來源以供總額加總運用。</small>
 											
 										</div>
 										
 									</div>
 								</div>
 								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">客單數／平均客單價</label>
+									<label class="form-label col-form-label col-md-2">客單數</label>
 									<div class="col-md-10">
 										<div class="row">
 											<div class="col-md-6">
 												<input type="email" class="form-control mb-5px" value="54">
 											</div>
-											<div class="col-md-3">
+											<!--div class="col-md-3">
 												<input type="text" class="form-control form-check-inline" value="174" disabled>
-											</div>
-											<div class="col-md-3"></div>
+											</div-->
+											<div class="col-md-6"></div>
 										</div>
 										
 									</div>
