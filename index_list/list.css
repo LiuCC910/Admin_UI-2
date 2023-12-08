@@ -360,7 +360,7 @@ tbody tr td:first-child:before {
     content: counters(num, ".") " "
 }
 tbody tr td:nth-child(1) { max-width: 5% }
-tbody tr td:nth-child(2) { width: 30%; text-align: center; }
+/*tbody tr td:nth-child(2) { width: 30%; text-align: center; }*/
 
 .btn_grp{ text-align: right; }
 
