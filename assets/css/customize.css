@@ -42,7 +42,8 @@
 .widget-stats {min-height: 170px;}
 .chats .chats-item .message:before {top: 25%;}
 .chat-buttons.btn-group.flex-wrap {margin:15px;}
-.chat-buttons.btn-group.flex-wrap a {padding:5px 15px;background-color:#666;border:1px dotted #fff;}
+.chat-buttons.btn-group.flex-wrap a {padding:5px 10px;border:1px dotted #fff;}
+.date-time {color:#666;}
 
 .app-sidebar .menu .menu-profile {background-color: #fff !important;}
 .app-sidebar .menu .menu-profile .menu-profile-cover {background-image: none;}
@@ -96,3 +97,21 @@ table.table-fixed tbody tr th:nth-child(2) {
 
 .check-inline .form-check-inline {min-width: 8rem;}
 .form-check {margin-top: 10px;}
+
+.mailbox .list-email>li.list-group-item .email-sender { width: 15%;}
+.mailbox .list-email>li.list-group-item .email-title {width: 65%;}
+.mailbox .list-email>li.list-group-item .email-time {width: 20%;}
+
+.chats .chats-item .image {width:45px;height: 45px;}
+.chats .chats-item.start .image+.message {margin-left: 55px;}
+.chats .chats-item.end .image+.message {margin-left: 0;margin-right: 55px;}
+
+.chats .chats-item .message {background-color: #ccc;margin-top: 5px;}
+.chats .chats-item.start .message:before {border-right-color: #ccc;}
+.chats .end .message:before {border-left-color: #ccc;}
+
+.timeline .timeline-time {width:5%;}
+.timeline .timeline-icon {left:3.5%;top:40px;width:5px;}
+.timeline .timeline-icon a {width:15px;height:15px;border:3px solid #495057;}
+.timeline:before {left:4.5%;width:3px;}
+.timeline .timeline-content {margin-left:8%;max-width:88%;}
