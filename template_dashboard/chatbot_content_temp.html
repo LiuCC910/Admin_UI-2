@@ -13,29 +13,44 @@
 	<!-- ================== END core-css ================== -->
 	
 	<!-- ================== BEGIN page-css ================== -->
-	<link href="../assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
+	<link href="../assets/plugins/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="../assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
 	<link href="../assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
 	<link href="../assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
-	<link href="../assets/plugins/datepickk/dist/datepickk.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+	<link href="../assets/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/intro.js/minified/introjs.min.css" rel="stylesheet" />
 
-	<link href="../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/dropzone/dist/min/dropzone.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/select-picker/dist/picker.min.css" rel="stylesheet" />
 
-    <link href="../assets/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" />
-
-	<link href="../assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
-	<link href="../assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
-	<link href="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
-	<link href="../assets/plugins/select-picker/dist/picker.min.css" rel="stylesheet" />
-
-    <!-- ================== END page-css ================== -->
+    <link href="../assets/plugins/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+<!-- ================== END page-css ================== -->
 
 	<!-- 客製化CSS暫用 -->
 	<link href="../assets/css/customize.css" rel="stylesheet" />
 	<link href="../favicon.png" rel="icon" type="image/x-icon">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("select.source").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
 </head>
 <body>
 	<!-- BEGIN #loader -->
@@ -267,7 +282,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub active">
+					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cogs"></i>
@@ -276,7 +291,7 @@
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item active">
+							<div class="menu-item">
 								<a href="list_connect-setting.html" class="menu-link">
 									<div class="menu-text">介接設定管理</div>
 								</a>
@@ -538,43 +553,43 @@
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub">
+					<div class="menu-item has-sub active">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cubes"></i>
 							</div>
-							<div class="menu-text">AI智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
+							<div class="menu-text">智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item">
+							<div class="menu-item active">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI知識庫問答</div>
+									<div class="menu-text">問答紀錄</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI資源管理</div>
+									<div class="menu-text">知識問答</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI智慧排班</div>
+									<div class="menu-text">進貨建議</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI輿情預測</div>
+									<div class="menu-text">智慧排班</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI營運分析</div>
+									<div class="menu-text">統計報表</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">虛擬資料蒐集紀錄</div>
+									<div class="menu-text">活動建議</div>
 								</a>
 							</div>
 						</div>
@@ -602,257 +617,407 @@
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">資源串接管理</a></li>
-				<li class="breadcrumb-item active">介接設定管理</li>
+				<li class="breadcrumb-item"><a href="javascript:;">第一層</a></li>
+				<li class="breadcrumb-item active">第二層(目前功能)</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">介接設定管理</h1>
+			<h1 class="page-header">目前功能名稱</h1>
 			<!-- END page-header -->
-
-			<!-- BEGIN row -->
-			<div class="row">
-				<!-- BEGIN col-8 -->
-                <div class="col-xl-6">
-                </div>
-                <div class="col-xl-6 text-end">
-                    <div class="dt-buttons btn-group flex-wrap">
-                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="window.location.href='content_connect-add.html';"><i class="fas fa-circle-plus"></i> <span>新增資料</span></button>
-                        <button class="btn btn-outline-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="showFunction()"><i class="fab fa-searchengin"></i><span>欄位查詢</span></button> 
-						<script>
-							function showFunction() {
-							  var x = document.getElementById("advSearchDIV");
-							  if (x.style.display === "none") {
-								x.style.display = "flex";
-							  } else {
-								x.style.display = "none";
-							  }
-							}
-						</script>
-                    </div>
-
-                </div>
-            </div>
-            <hr/>
-            <div class="row" style="display: none;" id="advSearchDIV">
-				<div class="col-md-6">
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="fullname">日期</label>
-						<div class="col-lg-10">
-							<div class="input-group">
-								<input type="date" class="form-control" name="start" placeholder="Date Start">
-								<span class="input-group-text input-group-addon">至</span>
-								<input type="date" class="form-control" name="end" placeholder="Date End">
-							</div>
-						</div>
-					</div>
-					<!--div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">計畫年度</label>
-						<div class="col-lg-10">
-							<div class="input-group">
-								<select class="form-select">
-									<option>請選擇年度</option>
-									<option>112</option>
-									<option>111</option>
-									<option>110</option>
-									<option>109</option>
-									<option>108</option>
-								</select>
-								<span class="input-group-text input-group-addon">至</span>
-								<select class="form-select">
-									<option>請選擇年度</option>
-									<option>112</option>
-									<option>111</option>
-									<option>110</option>
-									<option>109</option>
-									<option>108</option>
-								</select>
-							</div>
-						</div>
-					</div-->
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">類別</label>
-						<div class="col-lg-10">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <select class="form-select">
-                                        <option>請選擇來源類型</option>
-                                        <option>POS</option>
-                                        <option>UBER Eats</option>
-                                        <option>foodpanda</option>
-                                        <option>快一點</option>
-                                        <option>其他</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <select class="form-select">
-                                        <option>請選擇建立模式</option>
-                                        <option>串接</option>
-                                        <option>自建</option>
-                                        <option>匯入</option>
-                                        <option>其他</option>
-                                    </select>
-                                </div>
-
-                            </div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2" for="projectyear">營業點</label>
-						<div class="col-lg-10">
-							<select class="form-select">
-								<option>請選擇營業點</option>
-								<option>112</option>
-								<option>111</option>
-								<option>110</option>
-								<option>109</option>
-								<option>108</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="form-label col-form-label col-lg-2">關鍵字</label>
-						<div class="col-md-10">
-							<input type="email" class="form-control" placeholder="請輸入關鍵字">
-						</div>
-					</div>
-					<!--div class="form-group row">
-						<label class="form-label col-form-label col-lg-2">名稱</label>
-						<div class="col-md-10">
-							<input type="email" class="form-control" placeholder="請輸入關鍵字">
-						</div>
-					</div-->
-				</div>
-				
-				<div class="col-md-12">
-						<div class="form-group row text-center">
-							<div class="col-lg-12">
-								<button type="submit" class="btn btn-primary" onclick="showFunction();">查詢</button>
-								<button type="cancel" class="btn">重設</button>
-							</div>
-						</div>
-				</div>
-			</div>
-            <!--資料內容頁籤區-->
-            <div class="row" style="margin-top: 25px;">
+            <div class="row">
                 <div class="col-xl-12">
-                    <div class="card data-table">
-                        <div class="card-body p-0">
-                            <table id="data-table-default" class="table table-striped table-bordered align-middle">
-                                <thead>
-                                    <tr>
-                                        <th width="1%" class="num"></th>
-                                        <th class="text-nowrap">串接名稱</th>
-                                        <th class="text-nowrap">資源類別</th>
-                                        <th class="text-nowrap">抓取模式</th>
-                                        <th class="text-nowrap">排程執行內容</th>
-                                        <th class="text-nowrap">運作狀態</th>
-                                        <th class="text-nowrap sorting_disabled">管理</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">1</td>
-                                        <td class="text-nowrap">門店POS銷售</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="content_connect-add.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">2</td>
-                                        <td class="text-nowrap">UBER Eats</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="Temp/content_connect-UBER.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">3</td>
-                                        <td class="text-nowrap">富胖達(foodpanda)</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="Temp/content_connect-foodpanda.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">4</td>
-                                        <td class="text-nowrap">快一點 線上點餐</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每日 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="Temp/content_connect-quickclick.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">5</td>
-                                        <td class="text-nowrap">foodomo 外送</td>
-                                        <td>銷售資源</td>
-                                        <td>網頁爬蟲</td>
-                                        <td>每週四 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-secondary text-gray-300">已停用</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="content_connect-add.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">5</td>
-                                        <td class="text-nowrap">人事薪資(月)</td>
-                                        <td>人事資源(月總表)</td>
-                                        <td>檔案抓取</td>
-                                        <td>每月 5 號 23:59:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="content_connect-salary.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td class="fw-bold">5</td>
-                                        <td class="text-nowrap">進貨金額(月)</td>
-                                        <td>進貨資源(月總表)</td>
-                                        <td>檔案抓取</td>
-                                        <td>每月 1 號 06:00:00 執行</td>
-                                        <td class="text-center"><span class="badge bg-lime">執行中</span></td>
-                                        <td class="text-nowrap">
-                                            <a href="content_connect-purchase.html" class="btn btn-warning btn-icon btn-circle"><i class="fa fa-pencil-alt"></i></a>
-                                            <a href="javascript:;" class="btn btn-danger btn-icon btn-circle"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                    <div class="mailbox" style="margin-bottom:-200px;height: 675px;">
+                        <!-- BEGIN mailbox-content -->
+                        <div class="mailbox-content" style="width:calc(100% - 300px) !important;">
+                            <div class="mailbox-content-body">
+                                <div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+                                    <!-- BEGIN list -->
+									<div class="card border-0">
+										<div class="card-body">
+											<div class="d-flex mb-3">
+												<a class="w-60px" href="javascript:;">
+													<img src="../assets/img/user/User-AI.png" alt="" class="mw-100 rounded-pill" />
+												</a>
+												<div class="flex-1 ps-3">
+													<h5 class="mb-1">進貨小幫手</h5>
+													<p class="mb-2">自訂進貨單 (2023/12/26~2024/1/14)<br/>
+														已依據銷售量與歷史進貨量，為您預估2023/12/26~2024/1/14建議用量，並依據建議用量產生個別供應商的建議進貨量(單)</p>
+												</div>
+											</div>
+											<hr class="bg-gray-500" />
 
-                            </table>
+											<div class="d-flex mb-3">
+												<a class="w-60px text-center" href="javascript:;">
+													<i class="fas fa-1 fa-2x"></i>
+												</a>
+												<div class="flex-1 ps-3">
+													<h5 class="mb-1">供應商：總部央廚</h5>
+													<p class="mb-2">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, tempus viverra turpis.</p>
+													<p class="mb-0">
+														<a href="javascript:;" class="btn btn-sm btn-info me-5px">檢視進貨單</a>
+														<a href="javascript:;" class="btn btn-sm btn-success me-5px">下載進貨單</a>
+														<a href="javascript:;" class="btn btn-sm btn-default">刪除此筆</a>
+													</p>
+												</div>
+											</div>
+											<div class="d-flex mb-3">
+												<a class="w-60px text-center" href="javascript:;">
+													<i class="fas fa-2 fa-2x"></i>
+												</a>
+												<div class="flex-1 ps-3">
+													<h5 class="mb-1">供應商：愛新鮮</h5>
+													<p class="mb-2">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, tempus viverra turpis.</p>
+													<p class="mb-0">
+														<a href="javascript:;" class="btn btn-sm btn-info me-5px">檢視進貨單</a>
+														<a href="javascript:;" class="btn btn-sm btn-success me-5px">下載進貨單</a>
+														<a href="javascript:;" class="btn btn-sm btn-default">刪除此筆</a>
+													</p>
+												</div>
+											</div>
+											<div class="d-flex mb-3">
+												<a class="w-60px text-center" href="javascript:;">
+													<i class="fas fa-3 fa-2x"></i>
+												</a>
+												<div class="flex-1 ps-3">
+													<h5 class="mb-1">供應商：自行採購</h5>
+													<p class="mb-2">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, tempus viverra turpis.</p>
+													<p class="mb-0">
+														<a href="javascript:;" class="btn btn-sm btn-info me-5px">檢視進貨單</a>
+														<a href="javascript:;" class="btn btn-sm btn-success me-5px">下載進貨單</a>
+														<a href="javascript:;" class="btn btn-sm btn-default">刪除此筆</a>
+													</p>
+												</div>
+											</div>
+										
+										</div>
+									</div>
+			
+                                    <!-- END list -->
+                                </div>
+                            </div>
                         </div>
-
+                        <!-- END mailbox-content -->
+                        <!-- BEGIN mailbox-sidebar -->
+                        <div class="mailbox-sidebar" style="flex: none;width: 300px;">
+                            <div class="mailbox-sidebar-header d-flex justify-content-center">
+                                <a href="#emailNav" data-bs-toggle="collapse" class="btn btn-dark btn-sm me-auto d-block d-lg-none">
+                                    <i class="fa fa-cog"></i>
+                                </a>
+                                <a href="#" class="btn btn-dark ps-40px pe-40px btn-sm">
+                                    新對話
+                                </a>
+                            </div>
+                            <div class="mailbox-sidebar-content collapse d-lg-block" id="emailNav">
+                                <!-- BEGIN scrollbar -->
+                                <div data-scrollbar="true" data-height="93vh" data-skip-mobile="true">
+									<div class="card border-0 mb-3 overflow-hidden text-gray-700 bg-white">
+										<div class="card-body">
+											<div class="chats" data-scrollbar="true" data-height="525px">
+												<div class="chats-item start">
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														歡迎使用智能小幫手。請輸入您想詢問的問題
+													</div>
+													<div class="message text-gray-800">
+														或您也可以先點選下方的服務選項
+													</div>
+													<div class="chat-buttons btn-group flex-wrap">
+														<a href="#" class="btn btn-blue">排班</a>
+														<a href="#" class="btn btn-indigo">進貨</a>
+														<a href="#" class="btn btn-green">活動</a>
+														<a href="#" class="btn btn-warning">報表</a>
+														<a href="#" class="btn btn-yellow text-dark">問答</a>
+														<a href="#" class="btn btn-gray">計算</a>
+														<a href="#" class="btn btn-gray-500">其他</a>
+													</div>
+												</div>
+												<hr/>
+												<div class="chats-item end">
+													<span class="date-time">09:00</span>
+													<a href="javascript:;" class="name text-white"><span class="badge bg-blue">You</span></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-4.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														進貨
+													</div>
+												</div>
+												<div class="chats-item start">
+													<span class="date-time">09:01</span>
+													<a href="javascript:;" class="name text-white">Ask AI</a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														沒問題👌<br/>請問需要預估哪段區間的進貨量建議？
+													</div>
+													<div class="chat-buttons btn-group flex-wrap">
+														<a href="#" class="btn btn-gray-500 text-dark">下一週</a>
+														<a href="#" class="btn btn-gray-500 text-dark">下二週</a>
+														<a href="#" class="btn btn-gray-500 text-dark">次月</a>
+														<a href="#" class="btn btn-gray-500 text-dark">自訂</a>
+													</div>
+												</div>
+												<div class="chats-item end">
+													<span class="date-time">09:03</span>
+													<a href="javascript:;" class="name text-white"><span class="badge bg-blue">You</span></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-4.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														自訂
+													</div>
+												</div>
+												<div class="chats-item start">
+													<span class="date-time">09:05</span>
+													<a href="javascript:;" class="name text-white">Ask AI</a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														請輸入要預估的進貨日期區間，例如：自2023/12/24至2024/1/6
+													</div>
+												</div>
+												<div class="chats-item end">
+													<span class="date-time">09:09</span>
+													<a href="javascript:;" class="name text-white"><span class="badge bg-blue">You</span></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-4.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														自12月26日到1月14日
+													</div>
+												</div>
+												<div class="chats-item start">
+													<span class="date-time">09:10</span>
+													<a href="javascript:;" class="name text-white">Ask AI</a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														沒問題👌<br/>已幫您準備2023/12/26~2024/1/14間的建議進貨量。您可檢視左側資訊並進行下載進貨單
+													</div>
+												</div>
+											</div>
+				
+										</div>
+									</div>
+                                </div>
+			
+                                <!-- END scrollbar -->
+                            </div>
+                            <div class="mailbox-sidebar-footer d-flex align-items-center" style="padding-bottom: 15px;">
+								<div class="input-group">
+									<input type="text" class="form-control" name="message" placeholder="請輸入您的問題或需要執行的動作">
+									<button class="btn btn-primary" type="button"><i class="fa fa-pencil-alt"></i></button>
+								</div>
+							</div>
+                        </div>
+                        <!-- END mailbox-sidebar -->
                     </div>
 
-                </div>
-				<!-- END col-8 -->
-			</div>
-			<!-- END row -->
+				</div>
 
+            </div>
 
 		</div>
 		<!-- END #content -->
-		
+
+		<!-- #modal-message -->
+		<div class="modal modal-message fade" id="modal-message">
+			<div class="modal-dialog" style="width:75%;margin-left:auto;margin-right:auto;">
+				<div class="modal-content">
+					<div class="modal-header" style="width:100%;">
+						<h4 class="modal-title">預覽抓取</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+					</div>
+					<div class="modal-body" style="width:100%;">
+						<div class="nav-wizards-container">
+							<nav class="nav nav-wizards-3 mb-2">
+								<div class="nav-item col">
+									<a class="nav-link completed disabled" href="#">
+										<div class="nav-dot"></div>
+										<div class="nav-title">Step 1</div>
+										<div class="nav-text">登入作業</div>
+									</a>
+								</div>
+								<div class="nav-item col">
+									<a class="nav-link active disabled" href="#">
+										<div class="nav-dot"></div>
+										<div class="nav-title">Step 2</div>
+										<div class="nav-text">抓取作業</div>
+									</a>
+								</div>
+								<div class="nav-item col">
+									<a class="nav-link disabled" href="#">
+										<div class="nav-dot"></div>
+										<div class="nav-title">Step 3</div>
+										<div class="nav-text">抓取完成</div>
+									</a>
+								</div>
+							</nav>
+						</div>
+						<div class="table-responsive" style="max-height:500px;overflow-y:scroll;margin-top:25px;">
+							<div class="fa-3x text-center">
+								<i class="fas fa-spinner fa-pulse"></i>
+							</div>
+							<table class="table table-striped table-bordered align-middle" style="width: 100%;">
+								<thead>
+									<tr>
+										<th width="1%"></th>
+										<th class="text-nowrap">日期</th>
+										<th class="text-nowrap">門店名稱／代碼</th>
+										<th class="text-nowrap">銷售總額</th>
+										<th class="text-nowrap">現金</th>
+										<th class="text-nowrap">台灣Pay</th>
+										<th class="text-nowrap">LINE Pay</th>
+										<th class="text-nowrap">客單數</th>
+										<!--th class="text-nowrap">平均客單價</th-->
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="odd gradeX">
+										<td class="fw-bold">1</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000000 台南成功店</td>
+										<td>9,385 </td>
+										<td>6,240 </td>
+										<td>0</td>
+										<td>3,145 </td>
+										<td>54 </td>
+										<!--td>369 </td-->
+									</tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">2</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000001 蘆洲民族店</td>
+										<td>10,2850</td>
+										<td>10,285</td>
+										<td>0</td>
+										<td>0</td>
+										<td>54 </td>
+								   </tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">3</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000002	中壢實踐店</td>
+										<td>9,385 </td>
+										<td>6,240</td>
+										<td>0</td>
+										<td>3,145</td>
+										<td>54 </td>
+									</tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">4</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000003 文山景美店</td>
+										<td>7,662 </td>
+										<td>5,727</td>
+										<td>650</td>
+										<td>1,285</td>
+										<td>54 </td>
+								   </tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">5</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000000 台南成功店</td>
+										<td>9,385 </td>
+										<td>6,240 </td>
+										<td>0</td>
+										<td>3,145 </td>
+										<td>54 </td>
+									</tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">6</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000001 蘆洲民族店</td>
+										<td>10,285</td>
+										<td>10,2850</td>
+										<td>0</td>
+										<td>0</td>
+										<td>54 </td>
+									</tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">7</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000002	中壢實踐店</td>
+										<td>6,240</td>
+										<td>0</td>
+										<td>3,145</td>
+										<td>9,385 </td>
+										<td>54 </td>
+									</tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">8</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000003 文山景美店</td>
+										<td>7,662 </td>
+										<td>5,727</td>
+										<td>650</td>
+										<td>1,285</td>
+										<td>54 </td>
+									</tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">9</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000000 台南成功店</td>
+										<td>9,385 </td>
+										<td>6,240 </td>
+										<td>0</td>
+										<td>3,145 </td>
+										<td>54 </td>
+									</tr>
+									<tr class="odd gradeX">
+										<td class="fw-bold">10</td>
+										<td>2023/11/21</td>
+										<td class="text-nowrap">000001 蘆洲民族店</td>
+										<td>10,2850</td>
+										<td>10,285</td>
+										<td>0</td>
+										<td>0</td>
+										<td>54 </td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+					<div class="modal-footer" style="width:100%;">
+						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal">關閉</a>
+						<!--a href="javascript:;" class="btn btn-primary">Save Changes</a-->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- #modal-dialog -->
+		<div class="modal fade" id="modal-dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">儲存送出</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							編修送出後將無法修改，若尚未完成請以草稿狀態儲存。<br/>
+							確定儲存送出？
+						</p>
+					</div>
+					<div class="modal-footer">
+						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal">取消</a>
+						<a href="#modal-without-animation" class="btn btn-success" data-bs-toggle="modal">確定</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- #modal-without-animation -->
+		<div class="modal" id="modal-without-animation">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">儲存成功</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+					</div>
+					<div class="modal-body">
+						新增成功，資料已儲存。
+					</div>
+					<div class="modal-footer">
+						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal" onclick="window.location.href='list_connect-setting.html';">關閉</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- BEGIN scroll-top-btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
 		<!-- END scroll-top-btn -->
@@ -865,51 +1030,43 @@
 	<!-- ================== END core-js ================== -->
 	
 	<!-- ================== BEGIN page-js ================== -->
-	<script src="../assets/plugins/apexcharts/dist/apexcharts.min.js"></script>
-	
 	<script src="../assets/plugins/d3/d3.min.js"></script>
-	<!--script src="../assets/plugins/datepickk/dist/datepickk.min.js"></script-->
-	<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>
+	<script src="../assets/plugins/nvd3/build/nv.d3.min.js"></script>
 	<script src="../assets/plugins/jvectormap-next/jquery-jvectormap.min.js"></script>
 	<script src="../assets/plugins/jvectormap-content/world-mill.js"></script>
-	<script src="../assets/plugins/moment/min/moment.min.js"></script>
-	<script src="../assets/plugins/nvd3/build/nv.d3.min.js"></script>
-
-	<script src="../assets/js/demo/pos-header.demo.js"></script>
-	<script src="../assets/js/demo/dashboard-demo.js"></script>
-	<script src="../assets/js/demo/dashboard-demo2.js"></script>
-
-	<script src="../assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-	<script src="../assets/js/demo/dashboard.js"></script>
-
-	<script src="../assets/plugins/select2/dist/js/select2.min.js"></script>
-	<script src="../assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
-	<script src="../assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
-	<script src="../assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
-	<script src="../assets/plugins/tag-it/js/tag-it.min.js"></script>
-	<script src="../assets/plugins/clipboard/dist/clipboard.min.js"></script>
-	<script src="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.js"></script>
-
-    <script src="../assets/js/demo/form-plugins.demo.js"></script>
-	<script src="../assets/js/demo/render.highlight.js"></script>
-
-    <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-	<script src="../assets/js/demo/dashboard-v3.js"></script>
-
-	<script src="../assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-	<script src="../assets/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-	<script src="../assets/js/demo/table-manage-default.demo.js"></script>
-
-    <script src="../assets/plugins/@highlightjs/cdn-assets/highlight.min.js"></script>
+	<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>
 
 	<script src="../assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="../assets/plugins/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+	<script src="../assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../assets/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+	<script src="../assets/plugins/@highlightjs/cdn-assets/highlight.min.js"></script>
+	<script src="../assets/plugins/intro.js/minified/intro.min.js"></script>
+	<script src="../assets/plugins/moment/min/moment.min.js"></script>
 
-    <script src="../assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-    <script src="../assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
-    <script src="../assets/plugins/select-picker/dist/picker.min.js"></script>
-    
+	<script src="../assets/js/demo/table-manage-default.demo.js"></script>
+	<script src="../assets/js/demo/render.highlight.js"></script>
+
+	<script src="../assets/plugins/dropzone/dist/min/dropzone.min.js"></script>
+	<script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="../assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script src="../assets/plugins/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+	<script src="../assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
+	<script src="../assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+
+	<script src="../assets/plugins/clipboard/dist/clipboard.min.js"></script>
+	<script src="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+	<script src="../assets/plugins/select2/dist/js/select2.min.js"></script>
+	<script src="../assets/plugins/select-picker/dist/picker.min.js"></script>
+	<script src="../assets/plugins/tag-it/js/tag-it.min.js"></script>
+
+	<script src="../assets/js/demo/form-plugins.demo.js"></script>
+	<script src="../assets/js/demo/render.highlight.js"></script>
+
+    <script src="../assets/js/demo/email-inbox.demo.js"></script>
     <!-- ================== END page-js ================== -->
+
 
 </body>
 </html>

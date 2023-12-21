@@ -27,6 +27,8 @@
     <link href="../assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
     <link href="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
     <link href="../assets/plugins/select-picker/dist/picker.min.css" rel="stylesheet" />
+
+    <link href="../assets/plugins/bootstrap-social/bootstrap-social.css" rel="stylesheet">
 <!-- ================== END page-css ================== -->
 
 	<!-- 客製化CSS暫用 -->
@@ -280,7 +282,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub active">
+					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cogs"></i>
@@ -289,7 +291,7 @@ $(document).ready(function(){
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item active">
+							<div class="menu-item">
 								<a href="list_connect-setting.html" class="menu-link">
 									<div class="menu-text">介接設定管理</div>
 								</a>
@@ -551,43 +553,43 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub">
+					<div class="menu-item has-sub active">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cubes"></i>
 							</div>
-							<div class="menu-text">AI智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
+							<div class="menu-text">智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item">
+							<div class="menu-item active">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI知識庫問答</div>
+									<div class="menu-text">問答紀錄</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI資源管理</div>
+									<div class="menu-text">知識問答</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI智慧排班</div>
+									<div class="menu-text">進貨建議</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI輿情預測</div>
+									<div class="menu-text">智慧排班</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI營運分析</div>
+									<div class="menu-text">統計報表</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">虛擬資料蒐集紀錄</div>
+									<div class="menu-text">活動建議</div>
 								</a>
 							</div>
 						</div>
@@ -615,443 +617,355 @@ $(document).ready(function(){
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">資源串接管理</a></li>
-				<li class="breadcrumb-item active">介接設定管理</li>
+				<li class="breadcrumb-item"><a href="javascript:;">第一層</a></li>
+				<li class="breadcrumb-item active">第二層(目前功能)</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">介接設定管理</h1>
+			<h1 class="page-header">目前功能名稱</h1>
 			<!-- END page-header -->
             <div class="row">
-                <div class="col-xl-6">
-                    <h2 class="page-title">新增資料</h2>
-                </div>
-                <div class="col-xl-6 text-end">
-                    <div class="dt-buttons btn-group flex-wrap">
-                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="history.back()"><i class="icon-arrow-left"></i> <span>返回前頁</span></button> 
-                    </div>
-
-                </div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-xl-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">抓取模式</label>
-									<div class="col-md-10">
-										<div class="row">
-                                            <div class="col-md-6">
-                                                <select class="form-select source" onchange="ShowDiv(this.value)">
-                                                    <option>請選擇</option>
-                                                    <option value="aa" selected>網頁爬蟲</option>
-                                                    <option value="bb">API</option>
-                                                    <option value="cc">資料庫</option>
-                                                    <option value="dd">EXCEL檔案</option>
-                                                </select>
-                                            </div>
-											<div class="col-md-6">
-                                            </div>
-                                        </div>
-									</div>
-								</div>
-								<div class="row aa box">
-									<label class="form-label col-form-label col-md-2">抓取資訊</label>
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-12">
-												<label class="form-label">登入網址</label>
-												<input type="text" class="form-control form-check-inline" value="https://cc.jabezpos.com/login.aspx?lng=TRA">
-											</div>
-                                        </div>
-                                        <div class="row" style="margin-top: 15px;">
-											<div class="col-md-4">
-												<label class="form-label">權限</label>
-												<select class="form-select account">
-                                                    <option value="all">總管理帳號</option>
-                                                    <option>門店帳號</option>
-                                                </select>
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">帳號</label>
-												<input type="name" class="form-control mb-5px" value="admin2@2430403"/>
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">密碼</label>
-												<input type="password" class="form-control mb-5px" value="1234"/>
-											</div>
-										</div>
+                <div class="col-xl-12">
+                    <div class="mailbox" style="margin-bottom:-200px;height:675px;">
+                        <!-- BEGIN mailbox-content -->
+						<div class="mailbox-content" style="width:100% !important;max-width:100% !important;">
+                            <div class="mailbox-content-header">
+                                <!-- BEGIN btn-toolbar -->
+                                <div class="btn-toolbar align-items-center">
+                                    <div class="form-check me-2">
+                                        <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailSelectAll" data-change="email-select-all" />
+                                        <label class="form-check-label" for="emailSelectAll"></label>
                                     </div>
-								</div>
-                                <div class="row dd box" style="display:none;">
-									<label class="form-label col-form-label col-md-2">抓取資訊</label>
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-3">
-												<label class="form-label">權限</label>
-												<select class="form-select account">
-                                                    <option>本機端</option>
-                                                    <option>Google drive</option>
-                                                </select>
-											</div>
-											<div class="col-md-7">
-												<label class="form-label">存放路徑</label>
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-2" style="margin-top: 25px;">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-folder-open"></i></a>
-											</div>
+                                    <div class="dropdown me-2">
+                                        <button class="btn btn-white btn-sm" data-bs-toggle="dropdown">
+                                            篩選條件(全部) <span class="caret ms-3px"></span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2"></i> 全部</a>
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2 text-muted"></i> 未讀</a>
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2 text-danger"></i> 提醒</a>
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2 text-warning"></i> 報表</a>
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2 text-green"></i> 活動</a>
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2 text-indigo"></i> 進貨</a>
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2 text-blue"></i> 排班</a>
+                                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle fs-9px fa-fw me-2 text-yellow"></i> 問答</a>
                                         </div>
                                     </div>
-								</div>
-                                <hr/>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">儲存類型</label>
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-6">
-                                                <label class="form-label">資料類型</label>
-                                                <select class="form-select">
-                                                    <option>銷售資源</option>
-                                                    <option>人事資源(月總表)</option>
-													<option>人員薪資(月明細)</option>
-                                                    <option>進貨資源(月總表)</option>
-													<option>進貨資源(單明細)</option>
-                                                    <option>原物料資源</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3">
-												<!--label class="form-label">存入類型</label>
-												<select class="form-select account">
-                                                    <option>POS</option>
-                                                    <option>UBER Eats</option>
-                                                    <option>foodpanda</option>
-                                                    <option>快一點</option>
-                                                    <option>其他</option>
-                                                </select-->
-											</div>
-                                            <div class="col-md-3">
-                                            </div>
-                                        </div>
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">共通來源抓取</label>
-									<div class="col-md-10">
-										<div class="row">
-                                            <div class="col-md-12">
-												<label class="form-label">目標功能網址</label>
-												<input type="text" class="form-control form-check-inline" value="https://cc.jabezpos.com/webClientMain1.aspx?approach=">
-											</div>
-                                        </div>
-                                        <div class="row" style="margin-top:10px;">
-											<div class="col-md-3">
-                                                <label class="form-label">顯示名稱</label>
-												<input type="text" class="form-control mb-5px" value="門店名稱／代碼" disabled>
-											</div>
-											<div class="col-md-7">
-												<label class="form-label">抓取目標</label>
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-											<div class="col-md-2" style="margin-top:22px;">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-										</div>
-										<div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="日期" disabled>
-											</div>
-											<div class="col-md-4">
-												<input type="text" class="form-control form-check-inline" value="" disabled>
-											</div>
-											<div class="col-md-3">
-												<select class="form-select account">
-                                                    <option>設定抓取目標</option>
-													<option selected>單日(抓取當日)</option>
-                                                    <option>一週(抓取當日回推)</option>
-                                                </select>
-											</div>
-											<div class="col-md-2">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-											<!--div class="col-md-2">
+                                    <button class="btn btn-sm btn-white me-2"><i class="fa fa-redo"></i></button>
+                                    <div class="w-100 d-sm-none d-block mb-2 hide" data-email-action="divider"></div>
+                                    <!-- BEGIN btn-group -->
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-white hide" data-email-action="delete"><i class="fa fa-times me-1"></i> <span class="hidden-xs">刪除</span></button>
+                                        <button class="btn btn-sm btn-white hide" data-email-action="archive"><i class="fa fa-folder-open me-1"></i> <span class="hidden-xs">標示已讀</span></button>
+                                        <!--button class="btn btn-sm btn-white hide" data-email-action="archive"><i class="fa fa-trash me-1"></i> <span class="hidden-xs">Junk</span></button-->
+                                    </div>
+                                    <!-- END btn-group -->
+                                    <!-- BEGIN btn-group -->
+                                    <div class="btn-group ms-auto">
+										<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="data-table-default">
+                                    </div>
+                                    <div class="btn-group" style="margin-left: 15px;">
+                                        <a href="chatbot_content-blank.html" class="btn btn-dark ps-40px pe-40px btn-sm">新對話</a>
+                                    </div>
+                                    
+                                    <!-- END btn-group -->
+                                </div>
+                                <!-- END btn-toolbar -->
+                            </div>
+                            <div class="mailbox-content-body">
+                                <div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+                                    <!-- BEGIN list-email -->
+                                    <ul class="list-group list-group-lg no-radius list-email">
+                                        <li class="list-group-item unread">
+                                            <div class="email-checkbox">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">單日</label>
-                                                </div>
-                                            </div-->
-
-										</div>
-										<!--div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="日期模式" disabled>
-											</div>
-											<div class="col-md-6">
-												<input type="text" class="form-control form-check-inline" value="" disabled>
-											</div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-										</div-->
-                                        <div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="客單數" disabled>
-											</div>
-											<div class="col-md-7">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-											<div class="col-md-2">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-										</div>
-										<small class="fs-12px text-gray-500-darker"></small>
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">分項來源抓取</label>
-									<div class="col-md-10">
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <label class="form-label">顯示名稱</label>
-												<input type="text" class="form-control mb-5px" value="銷售總額">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">抓取目標</label>
-												<input type="text" class="form-control form-check-inline" value="當日營業淨額">
-											</div>
-                                            <div class="col-md-3" style="margin-top:20px;">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox1">
+                                                    <label class="form-check-label" for="emailCheckbox1"></label>
                                                 </div>
                                             </div>
-											<div class="col-md-3" style="margin-top:25px;">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="現金">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
+                                            <a href="email_detail.html" class="email-user bg-blue">
+                                                <span class="text-white">班</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">排班小幫手</span>
+                                                    <span class="email-title">一月份班表 v1.2</span>
+                                                    <span class="email-time">2023/12/19</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item unread">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox2">
+                                                    <label class="form-check-label" for="emailCheckbox2"></label>
                                                 </div>
                                             </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="LINE PAY">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
+                                            <a href="email_detail.html" class="email-user bg-indigo">
+                                                <span class="text-white">貨</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">進貨小幫手</span>
+                                                    <span class="email-title">每週進貨單 12月第4週(12/24-12/30)</span>
+                                                    <span class="email-time">2023/12/18</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item unread">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox5">
+                                                    <label class="form-check-label" for="emailCheckbox5"></label>
                                                 </div>
                                             </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="台灣 PAY">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
+                                            <a href="email_detail.html" class="email-user bg-danger">
+                                                <span class="text-white">監</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">監控小幫手</span>
+                                                    <span class="email-title">2023/12/18 門店庫存量不足提示</span>
+                                                    <span class="email-time">2023/12/18</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item unread">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox3">
+                                                    <label class="form-check-label" for="emailCheckbox3"></label>
                                                 </div>
                                             </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="退款">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
+                                            <a href="email_detail.html" class="email-user bg-warning">
+                                                <span class="text-white">統</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">報表小幫手</span>
+                                                    <span class="email-title">門店週損益一覽表 12月第2週(12/10-12/16)</span>
+                                                    <span class="email-time">2023/12/18</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item unread">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox5">
+                                                    <label class="form-check-label" for="emailCheckbox5"></label>
                                                 </div>
                                             </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
+                                            <a href="email_detail.html" class="email-user bg-green">
+                                                <span class="text-white">活</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">活動小幫手</span>
+                                                    <span class="email-title">2023/12/24-2024/1/14 來店單筆消費滿額活動</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item unread">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox10">
+                                                    <label class="form-check-label" for="emailCheckbox10"></label>
                                                 </div>
                                             </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-plus"></i></a>
-											</div>
-										</div>
-										<small class="fs-12px text-gray-500-darker">分項來源為需加總的數值或金額，至少需一組以供總額加總運用。</small>
-									</div>
-								</div>
-                            </form>
-                            <!--hr/>
-                            <div id="dropzone">
-                                <form action="/upload" class="dropzone needsclick" id="demo-upload">
-                                    <label class="form-label col-form-label col-md-3">附件上傳</label>
-                                    <div class="dz-message needsclick">
-                                        拖拉檔案到 <b>這裡</b> 或是 <b>點選這裡</b> 來選擇檔案上傳<br />
-                                        <span class="dz-note needsclick">
-                                            (檔案限制: .pdf, .doc, .ppt, .xls，每一檔案上限10M，若需提供線上預覽檢視，請轉為PDF後上傳)
-                                        </span>
-                                    </div>
-                                </form>
-                            </div-->
+                                            <a href="email_detail.html" class="email-user bg-yellow">
+                                                <span class="text-black">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Font Awesome 5 is available now</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox12">
+                                                    <label class="form-check-label" for="emailCheckbox12"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Get your favorite Grande handcrafted beverage at $13</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox14">
+                                                    <label class="form-check-label" for="emailCheckbox14"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Bootstrap Framework is awesome</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox12">
+                                                    <label class="form-check-label" for="emailCheckbox12"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Get your favorite Grande handcrafted beverage at $13</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox14">
+                                                    <label class="form-check-label" for="emailCheckbox14"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Bootstrap Framework is awesome</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox12">
+                                                    <label class="form-check-label" for="emailCheckbox12"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Get your favorite Grande handcrafted beverage at $13</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox14">
+                                                    <label class="form-check-label" for="emailCheckbox14"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Bootstrap Framework is awesome</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox12">
+                                                    <label class="form-check-label" for="emailCheckbox12"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Get your favorite Grande handcrafted beverage at $13</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox14">
+                                                    <label class="form-check-label" for="emailCheckbox14"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Bootstrap Framework is awesome</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="email-checkbox">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" data-checked="email-checkbox" id="emailCheckbox14">
+                                                    <label class="form-check-label" for="emailCheckbox14"></label>
+                                                </div>
+                                            </div>
+                                            <a href="email_detail.html" class="email-user bg-grey">
+                                                <span class="text-white">問</span>
+                                            </a>
+                                            <div class="email-info">
+                                                <a href="email_detail.html">
+                                                    <span class="email-sender">問答小幫手</span>
+                                                    <span class="email-title">Bootstrap Framework is awesome</span>
+                                                    <span class="email-time">2023/12/1</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- END list-email -->
+                                </div>
+                            </div>
+                            <div class="mailbox-content-footer d-flex align-items-center">
+                                <div class="text-dark fw-bold">共 232 筆紀錄，目前在 1 / 16 頁</div>
+                                <div class="btn-group ms-auto">
+                                    <button class="btn btn-white btn-sm disabled">
+                                        <i class="fa fa-fw fa-chevron-left"></i>
+                                    </button>
+                                    <button class="btn btn-white btn-sm">
+                                        <i class="fa fa-fw fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                        <!-- END mailbox-content -->
                     </div>
 
 				</div>
-                <div class="col-xl-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">ID</label>
-									<div class="col-md-9">
-										<input type="id" class="form-control mb-5px" disabled />
-										<small class="fs-12px text-gray-500-darker">自動依產生</small>
-									</div>
-								</div>
-                                <div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">串接名稱</label>
-									<div class="col-md-9">
-										<input type="name" class="form-control mb-5px" value="POS"/>
-									</div>
-								</div>
-                                <div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">說明</label>
-									<div class="col-md-9">
-										<textarea class="form-control">門店POS銷售額資源</textarea>
-									</div>
-								</div>
-                                <div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">排程設定</label>
-									<div class="col-md-9">
-										<div class="row">
-											<div class="col-md-12">
-												<select class="form-select">
-                                                    <option>每月</option>
-                                                    <option selected>每週</option>
-                                                    <option>每日</option>
-                                                    <option>每時</option>
-                                                </select>
-											</div>
-											<div class="col-md-12">
-												<select class="form-select">
-                                                    <option>一</option>
-                                                    <option>二</option>
-                                                    <option>三</option>
-                                                    <option>四</option>
-                                                    <option>五</option>
-                                                    <option>六</option>
-                                                    <option selected>日</option>
-                                                </select>
-											</div>
-											<div class="col-md-12">
-												<input type="time" class="form-control form-check-inline" value="">
-											</div>
-										</div>
-                                    </div>
-								</div>
-
-                                <hr/>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">啟用狀態</label>
-									<div class="col-md-9">
-										<select class="form-select">
-                                            <option>正常</option>
-                                            <option>關閉</option>
-                                        </select>
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">編輯紀錄</label>
-									<div class="col-md-9" style="min-height: 55px;">
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">執行紀錄</label>
-									<div class="col-md-9" style="min-height: 55px;">
-									</div>
-								</div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <hr style="clear: both; margin-top: 20px;"/>
-                <div class="col-lg-12 text-center">
-                    <!--a href="#modal-dialog" class="btn btn-sm btn-success w-100px" data-bs-toggle="modal">Demo</a>
-					<a href="#modal-dialog" data-bs-toggle="modal" class="btn btn-primary">編修儲存</a>
-					<button type="submit" class="btn btn-primary" onclick="window.location.href='list_store-sales.html';">編修儲存</button-->
-					<a href="#modal-message" data-bs-toggle="modal" class="btn btn-outline-primary">預覽抓取</a>
-					<a href="#modal-without-animation" class="btn btn-primary" data-bs-toggle="modal">編修儲存</a>
-                    <button type="cancel" class="btn">重設</button>
-                </div>
 
             </div>
 
@@ -1311,6 +1225,7 @@ $(document).ready(function(){
 	<script src="../assets/js/demo/form-plugins.demo.js"></script>
 	<script src="../assets/js/demo/render.highlight.js"></script>
 
+    <script src="../assets/js/demo/email-inbox.demo.js"></script>
     <!-- ================== END page-js ================== -->
 
 

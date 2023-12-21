@@ -27,6 +27,8 @@
     <link href="../assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
     <link href="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
     <link href="../assets/plugins/select-picker/dist/picker.min.css" rel="stylesheet" />
+
+    <link href="../assets/plugins/bootstrap-social/bootstrap-social.css" rel="stylesheet">
 <!-- ================== END page-css ================== -->
 
 	<!-- 客製化CSS暫用 -->
@@ -280,7 +282,7 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub active">
+					<div class="menu-item has-sub">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cogs"></i>
@@ -289,7 +291,7 @@ $(document).ready(function(){
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item active">
+							<div class="menu-item">
 								<a href="list_connect-setting.html" class="menu-link">
 									<div class="menu-text">介接設定管理</div>
 								</a>
@@ -551,43 +553,43 @@ $(document).ready(function(){
 							</div>
 						</div>
 					</div>
-					<div class="menu-item has-sub">
+					<div class="menu-item has-sub active">
 						<a href="javascript:;" class="menu-link">
 							<div class="menu-icon">
 								<i class="fa fa-cubes"></i>
 							</div>
-							<div class="menu-text">AI智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
+							<div class="menu-text">智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
-							<div class="menu-item">
+							<div class="menu-item active">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI知識庫問答</div>
+									<div class="menu-text">問答紀錄</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI資源管理</div>
+									<div class="menu-text">知識問答</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI智慧排班</div>
+									<div class="menu-text">進貨建議</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI輿情預測</div>
+									<div class="menu-text">智慧排班</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI營運分析</div>
+									<div class="menu-text">統計報表</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">虛擬資料蒐集紀錄</div>
+									<div class="menu-text">活動建議</div>
 								</a>
 							</div>
 						</div>
@@ -615,443 +617,330 @@ $(document).ready(function(){
 			<!-- BEGIN breadcrumb -->
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">資源串接管理</a></li>
-				<li class="breadcrumb-item active">介接設定管理</li>
+				<li class="breadcrumb-item"><a href="javascript:;">第一層</a></li>
+				<li class="breadcrumb-item active">第二層(目前功能)</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">介接設定管理</h1>
+			<h1 class="page-header">目前功能名稱</h1>
 			<!-- END page-header -->
             <div class="row">
-                <div class="col-xl-6">
-                    <h2 class="page-title">新增資料</h2>
-                </div>
-                <div class="col-xl-6 text-end">
-                    <div class="dt-buttons btn-group flex-wrap">
-                        <button class="btn btn-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button" onclick="history.back()"><i class="icon-arrow-left"></i> <span>返回前頁</span></button> 
-                    </div>
-
-                </div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="col-xl-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">抓取模式</label>
-									<div class="col-md-10">
-										<div class="row">
-                                            <div class="col-md-6">
-                                                <select class="form-select source" onchange="ShowDiv(this.value)">
-                                                    <option>請選擇</option>
-                                                    <option value="aa" selected>網頁爬蟲</option>
-                                                    <option value="bb">API</option>
-                                                    <option value="cc">資料庫</option>
-                                                    <option value="dd">EXCEL檔案</option>
-                                                </select>
+                <div class="col-xl-12">
+                    <div class="mailbox" style="margin-bottom:-200px;height: 675px;">
+                        <!-- BEGIN mailbox-content -->
+                        <div class="mailbox-content" style="width:calc(100% - 300px) !important;">
+                            <div class="mailbox-content-body" style="background: #ccc;">
+                                <div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+                                    <!-- BEGIN list -->
+                                    <div class="timeline">
+                                        <!-- BEGIN timeline-item -->
+                                        <div class="timeline-item">
+                                            <!-- BEGIN timeline-icon -->
+                                            <div class="timeline-icon">
+                                                <a href="javascript:;">&nbsp;</a>
                                             </div>
-											<div class="col-md-6">
+                                            <!-- END timeline-icon -->
+                                            <!-- BEGIN timeline-content -->
+                                            <div class="timeline-content">
+                                                <!-- BEGIN timeline-header -->
+                                                <div class="timeline-header">
+                                                    <div class="userimage"><img src="../assets/img/user/User-AI.png" alt="" class="mw-100 rounded-pill" /></div>
+                                                    <div class="username">
+                                                        <a href="javascript:;">進貨小幫手</a>
+                                                        <div class="text-muted fs-12px">v1</div>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn btn-lg border-0 rounded-pill w-40px h-40px p-0 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown">
+                                                            <i class="fa fa-ellipsis-h text-gray-600"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a href="#" class="dropdown-item d-flex align-items-center">
+                                                                <i class="fa fa-fw fa-bookmark fa-lg"></i> 
+                                                                <div class="flex-1 ps-1">
+                                                                    <div>保留此筆資訊</div>
+                                                                    <div class="mt-n1 text-gray-500"><small>Add this to your saved items</small></div>
+                                                                </div>
+                                                            </a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-calendar-alt fa-lg me-1"></i> 加到門店行事曆</a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-download fa-lg me-1"></i> 下載全部檔案</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-trash-alt fa-lg me-1"></i> 移除此筆資訊</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-thumbs-up fa-lg me-1 text-blue"></i> 資訊提供恰當</a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-thumbs-down fa-lg me-1"></i> 資訊提供不佳</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END timeline-header -->
+                                    
+                                                <!-- BEGIN timeline-body -->
+                                                <div class="timeline-body">
+                                                    <!-- timeline-post -->
+                                                    <div class="mb-3">
+                                                        <div class="mb-2">
+                                                            自訂進貨單 (2023/12/26~2024/1/14)<br/>
+														    已依據銷售量與歷史進貨量，為您預估2023/12/26~2024/1/14的建議用量，並依據建議用量產生個別供應商的建議進貨量(單)
+                                                        </div>
+                                                        <div class="row gx-1">
+                                                            <div class="col-12">
+                                                                <hr class="bg-gray-500" />
+                                                                <div class="d-flex mb-3">
+                                                                    <div class="flex-1 ps-3">
+                                                                        <h5 class="mb-1">供應商：總部央廚</h5>
+                                                                        <p class="mb-0">
+                                                                            <a href="javascript:;" class="btn btn-sm btn-info me-5px">檢視進貨建議</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-success me-5px">下載進貨單</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-default">移除此筆建議</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <hr class="bg-gray-500" />
+                                                                <div class="d-flex mb-3">
+                                                                    <div class="flex-1 ps-3">
+                                                                        <h5 class="mb-1">供應商：自行採購</h5>
+                                                                        <p class="mb-0">
+                                                                            <a href="javascript:;" class="btn btn-sm btn-info me-5px">檢視進貨建議</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-success me-5px">下載進貨單</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-default">移除此筆建議</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <hr class="bg-gray-500" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                
+                                                </div>
+                                                <!-- END timeline-body -->
                                             </div>
+                                            <!-- END timeline-content -->
                                         </div>
-									</div>
-								</div>
-								<div class="row aa box">
-									<label class="form-label col-form-label col-md-2">抓取資訊</label>
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-12">
-												<label class="form-label">登入網址</label>
-												<input type="text" class="form-control form-check-inline" value="https://cc.jabezpos.com/login.aspx?lng=TRA">
-											</div>
+                                        <!-- END timeline-item -->
+                                        <!-- BEGIN timeline-item -->
+                                        <div class="timeline-item">
+                                            <!-- BEGIN timeline-icon -->
+                                            <div class="timeline-icon">
+                                                <a href="javascript:;">&nbsp;</a>
+                                            </div>
+                                            <!-- END timeline-icon -->
+                                            <!-- BEGIN timeline-content -->
+                                            <div class="timeline-content">
+                                                <!-- BEGIN timeline-header -->
+                                                <div class="timeline-header">
+                                                    <div class="userimage"><img src="../assets/img/user/User-AI.png" alt="" class="mw-100 rounded-pill" /></div>
+                                                    <div class="username">
+                                                        <a href="javascript:;">進貨小幫手</a>
+                                                        <div class="text-muted fs-12px">v2</div>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn btn-lg border-0 rounded-pill w-40px h-40px p-0 d-flex align-items-center justify-content-center" data-bs-toggle="dropdown">
+                                                            <i class="fa fa-ellipsis-h text-gray-600"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a href="#" class="dropdown-item d-flex align-items-center">
+                                                                <i class="fa fa-fw fa-bookmark fa-lg"></i> 
+                                                                <div class="flex-1 ps-1">
+                                                                    <div>保留此筆資訊</div>
+                                                                    <div class="mt-n1 text-gray-500"><small>Add this to your saved items</small></div>
+                                                                </div>
+                                                            </a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-calendar-alt fa-lg me-1"></i> 加到門店行事曆</a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-download fa-lg me-1"></i> 下載全部檔案</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-trash-alt fa-lg me-1"></i> 移除此筆資訊</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-thumbs-up fa-lg me-1"></i> 資訊提供恰當</a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-thumbs-down fa-lg me-1"></i> 資訊提供不佳</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END timeline-header -->
+                                    
+                                                <!-- BEGIN timeline-body -->
+                                                <div class="timeline-body">
+                                                    <!-- timeline-post -->
+                                                    <div class="mb-3">
+                                                        <div class="mb-2">
+                                                            修正進貨條件：增加愛新鮮的進貨建議(2023/12/26~2024/1/14)<br/>
+														    已依據銷售量與歷史進貨量，為您預估2023/12/26~2024/1/14的建議用量，並依據建議用量產生愛新鮮供應商的建議進貨量(單)
+                                                        </div>
+                                                        <div class="row gx-1">
+                                                            <div class="col-12">
+                                                                <hr class="bg-gray-500" />
+                                                                <div class="d-flex mb-3">
+                                                                    <div class="flex-1 ps-3">
+                                                                        <h5 class="mb-1">供應商：愛新鮮</h5>
+                                                                        <p class="mb-0">
+                                                                            <a href="javascript:;" class="btn btn-sm btn-info me-5px">檢視進貨建議</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-success me-5px">下載進貨單</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-default">移除此筆建議</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <hr class="bg-gray-500" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                                                
+                                                </div>
+                                                <!-- END timeline-body -->
+                                            </div>
+                                            <!-- END timeline-content -->
                                         </div>
-                                        <div class="row" style="margin-top: 15px;">
-											<div class="col-md-4">
-												<label class="form-label">權限</label>
-												<select class="form-select account">
-                                                    <option value="all">總管理帳號</option>
-                                                    <option>門店帳號</option>
-                                                </select>
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">帳號</label>
-												<input type="name" class="form-control mb-5px" value="admin2@2430403"/>
-											</div>
-											<div class="col-md-4">
-												<label class="form-label">密碼</label>
-												<input type="password" class="form-control mb-5px" value="1234"/>
-											</div>
-										</div>
+                                        <!-- END timeline-item -->
                                     </div>
-								</div>
-                                <div class="row dd box" style="display:none;">
-									<label class="form-label col-form-label col-md-2">抓取資訊</label>
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-3">
-												<label class="form-label">權限</label>
-												<select class="form-select account">
-                                                    <option>本機端</option>
-                                                    <option>Google drive</option>
-                                                </select>
-											</div>
-											<div class="col-md-7">
-												<label class="form-label">存放路徑</label>
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-2" style="margin-top: 25px;">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-folder-open"></i></a>
-											</div>
-                                        </div>
-                                    </div>
-								</div>
-                                <hr/>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">儲存類型</label>
-									<div class="col-md-10">
-										<div class="row">
-											<div class="col-md-6">
-                                                <label class="form-label">資料類型</label>
-                                                <select class="form-select">
-                                                    <option>銷售資源</option>
-                                                    <option>人事資源(月總表)</option>
-													<option>人員薪資(月明細)</option>
-                                                    <option>進貨資源(月總表)</option>
-													<option>進貨資源(單明細)</option>
-                                                    <option>原物料資源</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-3">
-												<!--label class="form-label">存入類型</label>
-												<select class="form-select account">
-                                                    <option>POS</option>
-                                                    <option>UBER Eats</option>
-                                                    <option>foodpanda</option>
-                                                    <option>快一點</option>
-                                                    <option>其他</option>
-                                                </select-->
-											</div>
-                                            <div class="col-md-3">
-                                            </div>
-                                        </div>
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">共通來源抓取</label>
-									<div class="col-md-10">
-										<div class="row">
-                                            <div class="col-md-12">
-												<label class="form-label">目標功能網址</label>
-												<input type="text" class="form-control form-check-inline" value="https://cc.jabezpos.com/webClientMain1.aspx?approach=">
-											</div>
-                                        </div>
-                                        <div class="row" style="margin-top:10px;">
-											<div class="col-md-3">
-                                                <label class="form-label">顯示名稱</label>
-												<input type="text" class="form-control mb-5px" value="門店名稱／代碼" disabled>
-											</div>
-											<div class="col-md-7">
-												<label class="form-label">抓取目標</label>
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-											<div class="col-md-2" style="margin-top:22px;">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-										</div>
-										<div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="日期" disabled>
-											</div>
-											<div class="col-md-4">
-												<input type="text" class="form-control form-check-inline" value="" disabled>
-											</div>
-											<div class="col-md-3">
-												<select class="form-select account">
-                                                    <option>設定抓取目標</option>
-													<option selected>單日(抓取當日)</option>
-                                                    <option>一週(抓取當日回推)</option>
-                                                </select>
-											</div>
-											<div class="col-md-2">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-											<!--div class="col-md-2">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">單日</label>
-                                                </div>
-                                            </div-->
-
-										</div>
-										<!--div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="日期模式" disabled>
-											</div>
-											<div class="col-md-6">
-												<input type="text" class="form-control form-check-inline" value="" disabled>
-											</div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-										</div-->
-                                        <div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="客單數" disabled>
-											</div>
-											<div class="col-md-7">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-											<div class="col-md-2">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-											</div>
-										</div>
-										<small class="fs-12px text-gray-500-darker"></small>
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">分項來源抓取</label>
-									<div class="col-md-10">
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <label class="form-label">顯示名稱</label>
-												<input type="text" class="form-control mb-5px" value="銷售總額">
-											</div>
-											<div class="col-md-3">
-												<label class="form-label">抓取目標</label>
-												<input type="text" class="form-control form-check-inline" value="當日營業淨額">
-											</div>
-                                            <div class="col-md-3" style="margin-top:20px;">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
-                                                </div>
-                                            </div>
-											<div class="col-md-3" style="margin-top:25px;">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="現金">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
-                                                </div>
-                                            </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="LINE PAY">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
-                                                </div>
-                                            </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-                                                <input type="text" class="form-control mb-5px" value="台灣 PAY">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
-                                                </div>
-                                            </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row">
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="退款">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox" checked>
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
-                                                </div>
-                                            </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-trash-can"></i></a>
-											</div>
-										</div>
-                                        <div class="row" style="margin-top:5px;">
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-											<div class="col-md-3">
-												<input type="text" class="form-control form-check-inline" value="">
-											</div>
-                                            <div class="col-md-3">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">加總</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inline_form_checkbox" type="checkbox">
-                                                    <label class="form-check-label" for="inline_form_checkbox">負值</label>
-                                                </div>
-                                            </div>
-											<div class="col-md-3">
-												<a href="#" class="btn btn-white btn-sm"><i class="fas fa-pen-to-square"></i></a>
-												<a href="#" class="btn btn-white btn-sm"><i class="fa fa-fw fa-plus"></i></a>
-											</div>
-										</div>
-										<small class="fs-12px text-gray-500-darker">分項來源為需加總的數值或金額，至少需一組以供總額加總運用。</small>
-									</div>
-								</div>
-                            </form>
-                            <!--hr/>
-                            <div id="dropzone">
-                                <form action="/upload" class="dropzone needsclick" id="demo-upload">
-                                    <label class="form-label col-form-label col-md-3">附件上傳</label>
-                                    <div class="dz-message needsclick">
-                                        拖拉檔案到 <b>這裡</b> 或是 <b>點選這裡</b> 來選擇檔案上傳<br />
-                                        <span class="dz-note needsclick">
-                                            (檔案限制: .pdf, .doc, .ppt, .xls，每一檔案上限10M，若需提供線上預覽檢視，請轉為PDF後上傳)
-                                        </span>
-                                    </div>
-                                </form>
-                            </div-->
+			
+                                    <!-- END list -->
+                                </div>
+                            </div>
+                            <div class="text-center" style="background-color: rgb(255, 255, 255, 0.5);padding: 10px 0;">
+                                <a href="#modal-without-animation" class="btn btn-primary" data-bs-toggle="modal">儲存紀錄</a>
+                                <button type="cancel" class="btn">放棄</button>
+                            </div>
                         </div>
+                        <!-- END mailbox-content -->
+                        <!-- BEGIN mailbox-sidebar -->
+                        <div class="mailbox-sidebar" style="flex:none;width: 300px;">
+                            <div class="mailbox-sidebar-header d-flex justify-content-center">
+                                <a href="#emailNav" data-bs-toggle="collapse" class="btn btn-dark btn-sm me-auto d-block d-lg-none">
+                                    <i class="fa fa-cog"></i>
+                                </a>
+                                <a href="#" class="btn btn-dark ps-40px pe-40px btn-sm">新對話(清空)</a>
+                            </div>
+                            <div class="mailbox-sidebar-content collapse d-lg-block" data-scrollbar="false">
+                                <!-- BEGIN scrollbar -->
+                                <div data-scrollbar="true" data-height="93vh" data-skip-mobile="true">
+									<div class="card border-0 mb-3 overflow-hidden text-gray-700 bg-white">
+										<div class="card-body">
+											<div class="chats" data-scrollbar="true" data-height="525px">
+												<!--第一則固定顯示-->
+                                                <div class="chats-item start">
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														歡迎使用智能小幫手。請輸入您想詢問的問題
+													</div>
+													<div class="message text-gray-800">
+														或您也可以先點選下方的服務選項
+													</div>
+													<div class="chat-buttons btn-group flex-wrap">
+														<a href="#" class="btn btn-blue">排班</a>
+														<a href="#" class="btn btn-indigo">進貨</a>
+														<a href="#" class="btn btn-green">活動</a>
+														<a href="#" class="btn btn-warning">報表</a>
+														<a href="#" class="btn btn-yellow text-dark">問答</a>
+														<a href="#" class="btn btn-gray">計算</a>
+														<a href="#" class="btn btn-gray-500">其他</a>
+													</div>
+												</div>
+												<hr/>
+												<div class="chats-item end">
+													<span class="date-time">09:00</span>
+													<a href="javascript:;" class="name text-white"><span class="badge bg-blue">You</span></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-4.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														進貨
+													</div>
+												</div>
+												<div class="chats-item start">
+													<span class="date-time">09:01</span>
+													<a href="javascript:;" class="name text-white">Ask AI</a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														沒問題👌<br/>請問需要預估哪段區間的進貨量建議？
+													</div>
+													<div class="chat-buttons btn-group flex-wrap">
+														<a href="#" class="btn btn-gray-500 text-dark">下一週</a>
+														<a href="#" class="btn btn-gray-500 text-dark">下二週</a>
+														<a href="#" class="btn btn-gray-500 text-dark">次月</a>
+														<a href="#" class="btn btn-gray-500 text-dark">自訂</a>
+													</div>
+												</div>
+												<div class="chats-item end">
+													<span class="date-time">09:03</span>
+													<a href="javascript:;" class="name text-white"><span class="badge bg-blue">You</span></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-4.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														自訂
+													</div>
+												</div>
+												<div class="chats-item start">
+													<span class="date-time">09:05</span>
+													<a href="javascript:;" class="name text-white">Ask AI</a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														請輸入要預估的進貨日期區間，例如：自2023/12/24至2024/1/6
+													</div>
+												</div>
+												<div class="chats-item end">
+													<span class="date-time">09:09</span>
+													<a href="javascript:;" class="name text-white"><span class="badge bg-blue">You</span></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-4.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														自12月26日到1月14日
+													</div>
+												</div>
+												<div class="chats-item start">
+													<span class="date-time">09:10</span>
+													<a href="javascript:;" class="name text-white">Ask AI</a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														沒問題👌<br/>已幫您準備2023/12/26~2024/1/14間的建議進貨量。您可檢視左側資訊並進行下載進貨單
+													</div>
+												</div>
+												<div class="chats-item start">
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														請問此項資訊是否符合您的需求？
+                                                        <div class="d-flex align-items-center fw-bold">
+                                                            <a href="#" class="dropdown-item active"><i class="fa fa-fw fa-thumbs-up fa-lg me-1 text-blue"></i> 恰當</a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-thumbs-down fa-lg me-1"></i> 不佳</a>
+                                                        </div>
+													</div>
+												</div>
+												<div class="chats-item end">
+													<span class="date-time">09:16</span>
+													<a href="javascript:;" class="name text-white"><span class="badge bg-blue">You</span></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-4.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														請再增加同區間的愛新鮮廠商的進貨建議
+													</div>
+												</div>
+												<div class="chats-item start">
+													<span class="date-time">09:17</span>
+													<a href="javascript:;" class="name text-white">Ask AI</a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														沒問題👌<br/>已幫您準備2023/12/26~2024/1/14間的愛新鮮建議進貨量。您可檢視左側資訊並進行下載進貨單
+													</div>
+												</div>
+												<div class="chats-item start">
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<div class="message text-gray-800">
+														請問此項資訊是否符合您的需求？
+                                                        <div class="d-flex align-items-center fw-bold">
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-thumbs-up fa-lg me-1"></i> 恰當</a>
+                                                            <a href="#" class="dropdown-item"><i class="fa fa-fw fa-thumbs-down fa-lg me-1"></i> 不佳</a>
+                                                        </div>
+													</div>
+												</div>
+											</div>
+				
+										</div>
+									</div>
+                                </div>
+			
+                                <!-- END scrollbar -->
+                            </div>
+                            <div class="mailbox-sidebar-footer d-flex align-items-center" style="padding-bottom: 15px;">
+								<div class="input-group">
+									<input type="text" class="form-control" name="message" placeholder="請輸入您的問題或需要執行的動作">
+									<button class="btn btn-primary" type="button"><i class="fa fa-pencil-alt"></i></button>
+								</div>
+							</div>
+                        </div>
+                        <!-- END mailbox-sidebar -->
                     </div>
-
 				</div>
-                <div class="col-xl-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <form>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">ID</label>
-									<div class="col-md-9">
-										<input type="id" class="form-control mb-5px" disabled />
-										<small class="fs-12px text-gray-500-darker">自動依產生</small>
-									</div>
-								</div>
-                                <div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">串接名稱</label>
-									<div class="col-md-9">
-										<input type="name" class="form-control mb-5px" value="POS"/>
-									</div>
-								</div>
-                                <div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">說明</label>
-									<div class="col-md-9">
-										<textarea class="form-control">門店POS銷售額資源</textarea>
-									</div>
-								</div>
-                                <div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">排程設定</label>
-									<div class="col-md-9">
-										<div class="row">
-											<div class="col-md-12">
-												<select class="form-select">
-                                                    <option>每月</option>
-                                                    <option selected>每週</option>
-                                                    <option>每日</option>
-                                                    <option>每時</option>
-                                                </select>
-											</div>
-											<div class="col-md-12">
-												<select class="form-select">
-                                                    <option>一</option>
-                                                    <option>二</option>
-                                                    <option>三</option>
-                                                    <option>四</option>
-                                                    <option>五</option>
-                                                    <option>六</option>
-                                                    <option selected>日</option>
-                                                </select>
-											</div>
-											<div class="col-md-12">
-												<input type="time" class="form-control form-check-inline" value="">
-											</div>
-										</div>
-                                    </div>
-								</div>
-
-                                <hr/>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">啟用狀態</label>
-									<div class="col-md-9">
-										<select class="form-select">
-                                            <option>正常</option>
-                                            <option>關閉</option>
-                                        </select>
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">編輯紀錄</label>
-									<div class="col-md-9" style="min-height: 55px;">
-									</div>
-								</div>
-								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-3">執行紀錄</label>
-									<div class="col-md-9" style="min-height: 55px;">
-									</div>
-								</div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <hr style="clear: both; margin-top: 20px;"/>
-                <div class="col-lg-12 text-center">
-                    <!--a href="#modal-dialog" class="btn btn-sm btn-success w-100px" data-bs-toggle="modal">Demo</a>
-					<a href="#modal-dialog" data-bs-toggle="modal" class="btn btn-primary">編修儲存</a>
-					<button type="submit" class="btn btn-primary" onclick="window.location.href='list_store-sales.html';">編修儲存</button-->
-					<a href="#modal-message" data-bs-toggle="modal" class="btn btn-outline-primary">預覽抓取</a>
-					<a href="#modal-without-animation" class="btn btn-primary" data-bs-toggle="modal">編修儲存</a>
-                    <button type="cancel" class="btn">重設</button>
-                </div>
 
             </div>
 
@@ -1311,6 +1200,7 @@ $(document).ready(function(){
 	<script src="../assets/js/demo/form-plugins.demo.js"></script>
 	<script src="../assets/js/demo/render.highlight.js"></script>
 
+    <script src="../assets/js/demo/email-inbox.demo.js"></script>
     <!-- ================== END page-js ================== -->
 
 
