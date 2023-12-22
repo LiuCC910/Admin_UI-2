@@ -51,6 +51,19 @@ $(document).ready(function(){
     }).change();
 });
 </script>
+<script>
+	window.onload = function () {
+     var objDiv = document.getElementById("mainDiv");
+     objDiv.scrollTop = objDiv.scrollHeight;
+}
+</script>
+<script>
+	window.onload = function () {
+     var objDiv = document.getElementById("chatDiv");
+     objDiv.scrollTop = objDiv.scrollHeight;
+}
+</script>
+
 </head>
 <body>
 	<!-- BEGIN #loader -->
@@ -563,7 +576,7 @@ $(document).ready(function(){
 						</a>
 						<div class="menu-submenu">
 							<div class="menu-item active">
-								<a href="#" class="menu-link">
+								<a href="chatbot_list.html" class="menu-link">
 									<div class="menu-text">問答紀錄</div>
 								</a>
 							</div>
@@ -630,7 +643,7 @@ $(document).ready(function(){
                         <!-- BEGIN mailbox-content -->
                         <div class="mailbox-content" style="width:calc(100% - 300px) !important;">
                             <div class="mailbox-content-body" style="background: #ccc;">
-                                <div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+                                <div data-scrollbar="true" data-height="100%" data-skip-mobile="true" id="mainDiv">
                                     <!-- BEGIN list -->
                                     <div class="timeline">
                                         <!-- BEGIN timeline-item -->
@@ -795,7 +808,7 @@ $(document).ready(function(){
                             </div>
                             <div class="text-center" style="background-color: rgb(255, 255, 255, 0.5);padding: 10px 0;">
                                 <a href="#modal-without-animation" class="btn btn-primary" data-bs-toggle="modal">儲存紀錄</a>
-                                <button type="cancel" class="btn">放棄</button>
+                                <button type="cancel" class="btn" onclick="window.location.href='chatbot_list.html';">放棄</button>
                             </div>
                         </div>
                         <!-- END mailbox-content -->
@@ -805,17 +818,17 @@ $(document).ready(function(){
                                 <a href="#emailNav" data-bs-toggle="collapse" class="btn btn-dark btn-sm me-auto d-block d-lg-none">
                                     <i class="fa fa-cog"></i>
                                 </a>
-                                <a href="#" class="btn btn-dark ps-40px pe-40px btn-sm">新對話(清空)</a>
+                                <a href="#modal-dialog" class="btn btn-dark ps-40px pe-40px btn-sm" data-bs-toggle="modal">新對話(清空)</a>
                             </div>
                             <div class="mailbox-sidebar-content collapse d-lg-block" data-scrollbar="false">
                                 <!-- BEGIN scrollbar -->
                                 <div data-scrollbar="true" data-height="93vh" data-skip-mobile="true">
 									<div class="card border-0 mb-3 overflow-hidden text-gray-700 bg-white">
 										<div class="card-body">
-											<div class="chats" data-scrollbar="true" data-height="525px">
+											<div class="chats" data-scrollbar="true" data-height="525px" id="chatDiv">
 												<!--第一則固定顯示-->
                                                 <div class="chats-item start">
-													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-AI.png" class="mw-100 rounded-pill"/></a>
 													<div class="message text-gray-800">
 														歡迎使用智能小幫手。請輸入您想詢問的問題
 													</div>
@@ -844,7 +857,7 @@ $(document).ready(function(){
 												<div class="chats-item start">
 													<span class="date-time">09:01</span>
 													<a href="javascript:;" class="name text-white">Ask AI</a>
-													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-AI.png" class="mw-100 rounded-pill"/></a>
 													<div class="message text-gray-800">
 														沒問題👌<br/>請問需要預估哪段區間的進貨量建議？
 													</div>
@@ -866,7 +879,7 @@ $(document).ready(function(){
 												<div class="chats-item start">
 													<span class="date-time">09:05</span>
 													<a href="javascript:;" class="name text-white">Ask AI</a>
-													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-AI.png" class="mw-100 rounded-pill"/></a>
 													<div class="message text-gray-800">
 														請輸入要預估的進貨日期區間，例如：自2023/12/24至2024/1/6
 													</div>
@@ -882,13 +895,13 @@ $(document).ready(function(){
 												<div class="chats-item start">
 													<span class="date-time">09:10</span>
 													<a href="javascript:;" class="name text-white">Ask AI</a>
-													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-AI.png" class="mw-100 rounded-pill"/></a>
 													<div class="message text-gray-800">
 														沒問題👌<br/>已幫您準備2023/12/26~2024/1/14間的建議進貨量。您可檢視左側資訊並進行下載進貨單
 													</div>
 												</div>
 												<div class="chats-item start">
-													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-AI.png" class="mw-100 rounded-pill"/></a>
 													<div class="message text-gray-800">
 														請問此項資訊是否符合您的需求？
                                                         <div class="d-flex align-items-center fw-bold">
@@ -908,13 +921,13 @@ $(document).ready(function(){
 												<div class="chats-item start">
 													<span class="date-time">09:17</span>
 													<a href="javascript:;" class="name text-white">Ask AI</a>
-													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-AI.png" class="mw-100 rounded-pill"/></a>
 													<div class="message text-gray-800">
 														沒問題👌<br/>已幫您準備2023/12/26~2024/1/14間的愛新鮮建議進貨量。您可檢視左側資訊並進行下載進貨單
 													</div>
 												</div>
 												<div class="chats-item start">
-													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/User-AI.png" class="mw-100 rounded-pill"/></a>
+													<a href="javascript:;" class="image"><img alt="" src="../assets/img/user/user-AI.png" class="mw-100 rounded-pill"/></a>
 													<div class="message text-gray-800">
 														請問此項資訊是否符合您的需求？
                                                         <div class="d-flex align-items-center fw-bold">
@@ -1119,18 +1132,18 @@ $(document).ready(function(){
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title">儲存送出</h4>
+						<h4 class="modal-title">清空對話</h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
 					</div>
 					<div class="modal-body">
 						<p>
-							編修送出後將無法修改，若尚未完成請以草稿狀態儲存。<br/>
-							確定儲存送出？
+							新的對話將清空目前對話並放棄所有產出結果紀錄。<br/>
+							確定清空對話？
 						</p>
 					</div>
 					<div class="modal-footer">
 						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal">取消</a>
-						<a href="#modal-without-animation" class="btn btn-success" data-bs-toggle="modal">確定</a>
+						<a href="chatbot_content-blank.html" class="btn btn-success">確定</a>
 					</div>
 				</div>
 			</div>
@@ -1148,7 +1161,7 @@ $(document).ready(function(){
 						新增成功，資料已儲存。
 					</div>
 					<div class="modal-footer">
-						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal" onclick="window.location.href='list_connect-setting.html';">關閉</a>
+						<a href="javascript:;" class="btn btn-white" data-bs-dismiss="modal" onclick="window.location.href='chatbot_list.html';">關閉</a>
 					</div>
 				</div>
 			</div>
@@ -1202,7 +1215,6 @@ $(document).ready(function(){
 
     <script src="../assets/js/demo/email-inbox.demo.js"></script>
     <!-- ================== END page-js ================== -->
-
 
 </body>
 </html>
