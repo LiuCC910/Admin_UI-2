@@ -51,6 +51,7 @@ table th,table td{
     padding:.5em .5em;
     text-align:left;
     font-size: 1.05em;
+    vertical-align: top;
 }
 table th.main_data,table td.main_data{
     text-align:center
