@@ -678,7 +678,7 @@ $(document).ready(function(){
                                                 <label class="form-label">項目</label>
                                                 <select class="form-select">
                                                     <option>請選擇</option>
-                                                    <option>POS</option>
+                                                    <option disabled>POS</option>
                                                     <option selected>UBER Eats</option>
                                                     <option>foodpanda</option>
                                                     <option>快一點</option>
@@ -706,8 +706,8 @@ $(document).ready(function(){
                                                 <label class="form-label">項目</label>
                                                 <select class="form-select">
                                                     <option>請選擇</option>
-                                                    <option>POS</option>
-                                                    <option>UBER Eats</option>
+                                                    <option disabled>POS</option>
+                                                    <option disabled>UBER Eats</option>
                                                     <option selected>foodpanda</option>
                                                     <option>快一點</option>
                                                     <option>其他</option>
@@ -861,6 +861,29 @@ $(document).ready(function(){
                     <div class="card">
                         <div class="card-body">
                             <form>
+								<div class="row mb-15px">
+									<label class="form-label col-form-label col-md-3">所屬總部</label>
+									<div class="col-md-9">
+										<input type="id" class="form-control mb-5px" value="鷹展(麻辣天后)" disabled />
+										<select class="default-select2 form-control">
+											<option value="00" disabled>非總部帳號建立者，需選擇總部</option>
+											<option value="AK">0001 鷹展(麻辣天后)</option>
+											<option value="HI">0002 Hawaii</option>
+											<option value="CA">California</option>
+											<option value="NV">Nevada</option>
+											<option value="OR">Oregon</option>
+											<option value="WA">Washington</option>
+											<option value="AZ">Arizona</option>
+											<option value="CO">Colorado</option>
+											<option value="ID">Idaho</option>
+											<option value="MT">Montana</option>
+											<option value="NE">Nebraska</option>
+											<option value="NM">New Mexico</option>
+											<option value="ND">North Dakota</option>
+											<option value="UT">Utah</option>
+										</select>
+									</div>
+								</div>
 								<div class="row mb-15px">
 									<label class="form-label col-form-label col-md-3">ID</label>
 									<div class="col-md-9">
