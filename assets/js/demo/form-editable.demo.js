@@ -54,12 +54,8 @@ var handleEditableFormAjaxCall = function() {
 		url: '/groups',
 		response: function(settings) {
 			this.responseText = [ 
-				{value: 0, text: 'Guest'},
-				{value: 1, text: 'Service'},
-				{value: 2, text: 'Customer'},
-				{value: 3, text: 'Operator'},
-				{value: 4, text: 'Support'},
-				{value: 5, text: 'Admin'}
+				{value: 0, text: '支出'},
+				{value: 1, text: '收入'}
 			];
 			handleAjaxConsoleLog(settings, this);
 		}        
@@ -87,15 +83,16 @@ var handleEditableFieldConstruct = function() {
 			}
 		}
 	});
-	$('#sex').editable({
+	$('#shop').editable({
 		inputclass: 'form-select',
 		prepend: 'not selected',
 		source: [
-			{value: 1, text: 'Male'},
-			{value: 2, text: 'Female'}
+			{value: 1, text: '000000 台南成功店'},
+			{value: 2, text: '000001 蘆洲民族店'},
+			{value: 3, text: '000014 永康大橋店'}
 		],
 		display: function(value, sourceData) {
-			var icons = {'': '', 1: '<i class="fa fa-male me-2"></i>', 2: '<i class="fa fa-female me-2"></i>'},
+			var icons = {'': '', 100: '<i class="fas fa-1 me-2"></i>'},
 			elem = $.grep(sourceData, function(o){return o.value == value;});
 
 			if (elem.length) {    
