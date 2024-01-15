@@ -51,28 +51,36 @@
 div.fixed-table td span.badge, .infotable td span.badge {width:50px;float:inline-end;}
 table.infotable{width: 100%;table-layout:fixed;}
 
-div.fixed-table {width: 100%; height:450px !important; overflow: auto; padding: 0 !important;}
+div.fixed-table {width: 100%; /*height:450px !important;*/ overflow: auto; padding: 0 !important;}
 table.table-fixed {
     table-layout: fixed;
     width: 100%;
 }
-table.table-fixed thead tr th {
+/*table.table-fixed thead tr th {
     position:sticky;
     top:0;
     text-align: center;
-}
+}*/
 table.table-fixed thead tr th:nth-child(1) {width: 35px;}
 table.table-fixed thead tr th:nth-child(2) {width: 155px;}
 table.table-fixed thead tr th {width: 135px; background-color: #cccccc;}
 
-table.table-fixed tbody tr th:nth-child(1) {
+table.table-fixed thead tr th:nth-child(1), table.table-fixed tbody tr th:nth-child(1) {
     position:sticky;
     left:0;
+    background-color: #ececec;
 }
-table.table-fixed tbody tr th:nth-child(2) {
+table.table-fixed thead tr th:nth-child(2), table.table-fixed tbody tr th:nth-child(2) {
     position:sticky;
     left:35px;
+    background-color: #ececec;
 }
+table.table-fixed thead tr th:nth-last-child(1), table.table-fixed tbody tr td:nth-last-child(1) {
+    position:sticky;
+    right:0;
+    background-color: #ececec;
+}
+table.table-fixed thead tr th:nth-child(1), table.table-fixed thead tr th:nth-child(2), table.table-fixed thead tr th:nth-last-child(1) {background-color: #cccccc;}
 
 .picker .pc-select{float:inline-end;}
 .picker>.pc-element{margin-bottom:0 !important;padding-bottom:0 !important;}
