@@ -21,6 +21,16 @@
 
 	<link href="../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
 
+	<link href="../assets/plugins/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css" rel="stylesheet" />
+
+	<link href="../assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
+	<link href="../assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/tag-it/css/jquery.tagit.css" rel="stylesheet" />
+	<link href="../assets/plugins/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
+	<link href="../assets/plugins/select-picker/dist/picker.min.css" rel="stylesheet" />
+
     <!-- ================== END page-css ================== -->
 
 	<!-- 客製化CSS暫用 -->
@@ -229,8 +239,12 @@
 							<div class="menu-item active">
 								<a href="index_dashboard-store.html" class="menu-link"><div class="menu-text">門店儀表板</div></a>
 							</div>
+                            <!--以門店為單位比較區間業績／以區間為單位比較門店業績-->
 							<div class="menu-item">
-								<a href="index_store-sales.html" class="menu-link"><div class="menu-text">門店區間業績表</div></a>
+								<a href="index_store-sales.html" class="menu-link"><div class="menu-text">門店業績表</div></a>
+							</div>
+							<div class="menu-item">
+								<a href="index_date-sales.html" class="menu-link"><div class="menu-text">區間業績表</div></a>
 							</div>
 						</div>
 					</div>
@@ -539,38 +553,38 @@
 							<div class="menu-icon">
 								<i class="fa fa-cubes"></i>
 							</div>
-							<div class="menu-text">AI智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
+							<div class="menu-text">智慧輔助 <span class="menu-label"><i class="fas fa-lg fa-fw fa-lock" title="限制"></i></span></div>
 							<div class="menu-caret"></div>
 						</a>
 						<div class="menu-submenu">
 							<div class="menu-item">
-								<a href="#" class="menu-link">
-									<div class="menu-text">AI知識庫問答</div>
+								<a href="chatbot_list.html" class="menu-link">
+									<div class="menu-text">問答紀錄</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI資源管理</div>
+									<div class="menu-text">知識問答</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI智慧排班</div>
+									<div class="menu-text">進貨建議</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI輿情預測</div>
+									<div class="menu-text">智慧排班</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">AI營運分析</div>
+									<div class="menu-text">統計報表</div>
 								</a>
 							</div>
 							<div class="menu-item">
 								<a href="#" class="menu-link">
-									<div class="menu-text">虛擬資料蒐集紀錄</div>
+									<div class="menu-text">活動建議</div>
 								</a>
 							</div>
 						</div>
@@ -603,32 +617,47 @@
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">門店儀表板 <small>2023-09-04(日) <span id="time"></span></small></h1>
+			<h1 class="page-header">門店監控儀表板 <!--small>2023-09-04(日) <span id="time"></span></small--></h1>
 			<!-- END page-header -->
 
-			<!-- BEGIN row -->
+			<!-- BEGIN row / 篩選工具列 -->
 			<div class="row">
-				<!-- BEGIN daterange-filter -->
-                <div class="col-lg-12">
-                    <div class="d-sm-flex align-items-center mb-3">
-                        <select class="multiple-select2 form-control bg-gray-700 text-white" multiple>
-                            <optgroup label="北部：臺北市、新北市、基隆市、新竹市、桃園市、新竹縣及宜蘭縣">
-                                <option value="AAA" selected>台北－AAA店家</option>
-                                <option value="BBB" selected>桃園－BBB店家</option>
-                            </optgroup>
-                            <optgroup label="中部：臺中市、苗栗縣、彰化縣、南投縣及雲林縣">
-                                <option value="CCC">台中-CCC店家</option>
-                            </optgroup>
-                            <optgroup label="南部：高雄市、臺南市、嘉義市、嘉義縣、屏東縣及澎湖縣">
-                                <option value="DDD">台南-DDD店家</option>
-                                <option value="EEE">台南-EEE店家</option>
-                            </optgroup>
-                            <optgroup label="東部與其他：東部區域：包括花蓮縣及臺東縣，金門縣與連江縣">
-                            </optgroup>
-                        </select>
+				<!-- BEGIN col-8 -->
+                <div class="col-xl-6">
+                    <div class="fc-toolbar-chunk">
+                        <div class="btn-group">
+                            <div>
+                                <a href="#" class="btn me-2 bg-gray-700 text-white" id="daterange-filter">
+                                    <i class="fa fa-calendar fa-fw text-opacity-50 ms-n1"></i> 
+                                    <span>30 June 2023 - 6 July 2023</span>
+                                    <b class="caret ms-1 opacity-5"></b>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+				</div>
+                <div class="col-lg-6 text-end">
+                    <div class="dt-buttons btn-group">
+                        <select class="selectpicker form-control" id="ex-search" multiple>
+                            <option value="0">000000 台南成功店</option>
+                            <option value="1">000001 蘆洲民族店</option>
+                            <option value="2">000002 中壢實踐店</option>
+                            <option value="3">000003 文山景美店</option>
+                            <option value="4">000004 高雄大社店</option>
+                            <option value="5">000005 善化民權店</option>
+                            <option value="6">000006 台南東寧店</option>
+                            <option value="7" disabled>000007 花蓮玉里店</option>
+                            <option value="8">000002 中壢實踐店</option>
+                            <option value="9">000003 文山景美店</option>
+                            <option value="10">000004 高雄大社店</option>
+                            <option value="11">000005 善化民權店</option>
+                        </select> 
+                    </div>
+                    
                 </div>
-				<!-- END daterange-filter -->
+            </div>
+            <!--資料內容頁籤區-->
+            <div class="row" style="margin-top: 25px;">
 
 				<div class="col-sm-3">
 					<div class="widget widget-stats bg-teal">
@@ -955,28 +984,18 @@
 			<div class="row">
 				<!-- BEGIN col-8 -->
 				<div class="col-xl-8 col-lg-6">
-					<!-- BEGIN daterange-filter -->
-					<div class="d-sm-flex align-items-center mb-3">
-						<a href="#" class="btn me-2 bg-gray-700 text-white" id="daterange-filter">
-							<i class="fa fa-calendar fa-fw text-opacity-50 ms-n1"></i> 
-							<span>2023-08-11 - 2023-08-20</span>
-							<b class="caret ms-1 opacity-5"></b>
-						</a>
-						<!--div class="text-gray-600 fw-bold mt-2 mt-sm-0">比較: <span id="daterange-prev-date">2023-08-01 - 2023-08-10</span></div-->
-					</div>
-					<!-- END daterange-filter -->
 					<!-- BEGIN card -->
 					<div class="card border-0 mb-3 bg-gray-700 text-white">
 						<div class="card-body">
 							<h4 class="mb-3"><b>週銷售額目標達成率</b> 
 								<span class="ms-2">
-									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels." data-original-title="" title=""></i>
+									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="說明用標題" data-bs-placement="top" data-bs-content="說明用文案內容" data-original-title="" title=""></i>
 								</span>
 						</div>
 						<div class="card-body p-0">
 							<div>
 								<figure class="highcharts-figure">
-									<div id="axes_line_column1" class="text-white" style="height: 250px;"></div>
+									<div id="axes_line_column1" class="text-white" style="height:300px;"></div>
 								</figure>
 								<!--div id="visitors-line-chart" class="widget-chart-full-width" data-bs-theme="dark" style="height: 254px"></div-->
 							</div>
@@ -1109,6 +1128,10 @@
 
     <script src="../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
 	<script src="../assets/js/demo/dashboard-v3.js"></script>
+
+	<script src="../assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+    <script src="../assets/plugins/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="../assets/plugins/select-picker/dist/picker.min.js"></script>
 
     <!-- ================== END page-js ================== -->
 
