@@ -269,7 +269,7 @@ $(document).ready(function(){
 								<a href="list_store-sales.html" class="menu-link"><div class="menu-text">門店銷售紀錄</div></a>
 							</div>
 							<div class="menu-item">
-								<a href="#" class="menu-link"><div class="menu-text">非固定支出紀錄</div></a>
+								<a href="list_table-editable.html" class="menu-link"><div class="menu-text">非固定費用紀錄</div></a>
 							</div>
 							<div class="menu-item">
 								<a href="list_store-salary.html" class="menu-link"><div class="menu-text">人事成本</div></a>
@@ -593,14 +593,21 @@ $(document).ready(function(){
                         <div class="card-body">
                             <form>
 								<div class="row mb-15px">
-									<label class="form-label col-form-label col-md-2">日期</label>
-									<div class="col-md-10">
+									<label class="form-label col-form-label col-md-2">日期(區間)</label>
+									<div class="col-md-8">
 										<div class="input-group">
 											<input type="date" class="form-control" name="start" placeholder="Date Start" value="2023-11-21">
 											<span class="input-group-text input-group-addon">至</span>
 											<input type="date" class="form-control" name="end" placeholder="Date End" value="2023-11-21">
 										</div>
-										<small class="fs-12px text-gray-500-darker">銷售額統計區間，單日請設同一日。最長建議為一週(7日)，為能顯示週營運表，請注意起迄週期一致</small>
+										<small class="fs-12px text-gray-500-darker">銷售額統計區間，單日請設同一日。最長建議為一週(7日)。<br/>為能更正確顯示週營運表，請注意起迄週期一致</small>
+									</div>
+									<div class="col-md-2">
+										<div class="input-group">
+											<input type="number" class="form-control inline_form_checkbox" value="1" disabled>
+											<div class="input-group-text">天</div>
+
+										</div>
 									</div>
 								</div>
 								<div class="row mb-15px">
@@ -1028,6 +1035,23 @@ $(document).ready(function(){
 								<div class="row mb-15px">
 									<label class="form-label col-form-label col-md-3">營業點</label>
 									<div class="col-md-9">
+										<select class="default-select2 form-control">
+											<option value="00" disabled>非總部帳號建立者，需選擇總部</option>
+											<option value="AK">0001 鷹展(麻辣天后)</option>
+											<option value="HI">0002 Hawaii</option>
+											<option value="CA">California</option>
+											<option value="NV">Nevada</option>
+											<option value="OR">Oregon</option>
+											<option value="WA">Washington</option>
+											<option value="AZ">Arizona</option>
+											<option value="CO">Colorado</option>
+											<option value="ID">Idaho</option>
+											<option value="MT">Montana</option>
+											<option value="NE">Nebraska</option>
+											<option value="NM">New Mexico</option>
+											<option value="ND">North Dakota</option>
+											<option value="UT">Utah</option>
+										</select>
 										<select class="form-select">
                                             <option>000000 台南成功店</option>
                                             <option>000001 蘆洲民族店</option>
