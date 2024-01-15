@@ -239,10 +239,11 @@
 							<div class="menu-item">
 								<a href="index_dashboard-store.html" class="menu-link"><div class="menu-text">門店儀表板</div></a>
 							</div>
-							<div class="menu-item active">
+                            <!--以門店為單位比較區間業績／以區間為單位比較門店業績-->
+							<div class="menu-item">
 								<a href="index_store-sales.html" class="menu-link"><div class="menu-text">門店業績表</div></a>
 							</div>
-							<div class="menu-item">
+							<div class="menu-item active">
 								<a href="index_date-sales.html" class="menu-link"><div class="menu-text">區間業績表</div></a>
 							</div>
 						</div>
@@ -612,11 +613,11 @@
 			<ol class="breadcrumb float-xl-end">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">資訊摘要</a></li>
-				<li class="breadcrumb-item active">門店區間業績</li>
+				<li class="breadcrumb-item active">區間門店業績</li>
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">區間門店業績比較 <small>週區間門店業績一覽表</small><!--small>2023-09-04(日) <span id="time"></span></small--></h1>
+			<h1 class="page-header">門店區間業績比較 <small>門店週區間業績一覽表</small><!--small>2023-09-04(日) <span id="time"></span></small--></h1>
 			<!-- END page-header -->
 
 			<!-- BEGIN row / 篩選工具列 -->
@@ -633,7 +634,7 @@
                             <div>
                                 <a href="#" class="btn me-2 bg-gray-700 text-white" id="daterange-filter">
                                     <i class="fa fa-calendar fa-fw text-opacity-50 ms-n1"></i> 
-                                    <span>30 June 2023 - 6 July 2023</span>
+                                    <span>2023-10-30(一) - 2023-12-17(日)</span>
                                     <b class="caret ms-1 opacity-5"></b>
                                 </a>
                             </div>
@@ -642,11 +643,11 @@
 				</div>
                 <div class="col-lg-6 text-end">
                     <div class="dt-buttons btn-group">
-                        <select class="selectpicker form-control" id="ex-search" multiple>
+                        <select class="selectpicker form-control" id="ex-search">
                             <option value="0" selected>000000 台南成功店</option>
                             <option value="1">000001 蘆洲民族店</option>
                             <option value="2">000002 中壢實踐店</option>
-                            <option value="3" selected>000003 文山景美店</option>
+                            <option value="3">000003 文山景美店</option>
                             <option value="4">000004 高雄大社店</option>
                             <option value="5">000005 善化民權店</option>
                             <option value="6">000006 台南東寧店</option>
@@ -1248,7 +1249,7 @@
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
-                                        <td>598,042</td>
+                                        <td>446,548 </td>
                                         <td>320,704 <span class="badge bg-info">59.62%</span></td>
                                         <td>84,428 <span class="badge bg-info">15.70%</span></td>
                                         <td>116,789 <span class="badge bg-info">21.71%</span></td>
@@ -1263,18 +1264,13 @@
                                         <tr>
                                             <th width="1%" class="text-nowrap text-center"></th>
                                             <th class="text-nowrap">項目</th>
-                                            <th class="text-nowrap">000000 台南成功店</th>
-                                            <th class="text-nowrap">000001 蘆洲民族店</th>
-                                            <th class="text-nowrap">000002 中壢實踐店</th>
-                                            <th class="text-nowrap">000003 文山景美店</th>
-                                            <th class="text-nowrap">000004 高雄大社店</th>
-                                            <th class="text-nowrap">000005 善化民權店</th>
-                                            <th class="text-nowrap">000006 台南東寧店</th>
-                                            <th class="text-nowrap">000008 永康大灣店</th>
-                                            <th class="text-nowrap">000009 台南安中店</th>
-                                            <th class="text-nowrap">000010 中壢新生店</th>
-                                            <th class="text-nowrap">000011 花蓮中山店</th>
-                                            <th class="text-nowrap">000012 中和莒光店</th>
+                                            <th class="text-nowrap">10/30(一) - 11/5(日)</th>
+                                            <th class="text-nowrap">11/6(一) - 11/12(日)</th>
+                                            <th class="text-nowrap">11/13(一) - 11/19(日)</th>
+                                            <th class="text-nowrap">11/20(一) - 11/26(日)</th>
+                                            <th class="text-nowrap">11/27(一) - 12/3(日)</th>
+                                            <th class="text-nowrap">12/4(一) - 12/10(日)</th>
+                                            <th class="text-nowrap">12/11(一) - 12/17(日)</th>
                                             <th class="text-nowrap text-center">平均值</th>
                                         </tr>
                                         <!--tr>
@@ -1324,19 +1320,14 @@
                                         <tr class="odd gradeX">
                                             <th class="fw-bold">1</th>
                                             <th class="text-nowrap">營業額</th>
-                                            <td class="text-center">106,936  <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green" title="高於平均"></i></td>
-                                            <td class="text-center">81,834  <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger" title="低於平均"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">93,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">90,333 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
+                                            <td class="text-center">74,075   <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green" title="高於平均"></i></td>
+                                            <td class="text-center">106,936   <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger" title="低於平均"></i></td>
+                                            <td class="text-center">106,936  <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
+                                            <td class="text-center">106,936  <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
+                                            <td class="text-center">51,665  <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
                                             <td class="text-center">89,907 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">89,891 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
                                             <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">83,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">99,107 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center"><b>89,310</b> </td>
+                                            <td class="text-center"><b>89,310 </b> </td>
                                         </tr>
                                         <tr class="odd gradeX">
                                             <th class="fw-bold">2</th>
@@ -1348,11 +1339,6 @@
                                             <td>43,111 <span class="badge bg-danger">47.10% <i class="fas fa-arrow-down"></i></span></td>
                                             <td>47,457 <span class="badge bg-green">57.10% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>47,457 <span class="badge bg-green">57.10% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>47,457 <span class="badge bg-green">57.10% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>47,457 <span class="badge bg-green">57.10% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>37,457 <span class="badge bg-danger">37.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>37,457 <span class="badge bg-danger">44.10% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>41,457 <span class="badge bg-danger">57.10% <i class="fas fa-arrow-down"></i></span></td>
                                             <td class="text-center"><b>45,121</b> </td>
                                         </tr>
                                         <tr class="odd gradeX">
@@ -1365,11 +1351,6 @@
                                             <td>20,006 <span class="badge bg-green">12.04% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>16,006 <span class="badge bg-green">12.04% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>15,906 <span class="badge bg-green">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>13,006 <span class="badge bg-danger">12.04% <i class="fas fa-arrow-down"></i></span></td>
-                                            <td>19,006 <span class="badge bg-green">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>18,006 <span class="badge bg-green">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>17,006 <span class="badge bg-green">12.04% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>16,006 <span class="badge bg-green">12.04% <i class="fas fa-arrow-up"></i></span></td>
                                             <td class="text-center"><b>15,121</b> </td>
                                         </tr>
                                         <tr class="odd gradeX">
@@ -1381,11 +1362,6 @@
                                             <td>21,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>23,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>20,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>19,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>23,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>23,413 <span class="badge bg-green">28.17% <i class="fas fa-arrow-up"></i></span></td>
                                             <td class="text-center"><b>21,121</b> </td>
                                         </tr>
@@ -1398,22 +1374,12 @@
                                             <td>2,031  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>1,931  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
                                             <td>2,000  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
-                                            <td>2,231  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
+                                             <td>2,231  <span class="badge bg-green">2.68% <i class="fas fa-arrow-up"></i></span></td>
                                             <td class="text-center"><b>1,721</b> </td>
                                         </tr>
                                         <tr class="odd gradeX">
                                             <th class="fw-bold">6</th>
                                             <th class="text-nowrap">月目標營業額</th>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
-                                            <td class="text-center">302,570</td>
                                             <td class="text-center">302,570</td>
                                             <td class="text-center">302,570</td>
                                             <td class="text-center">302,570</td>
@@ -1433,11 +1399,6 @@
                                             <td class="text-center">75,643</td>
                                             <td class="text-center">75,643</td>
                                             <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
-                                            <td class="text-center">75,643</td>
                                             <td class="text-center">－ </td>
                                         </tr>
                                         <tr class="odd gradeX">
@@ -1446,11 +1407,6 @@
                                             <td class="text-center text-green"><b>109.87%</b> </td>
                                             <td class="text-center text-danger"><b>89.65%</b></td>
                                             <td class="text-center text-danger"><b>91.87%</b></td>
-                                            <td class="text-center text-green"><b>109.87%</b></td>
-                                            <td class="text-center text-green"><b>109.87%</b></td>
-                                            <td class="text-center text-danger"><b>95.87%</b></td>
-                                            <td class="text-center text-green"><b>109.87%</b></td>
-                                            <td class="text-center text-green"><b>109.87%</b></td>
                                             <td class="text-center text-green"><b>109.87%</b></td>
                                             <td class="text-center text-green"><b>109.87%</b></td>
                                             <td class="text-center text-green"><b>109.87%</b></td>
@@ -1462,11 +1418,6 @@
                                             <th class="text-nowrap">累計營業天數</th>
                                             <td class="text-center">6</td>
                                             <td class="text-center">5</td>
-                                            <td class="text-center">7</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">6</td>
-                                            <td class="text-center">7</td>
                                             <td class="text-center">7</td>
                                             <td class="text-center">6</td>
                                             <td class="text-center">6</td>
@@ -1483,12 +1434,7 @@
                                             <td class="text-center">12,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
                                             <td class="text-center">14,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
                                             <td class="text-center">13,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">12,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">12,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">12,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
-                                            <td class="text-center">12,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-90 text-danger"></i></td>
                                             <td class="text-center">13,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
-                                            <td class="text-center">14,184 <i class="fas fa-arrow-alt-circle-right fa-rotate-270 text-green"></i></td>
                                             <td class="text-center"><b>11,721</b> </td>
                                         </tr>
                                         <tr class="odd gradeX">
@@ -1500,12 +1446,7 @@
                                             <td class="text-center">週六</td>
                                             <td class="text-center">週六</td>
                                             <td class="text-center">週日</td>
-                                            <td class="text-center">無</td>
-                                            <td class="text-center">無</td>
-                                            <td class="text-center">週日</td>
-                                            <td class="text-center">週日</td>
                                             <td class="text-center">週一</td>
-                                            <td class="text-center">週日</td>
                                             <td class="text-center">－ </td>
                                         </tr>
                                         <tr class="odd gradeX">
@@ -1513,11 +1454,6 @@
                                             <th class="text-nowrap">本月預定營業天數</th>
                                             <td class="text-center">24</td>
                                             <td class="text-center">30</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
-                                            <td class="text-center">24</td>
                                             <td class="text-center">24</td>
                                             <td class="text-center">24</td>
                                             <td class="text-center">24</td>
@@ -1535,11 +1471,6 @@
                                             <td class="text-center">11,461</td>
                                             <td class="text-center">11,461</td>
                                             <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
-                                            <td class="text-center">11,461</td>
                                             <td class="text-center">－ </td>
                                         </tr>
                                         <tr class="odd gradeX">
@@ -1548,11 +1479,6 @@
                                             <td class="text-center">10%</td>
                                             <td class="text-center">7%</td>
                                             <td class="text-center">15%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
-                                            <td class="text-center">10%</td>
                                             <td class="text-center">10%</td>
                                             <td class="text-center">10%</td>
                                             <td class="text-center">10%</td>
