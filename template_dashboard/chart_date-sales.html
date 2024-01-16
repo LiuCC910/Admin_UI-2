@@ -631,44 +631,37 @@
 				<div class="col-xl-12">
 					<!-- BEGIN card -->
 					<div class="card border-0 mb-3">
-						<!--div class="card-header">
-							<h4 class="mb-3"><b>銷售排行一覽</b> 
-								<span class="ms-2">
-									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="營運監控提示" data-bs-placement="top" data-bs-content="支出總和不得超過整體營收的85%，整體純益率不得低於15%。(原物料成本占營收比例30~40%，人事費用不超過30%；至於房租與其他成本落在10~15%)" data-original-title="" title=""></i>
-								</span>
-						</div-->
 						<div class="card-body">
 							<div class="row">
-								<div class="col-xl-3">
-									<div class='buttons2'>
-										<button>年模式</button>
-										<button class='active'>月模式</button>
-										<button>週模式</button>
+								<div class="col-xl-3" style="text-align:center;">
+									<div class="btn-group" style="width:65%;">
+										<select class="selectpicker form-control" id="ex-search">
+                                            <option value="0" selected>000000 台南成功店</option>
+                                            <option value="1">000001 蘆洲民族店</option>
+                                            <option value="2">000002 中壢實踐店</option>
+                                            <option value="3">000003 文山景美店</option>
+                                            <option value="4">000004 高雄大社店</option>
+                                            <option value="5">000005 善化民權店</option>
+                                            <option value="6">000006 台南東寧店</option>
+                                            <option value="7" disabled>000007 花蓮玉里店</option>
+                                            <option value="8">000002 中壢實踐店</option>
+                                            <option value="9">000003 文山景美店</option>
+                                            <option value="10">000004 高雄大社店</option>
+                                            <option value="11">000005 善化民權店</option>
+                                        </select> 
 									</div>
 								</div>
 								<div class="col-xl-6">
-									<div class='buttons'>
-										<button>2023/1月</button>
-										<button>2月</button>
-										<button>3月</button>
-										<button>4月</button>
-										<button>5月</button>
-										<button>6月</button>
-										<button id='2000'>7月</button>
-										<button id='2004'>8月</button>
-										<button id='2008'>9月</button>
-										<button id='2012'>10月</button>
-										<button id='2016'>11月</button>
-										<button id='2020' class='active'>
-										12月
-										</button>
-										<button disabled>2024/1月</button>
+									<div class='buttons2'>
+										<button>年排行</button>
+										<button class='active'>月排行</button>
+										<button>週排行</button>
 									</div>
 								</div>
 								<div class="col-xl-3">
 									<div class='buttons2'>
-										<button class='active'>區間排行</button>
-										<button>單店排行</button>
+										<button>區間排行</button>
+										<button class='active'>單店排行</button>
 										<button type="button"><i class="fas fa-download"></i> <span>匯出</span></button>
 									</div>
 								</div>
@@ -678,7 +671,7 @@
 								<thead>
 									<tr style="background-color: #ccc;">
 										<th width="5%" class="text-nowrap">排名 </th>
-										<th class="text-nowrap">營業點</th>
+										<th class="text-nowrap">月份</th>
 										<th class="text-nowrap">營業額小計
 											<a href="#"><i class="fas me-10px fa-sort text-gray-800"></i></a>
 										</th>
@@ -705,7 +698,7 @@
 								<tbody>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">1</td>
-										<td class="text-nowrap">000013 大安師大店</td>
+										<td class="text-nowrap">2023年01月</td>
 										<td>5,271,156 </td>
 										<td>3,272,333 <span class="badge bg-green">62.08%</span></td>
 										<td>1,898,537 <span class="badge bg-green">36.02%</span></td>
@@ -715,7 +708,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">2</td>
-										<td class="text-nowrap">000002	中壢實踐店</td>
+										<td class="text-nowrap">2023年10月</td>
 										<td>5,174,372 </td>
 										<td>3,759,731 <span class="badge bg-green">72.66%</span></td>
 										<td>1,755,340 <span class="badge bg-green">33.92%</span></td>
@@ -725,7 +718,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">3</td>
-										<td class="text-nowrap">000001 蘆洲民族店 
+										<td class="text-nowrap">2023年11月 
 											<i class="fas fa-circle-exclamation text-danger" title="淨利低於目標警示"></i>
 										</td>
 										<td>4,035,495 </td>
@@ -737,7 +730,7 @@
 								   </tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">4</td>
-										<td class="text-nowrap">000005 善化民權店</td>
+										<td class="text-nowrap">2023年07月</td>
 										<td>3,819,321 </td>
 										<td>2,751,545 <span class="badge bg-green">72.04%</span></td>
 										<td>1,415,520 <span class="badge bg-danger">37.06%</span></td>
@@ -747,7 +740,7 @@
 								   </tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">5</td>
-										<td class="text-nowrap">000000 台南成功店</td>
+										<td class="text-nowrap">2023年12月</td>
 										<td>3,554,995 </td>
 										<td>2,657,972 <span class="badge bg-green">74.77%</span></td>
 										<td>1,650,355 <span class="badge bg-danger">46.42%</span></td>
@@ -757,7 +750,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">6</td>
-										<td class="text-nowrap">000003 文山景美店</td>
+										<td class="text-nowrap">2023年09月</td>
 										<td>3,533,287 </td>
 										<td>2,534,276 <span class="badge bg-green">71.73%</span></td>
 										<td>1,250,560 <span class="badge bg-green">35.39%</span></td>
@@ -767,7 +760,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">7</td>
-										<td class="text-nowrap">000012 中和莒光店</td>
+										<td class="text-nowrap">2023年08月</td>
 										<td>2,611,090 </td>
 										<td>1,896,321 <span class="badge bg-green">72.63%</span></td>
 										<td>990,995 <span class="badge bg-danger">37.95%</span></td>
@@ -777,7 +770,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">8</td>
-										<td class="text-nowrap">000004 高雄大社店</td>
+										<td class="text-nowrap">2023年06月</td>
 										<td>2,205,743 </td>
 										<td>1,650,121 <span class="badge bg-green">74.81%</span></td>
 										<td>815,000 <span class="badge bg-green">36.95%</span></td>
@@ -787,7 +780,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">9</td>
-										<td class="text-nowrap">000014 永康大橋店
+										<td class="text-nowrap">2023年04月
 											<i class="fas fa-circle-exclamation text-danger" title="淨利低於目標警示"></i>
 										</td>
 										<td>2,205,431 </td>
@@ -799,7 +792,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">10</td>
-										<td class="text-nowrap">000006 台南東寧店</td>
+										<td class="text-nowrap">2023年02月</td>
 										<td>2,200,157 </td>
 										<td>1,570,064 <span class="badge bg-green">71.36%</span></td>
 										<td>780,175 <span class="badge bg-green">35.46%</span></td>
@@ -809,7 +802,7 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">11</td>
-										<td class="text-nowrap">000009 台南安中店</td>
+										<td class="text-nowrap">2023年03月</td>
 										<td>2,199,731 </td>
 										<td>1,599,731 <span class="badge bg-green">72.72%</span></td>
 										<td>835,005 <span class="badge bg-danger">37.96%</span></td>
@@ -819,43 +812,13 @@
 									</tr>
 									<tr class="odd gradeX">
 										<td class="fw-bold text-center">12</td>
-										<td class="text-nowrap">000011 花蓮中山店</td>
+										<td class="text-nowrap">2023年05月</td>
 										<td>1,989,561 </td>
 										<td>1,400,151 <span class="badge bg-green">70.37%</span></td>
 										<td>705,000 <span class="badge bg-green">35.43%</span></td>
 										<td>529,095 <span class="badge bg-green">26.59%</span></td>
 										<td>166,056 <span class="badge bg-green">8.35%</span></td>
 										<td class="fw-bold">589,410 <span class="badge bg-green">29.63%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">13</td>
-										<td class="text-nowrap">000010 中壢新生店</td>
-										<td>1,734,276 </td>
-										<td>1,234,276 <span class="badge bg-green">71.17%</span></td>
-										<td>625,995 <span class="badge bg-green">36.10%</span></td>
-										<td>475,995 <span class="badge bg-green">27.45%</span></td>
-										<td>132,286 <span class="badge bg-green">7.63%</span></td>
-										<td class="fw-bold">500,000 <span class="badge bg-green">28.83%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">14</td>
-										<td class="text-nowrap">000008 永康大灣店</td>
-										<td>1,606,389 </td>
-										<td>1,196,475 <span class="badge bg-green">74.48%</span></td>
-										<td>610,005 <span class="badge bg-danger">37.97%</span></td>
-										<td>450,125 <span class="badge bg-danger">28.02%</span></td>
-										<td>136,345 <span class="badge bg-green">8.49%</span></td>
-										<td class="fw-bold">409,914 <span class="badge bg-green">25.52%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">15</td>
-										<td class="text-nowrap">000007 花蓮玉里店(歇業中)</td>
-										<td>0 </td>
-										<td>0 <span class="badge bg-gray-500">－</span></td>
-										<td>0 <span class="badge bg-gray-500">－</span></td>
-										<td>0 <span class="badge bg-gray-500">－</span></td>
-										<td>0 <span class="badge bg-gray-500">－</span></td>
-										<td class="fw-bold">0 <span class="badge bg-gray-500">－</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -907,274 +870,86 @@
 <script>
 const dataPrev = {
     2020: [
-        ['tncg', 2657972],
-        ['lzmz', 3156389],
-        ['zlsj', 3759731],
-        ['wsjm', 2534276],
-        ['gxds', 1650121],
-        ['shmq', 2751545],
-        ['tndn', 1570064],
-        ['hlyl', 0],
-        ['ykdw', 1196475],
-        ['tnaz', 1599731],
-        ['zlxs', 1234276],
-        ['hlzs', 1400151],
-        ['zhjg', 1896321],
-        ['dasd', 3272333],
-        ['ykdq', 1675400]
+        ['dec', 2657972],
+        ['nov', 3156389],
+        ['oct', 3359731],
+        ['sep', 2534276],
+        ['aug', 1650121],
+        ['jul', 2751545],
+        ['jun', 1970064],
+        ['may', 1996475],
+        ['apr', 2599731],
+        ['mar', 1934276],
+        ['feb', 2000151],
+        ['jan', 2872333]
     ],
-    2016: [
-    	['tncg', 2157972],
-        ['lzmz', 2856389],
-        ['zlsj', 3159731],
-        ['wsjm', 2934276],
-        ['gxds', 2050121],
-        ['shmq', 2999945],
-        ['tndn', 1850064],
-        ['hlyl', 0],
-        ['ykdw', 916475],
-        ['tnaz', 1999731],
-        ['zlxs', 1899276],
-        ['hlzs', 1200151],
-        ['zhjg', 2196321],
-        ['dasd', 3001333],
-        ['ykdq', 1755400]
-    ],
-    2012: [
-        ['tncg', 13],
-        ['lzmz', 9],
-        ['zlsj', 14],
-        ['wsjm', 16],
-        ['gxds', 24],
-        ['shmq', 48],
-        ['tndn', 19],
-        ['hlyl', 0],
-        ['ykdw', 2806389],
-        ['tnaz', 2899731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 3271156],
-        ['ykdq', 0]
-    ],
-    2008: [
-        ['tncg', 9],
-        ['lzmz', 17],
-        ['zlsj', 18],
-        ['wsjm', 13],
-        ['gxds', 29],
-        ['shmq', 33],
-        ['tndn', 9],
-        ['hlyl', 0],
-        ['ykdw', 2806389],
-        ['tnaz', 2899731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 3271156],
-        ['ykdq', 0]
-    ],
-    2004: [
-        ['tncg', 8],
-        ['lzmz', 5],
-        ['zlsj', 16],
-        ['wsjm', 13],
-        ['gxds', 32],
-        ['shmq', 28],
-        ['tndn', 11],
-        ['hlyl', 0],
-        ['ykdw', 2806389],
-        ['tnaz', 2899731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 3271156],
-        ['ykdq', 0]
-    ],
-    2000: [
-        ['tncg', 7],
-        ['lzmz', 3],
-        ['zlsj', 9],
-        ['wsjm', 20],
-        ['gxds', 26],
-        ['shmq', 16],
-        ['tndn', 1],
-        ['hlyl', 0],
-        ['ykdw', 2806389],
-        ['tnaz', 2899731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 3271156],
-        ['ykdq', 0]
-    ]
 };
 
 const data = {
     2020: [
-        ['tncg', 3554995],
-        ['lzmz', 4035495],
-        ['zlsj', 5174372],
-        ['wsjm', 3533287],
-        ['gxds', 2205743],
-        ['shmq', 3819321],
-        ['tndn', 2200157],
-        ['hlyl', 0],
-        ['ykdw', 1606389],
-        ['tnaz', 2199731],
-        ['zlxs', 1734276],
-        ['hlzs', 1989561],
-        ['zhjg', 2611090],
-        ['dasd', 5271156],
-        ['ykdq', 2205431]
-    ],
-    2016: [
-        ['tncg', 3254995],
-        ['lzmz', 3935495],
-        ['zlsj', 4874372],
-        ['wsjm', 3983287],
-        ['gxds', 2805743],
-        ['shmq', 4219321],
-        ['tndn', 2450157],
-        ['hlyl', 0],
-        ['ykdw', 1306389],
-        ['tnaz', 2579731],
-        ['zlxs', 2734276],
-        ['hlzs', 1769561],
-        ['zhjg', 2991090],
-        ['dasd', 4791156],
-        ['ykdq', 2505431]
-    ],
-    2012: [
-        ['tncg', 13],
-        ['lzmz', 7],
-        ['zlsj', 8],
-        ['wsjm', 11],
-        ['gxds', 20],
-        ['shmq', 38],
-        ['tndn', 29],
-        ['hlyl', 0],
-        ['ykdw', 1606389],
-        ['tnaz', 2199731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 5271156],
-        ['ykdq', 0]
-    ],
-    2008: [
-        ['tncg', 13],
-        ['lzmz', 9],
-        ['zlsj', 14],
-        ['wsjm', 16],
-        ['gxds', 24],
-        ['shmq', 48],
-        ['tndn', 19],
-        ['hlyl', 36],
-        ['ykdw', 1606389],
-        ['tnaz', 2199731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 5271156],
-        ['ykdq', 0]
-    ],
-    2004: [
-        ['tncg', 9],
-        ['lzmz', 17],
-        ['zlsj', 18],
-        ['wsjm', 13],
-        ['gxds', 29],
-        ['shmq', 33],
-        ['tndn', 9],
-        ['hlyl', 0],
-        ['ykdw', 1606389],
-        ['tnaz', 2199731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 5271156],
-        ['ykdq', 0]
-    ],
-    2000: [
-        ['tncg', 8],
-        ['lzmz', 5],
-        ['zlsj', 16],
-        ['wsjm', 13],
-        ['gxds', 32],
-        ['shmq', 28],
-        ['tndn', 11],
-        ['hlyl', 0],
-        ['ykdw', 1606389],
-        ['tnaz', 2199731],
-        ['zlxs', 1734276],
-        ['hlzs', 19],
-        ['zhjg', 26],
-        ['dasd', 5271156],
-        ['ykdq', 0]
+        ['dec', 3554995],
+        ['nov', 4035495],
+        ['oct', 4474372],
+        ['sep', 3533287],
+        ['aug', 3205743],
+        ['jul', 3819321],
+        ['jun', 3200157],
+        ['may', 3606389],
+        ['apr', 3199731],
+        ['mar', 2734276],
+        ['feb', 2989561],
+        ['jan', 4271156]
     ]
 };
 
 const countries = {
-    tncg: {
-        name: '台南成功店',
+    dec: {
+        name: '2023/12',
         color: '#FE2371'
     },
-    lzmz: {
-        name: '蘆洲民族店',
+    nov: {
+        name: '2023/11',
         color: '#544FC5'
     },
-    zlsj: {
-        name: '中壢實踐店',
+    oct: {
+        name: '2023/10',
         color: '#2CAFFE'
     },
-    wsjm: {
-        name: '文山景美店',
+    sep: {
+        name: '2023/09',
         color: '#FE6A35'
     },
-    gxds: {
-        name: '高雄大社店',
+    aug: {
+        name: '2023/08',
         color: '#efdf00'
     },
-    shmq: {
-        name: '善化民權店',
+    jul: {
+        name: '2023/07',
         color: '#1C74BD'
     },
-    tndn: {
-        name: '台南東寧店',
+    jun: {
+        name: '2023/06',
         color: '#00A6A6'
     },
-    hlyl: {
-        name: '花蓮玉里店(歇業)',
-        color: '#d7d7d8'
-    },
-    ykdw: {
-        name: '永康大灣店',
+    may: {
+        name: '2023/05',
         color: '#9f9fa3'
     },
-    tnaz: {
-        name: '台南安中店',
+    apr: {
+        name: '2023/04',
         color: '#009f4d'
     },
-    zlxs: {
-        name: '中壢新生店',
+    mar: {
+        name: '2023/03',
         color: '#4d4f53'
     },
-    hlzs: {
-        name: '花蓮中山店',
+    feb: {
+        name: '2023/02',
         color: '#b4a996'
     },
-    zhjg: {
-        name: '中和莒光店',
-        color: '#b84592'
-    },
-    dasd: {
-        name: '大安師大店',
+    jan: {
+        name: '2023/01',
         color: '#6B8ABC'
-    },
-    ykdq: {
-        name: '永康大橋店',
-        color: '#84bd00'
     }
 };
 
@@ -1226,7 +1001,7 @@ const chart = Highcharts.chart('container', {
         accessibility: {
             description: 'Countries'
         },
-        max: 14,
+        max: 11,
         labels: {
             useHTML: true,
             animate: true,
