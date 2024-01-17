@@ -39,54 +39,53 @@
 
     <!-- Highchart CSS暫用 -->
     <style>
-    #container {
-        max-width: 95%;
-        height: 450px;
-        margin: 20px auto;
-    }
-
-    .buttons2, .buttons {
-        min-width: 250px;
-        text-align: center;
-        margin:0 1rem;
-        font-size: 0;
-    }
-
-    .buttons2 button, .buttons button {
-        cursor: pointer;
-        border: 1px solid silver;
-        border-right-width: 0;
-        background-color: #f8f8f8;
-        font-size: 0.75rem;
-        padding: 0.5rem;
-        transition-duration: 0.3s;
-        margin: 0;
-    }
-
-    .buttons2 button:first-child, .buttons button:first-child {
-        border-top-left-radius: 0.3em;
-        border-bottom-left-radius: 0.3em;
-    }
-
-    .buttons2 button:last-child, .buttons button:last-child {
-        border-top-right-radius: 0.3em;
-        border-bottom-right-radius: 0.3em;
-        border-right-width: 1px;
-    }
-
-    .buttons2 button:hover, .buttons button:hover {
-        color: white;
-        background-color: rgb(158 159 163);
-        outline: none;
-    }
-
-    .buttons2 button.active, .buttons button.active {
-        background-color: #0051b4;
-        color: white;
-    }
-
+        .buttons2, .buttons {
+            min-width: 250px;
+            text-align: center;
+            margin:0 1rem;
+            font-size: 0;
+        }
+    
+        .buttons2 button, .buttons button {
+            cursor: pointer;
+            border: 1px solid silver;
+            border-right-width: 0;
+            background-color: #f8f8f8;
+            font-size: 0.75rem;
+            padding: 0.5rem;
+            transition-duration: 0.3s;
+            margin: 0;
+        }
+    
+        .buttons2 button:first-child, .buttons button:first-child {
+            border-top-left-radius: 0.3em;
+            border-bottom-left-radius: 0.3em;
+        }
+    
+        .buttons2 button:last-child, .buttons button:last-child {
+            border-top-right-radius: 0.3em;
+            border-bottom-right-radius: 0.3em;
+            border-right-width: 1px;
+        }
+    
+        .buttons2 button:hover, .buttons button:hover {
+            color: white;
+            background-color: rgb(158 159 163);
+            outline: none;
+        }
+    
+        .buttons2 button.active, .buttons button.active {
+            background-color: #0051b4;
+            color: white;
+        }
+        .highcharts-figure {
+            min-width: 320px;
+            max-width: 660px;
+            margin: 2em auto;
+        }
+    
     </style>
-
+    
 </head>
 <body>
 	<!-- BEGIN #loader -->
@@ -315,7 +314,7 @@
 									<div class="menu-caret"></div>
 								</a>
 								<div class="menu-submenu">
-									<div class="menu-item active">
+									<div class="menu-item">
 										<a href="chart_store-sales.html" class="menu-link">
 											<div class="menu-text">門店銷售排行</div>
 										</a>
@@ -620,7 +619,7 @@
 			</ol>
 			<!-- END breadcrumb -->
 			<!-- BEGIN page-header -->
-			<h1 class="page-header">門店銷售排行 <!--small>2023-09-04(日) <span id="time"></span></small--></h1>
+			<h1 class="page-header">門店成本控管 <!--small>2023-09-04(日) <span id="time"></span></small--></h1>
 			<!-- END page-header -->
 
             <!--資料內容頁籤區-->
@@ -633,195 +632,77 @@
 					<div class="card border-0 mb-3">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-xl-3" style="text-align:center;">
-									<div class="btn-group" style="width:65%;">
-										<select class="selectpicker form-control" id="ex-search">
-                                            <option value="0" selected>000000 台南成功店</option>
-                                            <option value="1">000001 蘆洲民族店</option>
-                                            <option value="2">000002 中壢實踐店</option>
-                                            <option value="3">000003 文山景美店</option>
-                                            <option value="4">000004 高雄大社店</option>
-                                            <option value="5">000005 善化民權店</option>
-                                            <option value="6">000006 台南東寧店</option>
-                                            <option value="7" disabled>000007 花蓮玉里店</option>
-                                            <option value="8">000002 中壢實踐店</option>
-                                            <option value="9">000003 文山景美店</option>
-                                            <option value="10">000004 高雄大社店</option>
-                                            <option value="11">000005 善化民權店</option>
-                                        </select> 
+								<div class="col-xl-3">
+									<div class='buttons2'>
+										<button>年模式</button>
+										<button class='active'>月模式</button>
+										<button>週模式</button>
 									</div>
 								</div>
 								<div class="col-xl-6">
-									<div class='buttons2'>
-										<button>年排行</button>
-										<button class='active'>月排行</button>
-										<button>週排行</button>
+									<div class='buttons'>
+										<button>2023/1月</button>
+										<button>2月</button>
+										<button>3月</button>
+										<button>4月</button>
+										<button>5月</button>
+										<button>6月</button>
+										<button id='2000'>7月</button>
+										<button id='2004'>8月</button>
+										<button id='2008'>9月</button>
+										<button id='2012'>10月</button>
+										<button id='2016'>11月</button>
+										<button id='2020' class='active'>
+										12月
+										</button>
+										<button disabled>2024/1月</button>
 									</div>
 								</div>
 								<div class="col-xl-3">
 									<div class='buttons2'>
-										<button onclick="window.location.href='chart_store-sales.html';">區間檢視</button>
-										<button class='active'>單店檢視</button>
+										<button class='active'>區間檢視</button>
+										<button onclick="window.location.href='chart_date-sales.html';">單店檢視</button>
 										<button type="button"><i class="fas fa-download"></i> <span>匯出</span></button>
 									</div>
 								</div>
 							</div>
-                            <div id="container"></div>
-							<table id="data-table-default" class="table table-striped table-bordered align-middle infotable" style="width:95%;margin:35px auto 0;">
-								<thead>
-									<tr style="background-color: #ccc;">
-										<th width="5%" class="text-nowrap">排名 </th>
-										<th class="text-nowrap">月份</th>
-										<th class="text-nowrap">營業額小計
-											<a href="#"><i class="fas me-10px fa-sort text-gray-800"></i></a>
-										</th>
-										<th class="text-nowrap">成本小計 
-											<a href="#"><i class="fas me-10px fa-sort text-gray-500"></i></a>
-											<span class="badge bg-info"><i class="fas fa-arrow-down" title="目標低於"></i> 75%</span>
-										</th>
-										<th class="text-nowrap">原物料成本 
-											<!--a href="#"><i class="fas me-10px fa-sort text-gray-500"></i></a-->
-											<span class="badge bg-info"><i class="fas fa-arrow-down"></i> 27%</span>
-										</th>
-										<th class="text-nowrap">人事成本 
-											<span class="badge bg-info"><i class="fas fa-arrow-down"></i> 28%</span>
-										</th>
-										<th class="text-nowrap">其他成本 
-											<span class="badge bg-info"><i class="fas fa-arrow-down"></i> 10%</span>
-										</th>
-										<th class="text-nowrap">淨利 
-											<a href="#"><i class="fas me-10px fa-sort text-gray-500"></i></a>
-											<span class="badge bg-info"><i class="fas fa-arrow-up"></i> 25%</span>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">1</td>
-										<td class="text-nowrap">2023年01月</td>
-										<td>5,271,156 </td>
-										<td>3,272,333 <span class="badge bg-green">62.08%</span></td>
-										<td>1,898,537 <span class="badge bg-green">36.02%</span></td>
-										<td>918,537 <span class="badge bg-green">17.43%</span></td>
-										<td>455,259 <span class="badge bg-green">8.64%</span></td>
-										<td class="fw-bold">1,998,823 <span class="badge bg-green">37.92%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">2</td>
-										<td class="text-nowrap">2023年10月</td>
-										<td>5,174,372 </td>
-										<td>3,759,731 <span class="badge bg-green">72.66%</span></td>
-										<td>1,755,340 <span class="badge bg-green">33.92%</span></td>
-										<td>1,405,175 <span class="badge bg-green">27.16%</span></td>
-										<td>599,216 <span class="badge bg-danger">11.58%</span></td>
-										<td class="fw-bold">1,414,641 <span class="badge bg-green">27.34%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">3</td>
-										<td class="text-nowrap">2023年11月 
-											<i class="fas fa-circle-exclamation text-danger" title="淨利低於目標警示"></i>
-										</td>
-										<td>4,035,495 </td>
-										<td>3,156,389 <span class="badge bg-danger">78.22%</span></td>
-										<td>1,600,435 <span class="badge bg-danger">39.66%</span></td>
-										<td>1,050,125 <span class="badge bg-green">26.02%</span></td>
-										<td>505,829 <span class="badge bg-danger">12.53%</span></td>
-										<td class="fw-bold">879,106 <span class="badge bg-danger">21.78%</span></td>
-								   </tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">4</td>
-										<td class="text-nowrap">2023年07月</td>
-										<td>3,819,321 </td>
-										<td>2,751,545 <span class="badge bg-green">72.04%</span></td>
-										<td>1,415,520 <span class="badge bg-danger">37.06%</span></td>
-										<td>990,755 <span class="badge bg-green">25.94%</span></td>
-										<td>345,270 <span class="badge bg-green">9.04%</span></td>
-										<td class="fw-bold">1,067,776 <span class="badge bg-green">27.96%</span></td>
-								   </tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">5</td>
-										<td class="text-nowrap">2023年12月</td>
-										<td>3,554,995 </td>
-										<td>2,657,972 <span class="badge bg-green">74.77%</span></td>
-										<td>1,650,355 <span class="badge bg-danger">46.42%</span></td>
-										<td>750,895 <span class="badge bg-green">21.12%</span></td>
-										<td>256,722 <span class="badge bg-green">7.22%</span></td>
-										<td class="fw-bold">897,023 <span class="badge bg-green">25.23%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">6</td>
-										<td class="text-nowrap">2023年09月</td>
-										<td>3,533,287 </td>
-										<td>2,534,276 <span class="badge bg-green">71.73%</span></td>
-										<td>1,250,560 <span class="badge bg-green">35.39%</span></td>
-										<td>950,165 <span class="badge bg-green">26.89%</span></td>
-										<td>333,551 <span class="badge bg-green">9.44%</span></td>
-										<td class="fw-bold">999,011 <span class="badge bg-green">28.27%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">7</td>
-										<td class="text-nowrap">2023年08月</td>
-										<td>2,611,090 </td>
-										<td>1,896,321 <span class="badge bg-green">72.63%</span></td>
-										<td>990,995 <span class="badge bg-danger">37.95%</span></td>
-										<td>675,255 <span class="badge bg-green">25.86%</span></td>
-										<td>230,071 <span class="badge bg-green">8.81%</span></td>
-										<td class="fw-bold">714,769 <span class="badge bg-green">27.37%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">8</td>
-										<td class="text-nowrap">2023年06月</td>
-										<td>2,205,743 </td>
-										<td>1,650,121 <span class="badge bg-green">74.81%</span></td>
-										<td>815,000 <span class="badge bg-green">36.95%</span></td>
-										<td>625,125 <span class="badge bg-danger">28.34%</span></td>
-										<td>209,996 <span class="badge bg-green">9.52%</span></td>
-										<td class="fw-bold">555,622 <span class="badge bg-green">25.19%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">9</td>
-										<td class="text-nowrap">2023年04月
-											<i class="fas fa-circle-exclamation text-danger" title="淨利低於目標警示"></i>
-										</td>
-										<td>2,205,431 </td>
-										<td>1,675,400 <span class="badge bg-danger">75.97%</span></td>
-										<td>850,200 <span class="badge bg-danger">38.55%</span></td>
-										<td>650,120 <span class="badge bg-danger">29.48%</span></td>
-										<td>175,080 <span class="badge bg-green">7.94%</span></td>
-										<td class="fw-bold">530,031 <span class="badge bg-danger">24.03%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">10</td>
-										<td class="text-nowrap">2023年02月</td>
-										<td>2,200,157 </td>
-										<td>1,570,064 <span class="badge bg-green">71.36%</span></td>
-										<td>780,175 <span class="badge bg-green">35.46%</span></td>
-										<td>600,795 <span class="badge bg-green">27.31%</span></td>
-										<td>189,094 <span class="badge bg-green">8.59%</span></td>
-										<td class="fw-bold">630,093 <span class="badge bg-green">28.64%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">11</td>
-										<td class="text-nowrap">2023年03月</td>
-										<td>2,199,731 </td>
-										<td>1,599,731 <span class="badge bg-green">72.72%</span></td>
-										<td>835,005 <span class="badge bg-danger">37.96%</span></td>
-										<td>605,005 <span class="badge bg-green">27.50%</span></td>
-										<td>159,721 <span class="badge bg-green">7.26%</span></td>
-										<td class="fw-bold">600,000 <span class="badge bg-green">27.28%</span></td>
-									</tr>
-									<tr class="odd gradeX">
-										<td class="fw-bold text-center">12</td>
-										<td class="text-nowrap">2023年05月</td>
-										<td>1,989,561 </td>
-										<td>1,400,151 <span class="badge bg-green">70.37%</span></td>
-										<td>705,000 <span class="badge bg-green">35.43%</span></td>
-										<td>529,095 <span class="badge bg-green">26.59%</span></td>
-										<td>166,056 <span class="badge bg-green">8.35%</span></td>
-										<td class="fw-bold">589,410 <span class="badge bg-green">29.63%</span></td>
-									</tr>
-								</tbody>
-							</table>
+							<div class="row">
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container4"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container2"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container3"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container5"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container6"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container7"></div>
+                                    </figure>
+								</div>
+							</div>
 
 						</div>
 					</div>
@@ -862,242 +743,166 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/highcharts-more.js"></script>
 	<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<!--關掉highchart選單-->
+	<!--script src="https://code.highcharts.com/modules/exporting.js"></script-->
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
 	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 	<script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
 
+    <script src="../assets/js/demo/chart-pie-demo.js"></script>
+
 <script>
-const dataPrev = {
-    2020: [
-        ['dec', 2657972],
-        ['nov', 3156389],
-        ['oct', 3359731],
-        ['sep', 2534276],
-        ['aug', 1650121],
-        ['jul', 2751545],
-        ['jun', 1970064],
-        ['may', 1996475],
-        ['apr', 2599731],
-        ['mar', 1934276],
-        ['feb', 2000151],
-        ['jan', 2872333]
-    ],
-};
+$(function () {
 
-const data = {
-    2020: [
-        ['dec', 3554995],
-        ['nov', 4035495],
-        ['oct', 4474372],
-        ['sep', 3533287],
-        ['aug', 3205743],
-        ['jul', 3819321],
-        ['jun', 3200157],
-        ['may', 3606389],
-        ['apr', 3199731],
-        ['mar', 2734276],
-        ['feb', 2989561],
-        ['jan', 4271156]
-    ]
-};
+var colors = Highcharts.getOptions().colors,
+    categories = ['原物料', '人事薪資', '其他費用', 'Safari', 'Opera'],
+    data = [{
+        y: 1300435,
+        color: colors[1],
+        drilldown: {
+            name: '原物料',
+            categories: ['總部央廚',
+                    '愛新鮮',
+                    '合作廠商(2)',
+                    '合作廠商(3)',
+                    '自行採購',
+                    '其他'],
+            data: [670435,
+                    250000,
+                    145000,
+                    0,
+                    175000,
+                    60000],
+            colors: [colors[1],colors[1],colors[1],colors[1],colors[1],colors[1]]
+        }
+    }, {
+        y: 1050125,
+        color: colors[3],
+        drilldown: {
+            name: '人事薪資',
+            categories: ['正職人員',
+                    '兼職人員',
+                    '勞健其他保費',
+                    '獎金加減項',
+                    '其他'],
+            data: [555000,
+                    315000,
+                    99125,
+                    50000,
+                    31000],
+            colors: [colors[0],colors[1],colors[2],colors[2],colors[2],colors[2]]
+        }
+    }, {
+        y: 505829,
+        color: colors[5],
+        drilldown: {
+            name: '其他費用',
+            categories: ['房租',
+                    '水電瓦斯',
+                    '電信費',
+                    '系統服務費用',
+                    '其他'
+                ],
+            data: [225000,
+                    127829,
+                    88000,
+                    27000,
+                    38000],
+            colors: [colors[0],colors[1],colors[2],colors[2],colors[2],colors[2]]
+        }
+    }],
+    browserData = [],
+    versionsData = [],
+    i,
+    j,
+    dataLen = data.length,
+    drillDataLen,
+    brightness;
 
-const countries = {
-    dec: {
-        name: '2023/12',
-        color: '#FE2371'
-    },
-    nov: {
-        name: '2023/11',
-        color: '#544FC5'
-    },
-    oct: {
-        name: '2023/10',
-        color: '#2CAFFE'
-    },
-    sep: {
-        name: '2023/09',
-        color: '#FE6A35'
-    },
-    aug: {
-        name: '2023/08',
-        color: '#efdf00'
-    },
-    jul: {
-        name: '2023/07',
-        color: '#1C74BD'
-    },
-    jun: {
-        name: '2023/06',
-        color: '#00A6A6'
-    },
-    may: {
-        name: '2023/05',
-        color: '#9f9fa3'
-    },
-    apr: {
-        name: '2023/04',
-        color: '#009f4d'
-    },
-    mar: {
-        name: '2023/03',
-        color: '#4d4f53'
-    },
-    feb: {
-        name: '2023/02',
-        color: '#b4a996'
-    },
-    jan: {
-        name: '2023/01',
-        color: '#6B8ABC'
+
+// Build the data arrays
+for (i = 0; i < dataLen; i += 1) {
+
+    // add browser data
+    browserData.push({
+        name: categories[i],
+        y: data[i].y,
+        color: data[i].color
+    });
+
+    // add version data
+    drillDataLen = data[i].drilldown.data.length;
+    for (j = 0; j < drillDataLen; j += 1) {
+        brightness = 0.2 - (j / drillDataLen) / 5;
+        versionsData.push({
+            name: data[i].drilldown.categories[j],
+            y: data[i].drilldown.data[j],
+//            color: data[i].drilldown.colors[j]
+            color: Highcharts.color(data[i].color).brighten(brightness).get(),
+        });
     }
-};
-
-// Add upper case country code
-for (const [key, value] of Object.entries(countries)) {
-    value.ucCode = key.toUpperCase();
 }
 
-
-const getData = data => data.map(point => ({
-    name: point[0],
-    y: point[1],
-    color: countries[point[0]].color
-}));
-
-const chart = Highcharts.chart('container', {
+// Create the chart
+$('#container4').highcharts({
     chart: {
-        type: 'column'
+        type: 'pie'
     },
-    // Custom option for templates
-    countries,
     title: {
-        text: '',
+        text: '000001 蘆洲民族店(範例2)',
         align: 'left'
     },
     subtitle: {
-        text: '',
+        text: '成本小計: 2,856,389',
         align: 'left'
     },
-    plotOptions: {
-        series: {
-            grouping: false,
-            borderWidth: 0
+    yAxis: {
+        title: {
+            text: ''
         }
     },
-    legend: {
-        enabled: false
+    plotOptions: {
+        pie: {
+            shadow: false,
+            center: ['50%', '50%']
+        }
     },
     tooltip: {
-        shared: true,
-        headerFormat: '<span style="font-size: 15px">' +
-            '{series.chart.options.countries.(point.key).name}' +
-            '</span><br/>',
-        pointFormat: '<span style="color:{point.color}">\u25CF</span> ' +
-            '{series.name}: <b>{point.y}</b><br/>'
+        valueSuffix: ''
     },
-    xAxis: {
-        type: 'category',
-        accessibility: {
-            description: 'Countries'
-        },
-        max: 11,
-        labels: {
-            useHTML: true,
-            animate: true,
-            format: '{chart.options.countries.(value).ucCode}</span>',
-            style: {
-                textAlign: 'center'
-            }
-        }
-    },
-    yAxis: [{
-        title: {
-            text: '銷售額 (NT$)'
-        },
-        showFirstLabel: false
-    }],
     series: [{
-        color: 'rgba(158, 159, 163, 0.5)',
-        pointPlacement: -0.2,
-        linkedTo: 'main',
-        data: dataPrev[2020].slice(),
-        name: '成本'
+        name: 'NT$',
+        data: browserData,
+        size: '45%',
+        dataLabels: {
+            formatter: function () {
+                return this.y > 5 ? this.point.name : null;
+            },
+            color: '#ffffff',
+            distance: -50
+        }
     }, {
-        name: '銷售額',
-        id: 'main',
-        dataSorting: {
-            enabled: true,
-            matchByName: true
-        },
-        dataLabels: [{
-            enabled: true,
-            inside: true,
-            style: {
-                fontSize: '16px'
-            }
-        }],
-        data: getData(data[2020]).slice()
-    }],
-    exporting: {
-        allowHTML: true
-    }
+        name: 'NT$',
+        data: versionsData,
+        size: '80%',
+        innerSize: '60%',
+        dataLabels: {
+            distance: 10,
+            formatter: function () {
+                // display only if larger than 1
+                return this.y > 1 ? '' + this.point.name + '' + '' : null;
+            },
+            filter: {
+                    property: 'percentage',
+                    operator: '>',
+                    value: 2
+                }
+
+        }
+    }]
 });
-
-const locations = [
-    {
-        city: 'Tokyo',
-        year: 2020
-    }, {
-        city: 'Rio',
-        year: 2016
-    }, {
-        city: 'London',
-        year: 2012
-    }, {
-        city: 'Beijing',
-        year: 2008
-    }, {
-        city: 'Athens',
-        year: 2004
-    }, {
-        city: 'Sydney',
-        year: 2000
-    }
-];
-
-locations.forEach(location => {
-    const btn = document.getElementById(location.year);
-
-    btn.addEventListener('click', () => {
-
-        document.querySelectorAll('.buttons button.active')
-            .forEach(active => {
-                active.className = '';
-            });
-        btn.className = 'active';
-
-        chart.update({
-            title: {
-                text: ''
-            },
-            subtitle: {
-                text: ''
-            },
-            series: [{
-                name: location.year - 4,
-                data: dataPrev[location.year].slice()
-            }, {
-                name: location.year,
-                data: getData(data[location.year]).slice()
-            }]
-        }, true, false, {
-            duration: 800
-        });
-    });
 });
 </script>
-	
 
 </body>
 </html>
