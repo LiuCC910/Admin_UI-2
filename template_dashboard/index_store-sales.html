@@ -269,8 +269,8 @@
 										</a>
 									</div>
 									<div class="menu-item">
-										<a href="#" class="menu-link">
-											<div class="menu-text">門店原物料成本</div>
+										<a href="chart_store-costs.html" class="menu-link">
+											<div class="menu-text">門店成本控管</div>
 										</a>
 									</div>
 								</div>
@@ -573,14 +573,9 @@
 
 			<!-- BEGIN row / 篩選工具列 -->
 			<div class="row">
-				<!-- BEGIN col-8 -->
-                <div class="col-xl-6">
+				
+                <!--div class="col-xl-6">
                     <div class="fc-toolbar-chunk">
-                        <!--div class="btn-group">
-                            <button type="button" title="Previous Month" aria-pressed="false" class="fc-prev-button btn btn-primary"><span class="fa fa-chevron-left"></span></button>
-                            <button type="button" title="Week view" aria-pressed="false" class="fc-timeGridWeek-button btn btn-primary active">本週</button>
-                            <button type="button" title="Next Month" aria-pressed="false" class="fc-next-button btn btn-primary" disabled><span class="fa fa-chevron-right"></span></button>
-                        </div-->
                         <div class="btn-group">
                             <div>
                                 <a href="#" class="btn me-2 bg-gray-700 text-white" id="daterange-filter">
@@ -591,8 +586,15 @@
                             </div>
                         </div>
                     </div>
-				</div>
-                <div class="col-lg-6 text-end">
+				</div-->
+                <div class="col-xl-3">
+					<div class='buttons2'>
+						<button>上一週</button>
+						<button class='active'>2024/1/15-2024/1/21</button>
+						<button disabled>下一週</button>
+					</div>
+                </div>
+                <div class="col-xl-9 text-end">
                     <div class="dt-buttons btn-group">
                         <select class="selectpicker form-control" id="ex-search" multiple>
                             <option value="0" selected>000000 台南成功店</option>
@@ -608,9 +610,12 @@
                             <option value="10">000004 高雄大社店</option>
                             <option value="11">000005 善化民權店</option>
                         </select> 
-                        <button class="btn btn-outline-primary btn-sm" tabindex="0" aria-controls="data-table-buttons" type="button"><i class="fas fa-download"></i> <span>匯出</span></button> 
                     </div>
-                    
+                    <div class='buttons2'>
+                        <button class='active'>門店檢視</button>
+                        <button onclick="window.location.href='index_date-sales.html';">區間檢視</button>
+                        <button type="button"><i class="fas fa-download"></i> <span>匯出</span></button>
+                    </div>
                 </div>
             </div>
             <!--資料內容頁籤區-->

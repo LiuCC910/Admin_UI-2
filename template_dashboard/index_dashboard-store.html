@@ -608,7 +608,7 @@
                     
                 </div-->
 				<!-- 樣式二 -->
-				<div class="col-xl-9">
+				<div class="col-xl-6">
 					<div class='buttons2'>
 						<!--button>年</button-->
 						<button class='active'>月檢視</button>
@@ -630,7 +630,7 @@
 						<button disabled>2024/1月</button>
 					</div-->
 				</div>
-				<div class="col-xl-3 text-end">
+				<div class="col-xl-6 text-end">
 					<div class="dt-buttons btn-group">
                         <select class="selectpicker form-control" id="ex-search">
                             <option value="0" selected>000000 台南成功店</option>
@@ -803,7 +803,7 @@
 							<!-- END conversion-rate -->
 							<!-- BEGIN percentage -->
 							<div class="mb-4 text-gray-500 ">
-								<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="10.00">0.00</span>% 與上一個月比較
+								<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="10.00">0.00</span>% 與上一個區段比較
 							</div>
 							<!-- END percentage -->
 							<!-- BEGIN info-row -->
@@ -974,7 +974,7 @@
 			</div>
 			<!-- END row -->
 
-			<!-- BEGIN row -->
+			<!-- BEGIN row: 圖表區 -->
 			<div class="row">
 				<!-- BEGIN col -->
 				<div class="col-xl-9">
@@ -1000,28 +1000,28 @@
 				<!-- END col -->
 				<div class="col-xl-3">
 					<div class="card border-0">
-						<div class="card-header">
+						<div class="card-header" style="padding-top: 15px;">
 							<h4>系統通知</h4>
 						</div>
 						<div class="card-body">
 							<!-- BEGIN card -->
-							<div class="card text-white border-0 bg-blue text-center mb-2">
+							<div class="card text-white border-0 bg-danger text-center mb-2">
 								<div class="card-body">
 									<blockquote class="blockquote">
-										<p class="mb-2">You don't have <br>to invade a country in order<br> to be happy</p>
+										<p class="mb-2"><b>本週目標營業額尚未達成</b></p>
 									</blockquote>
 									<figcaption class="blockquote-footer mt-n2 mb-1 text-white text-opacity-75">
-										Someone famous in <cite title="Source Title">Source Title</cite>
+										距離目標營業額尚差 <cite title="Source Title">328,976 NT$</cite>
 									</figcaption>
 								</div>
 							</div>
 							<!-- END card -->
 							
 							<!-- BEGIN card -->
-							<div class="card border-warning text-warning mb-10px">
+							<div class="card border-green text-green mb-10px">
 								<div class="card-body">
 									<blockquote class="blockquote">
-										<p class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+										<p class="mb-2">2023/12 月目標營業額已順利達成！</p>
 									</blockquote>
 									<figcaption class="blockquote-footer mt-n2 mb-1 text-orange-700">
 										Someone famous in <cite title="Source Title">Source Title</cite>
@@ -1046,8 +1046,7 @@
 					</div>
 				</div>
 				<!-- BEGIN col-4 -->
-				<div class="col-xl-4" style="display:none;">
-					<!-- BEGIN panel -->
+				<!--div class="col-xl-4">
 					<div class="card border-0 mb-3 overflow-hidden">
 						<div class="card-body">
 							<h4>目標/代辦事項
@@ -1118,7 +1117,7 @@
 						</div>
 					</div>
 					<!-- END panel -->
-				</div>
+				</div-->
 				<!-- END col-4 -->
 			</div>
 			<!-- END row -->
@@ -1334,7 +1333,7 @@
 		series: [{
 		name: '營業額',
 			type: 'column',
-			data: [372650, 852788, 702100, 1050035, 657789, 854321, 761234, 398950, 0, 0],
+			data: [372650, 852788, 702100, 1050035, 657789, 854321, 761234, 446548, 0, 0],
 			dataLabels: [{
 				enabled: true,
 				inside: true,
