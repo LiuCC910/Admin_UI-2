@@ -153,11 +153,15 @@ table.table-fixed thead tr th:nth-child(1), table.table-fixed thead tr th:nth-ch
     height: 60px;
     font-size: 32px;
 }
-a.disabled{
+
+button:disabled, button[disabled], a.disabled{
     pointer-events: none;
     cursor: default;
     text-decoration: none;
-    color: black;
+}
+a.disabled{
+    color: #999;
+    background-color: #ccc !important;
 }
 
 /*Highchart CSS暫用*/
