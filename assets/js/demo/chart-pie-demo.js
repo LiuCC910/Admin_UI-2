@@ -112,7 +112,7 @@ for (i = 0; i < dataLen; i += 1) {
 }
 
 // Create the chart
-Highcharts.chart('container', {
+Highcharts.chart('container1', {
     chart: {
         type: 'pie'
     },
@@ -142,7 +142,7 @@ Highcharts.chart('container', {
             distance: '-50%'
         }
     }, {
-        name: 'Versions',
+        name: 'NT$',
         data: versionsData,
         size: '80%',
         innerSize: '60%',
