@@ -123,3 +123,87 @@ table.table-fixed thead tr th:nth-child(1), table.table-fixed thead tr th:nth-ch
 .timeline .timeline-icon a {width:15px;height:15px;border:3px solid #495057;}
 .timeline:before {left:4.5%;width:3px;}
 .timeline .timeline-content {margin-left:8%;max-width:88%;}
+
+.carousel-control-next, .carousel-control-prev {
+    background: rgba(0,0,0,.6)!important;
+    border-radius: 5px;
+    width: 30px;
+    height: 40px;
+    top: 50%;
+    margin-top: -30px;
+    z-index: 10;
+    text-decoration: none;
+}
+.carousel-control-prev {
+    left: 0;
+}
+.carousel-control-prev i {
+    display: block;
+    margin: 0;
+    text-align: center;
+    line-height: 60px;
+    height: 60px;
+    font-size: 32px;
+}
+.carousel-control-next i, .carousel-control-prev i {
+    display: block;
+    margin: 0;
+    text-align: center;
+    line-height: 60px;
+    height: 60px;
+    font-size: 32px;
+}
+a.disabled{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+
+/*Highchart CSS暫用*/
+#container {
+    max-width: 95%;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.buttons2, .buttons {
+    min-width: 250px;
+    text-align: center;
+    margin:0 1rem;
+    font-size: 0;
+    display: inline;
+}
+
+.buttons2 button, .buttons button {
+    cursor: pointer;
+    border: 1px solid silver;
+    border-right-width: 0;
+    background-color: #f8f8f8;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    transition-duration: 0.3s;
+    margin: 0;
+}
+
+.buttons2 button:first-child, .buttons button:first-child {
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+}
+
+.buttons2 button:last-child, .buttons button:last-child {
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    border-right-width: 1px;
+}
+
+.buttons2 button:hover, .buttons button:hover {
+    color: white;
+    background-color: rgb(158 159 163);
+    outline: none;
+}
+
+.buttons2 button.active, .buttons button.active {
+    background-color: #0051b4;
+    color: white;
+}
