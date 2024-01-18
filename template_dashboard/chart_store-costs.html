@@ -37,55 +37,6 @@
 	<link href="../assets/css/customize.css" rel="stylesheet" />
 	<link href="../favicon.png" rel="icon" type="image/x-icon">
 
-    <!-- Highchart CSS暫用 -->
-    <style>
-        .buttons2, .buttons {
-            min-width: 250px;
-            text-align: center;
-            margin:0 1rem;
-            font-size: 0;
-        }
-    
-        .buttons2 button, .buttons button {
-            cursor: pointer;
-            border: 1px solid silver;
-            border-right-width: 0;
-            background-color: #f8f8f8;
-            font-size: 0.75rem;
-            padding: 0.5rem;
-            transition-duration: 0.3s;
-            margin: 0;
-        }
-    
-        .buttons2 button:first-child, .buttons button:first-child {
-            border-top-left-radius: 0.3em;
-            border-bottom-left-radius: 0.3em;
-        }
-    
-        .buttons2 button:last-child, .buttons button:last-child {
-            border-top-right-radius: 0.3em;
-            border-bottom-right-radius: 0.3em;
-            border-right-width: 1px;
-        }
-    
-        .buttons2 button:hover, .buttons button:hover {
-            color: white;
-            background-color: rgb(158 159 163);
-            outline: none;
-        }
-    
-        .buttons2 button.active, .buttons button.active {
-            background-color: #0051b4;
-            color: white;
-        }
-        .highcharts-figure {
-            min-width: 320px;
-            max-width: 660px;
-            margin: 2em auto;
-        }
-    
-    </style>
-    
 </head>
 <body>
 	<!-- BEGIN #loader -->
@@ -632,14 +583,12 @@
 					<div class="card border-0 mb-3">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-xl-3">
+								<div class="col-xl-9">
 									<div class='buttons2'>
 										<button>年模式</button>
 										<button class='active'>月模式</button>
 										<button>週模式</button>
 									</div>
-								</div>
-								<div class="col-xl-6">
 									<div class='buttons'>
 										<button>2023/1月</button>
 										<button>2月</button>
@@ -658,15 +607,15 @@
 										<button disabled>2024/1月</button>
 									</div>
 								</div>
-								<div class="col-xl-3">
+								<div class="col-xl-3 text-end">
 									<div class='buttons2'>
 										<button class='active'>區間檢視</button>
-										<button onclick="window.location.href='chart_date-sales.html';">單店檢視</button>
+										<button>單店檢視</button>
 										<button type="button"><i class="fas fa-download"></i> <span>匯出</span></button>
 									</div>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" style="position:relative;padding:25px;">
 								<div class="col-xl-3">
                                     <figure class="highcharts-figure">
                                         <div id="container"></div>
@@ -702,6 +651,13 @@
                                         <div id="container7"></div>
                                     </figure>
 								</div>
+								<!--單店區間模式才顯示-->
+								<!--a class="carousel-control-prev" href="#" data-bs-slide="prev" title="上一區段"> 
+									<i class="fa fa-angle-left"></i> 
+								</a>
+								<a class="carousel-control-next disabled" href="#" data-bs-slide="next" title="下一區段"> 
+									<i class="fa fa-angle-right"></i> 
+								</a-->
 							</div>
 
 						</div>
