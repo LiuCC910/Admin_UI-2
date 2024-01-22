@@ -657,7 +657,11 @@
 					<div class="widget widget-stats bg-teal">
 						<div class="stats-icon stats-icon-lg"><i class="fa fa-archive fa-fw"></i></div>
 						<div class="stats-content">
-							<div class="stats-title">昨日銷售單數</div>
+							<div class="stats-title">昨日銷售單數
+								<span class="ms-2">
+									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="前一日銷售單總數" data-bs-placement="top" data-bs-content="日目標銷售單數＝日目標銷售額/平均客單價"></i>
+								</span>
+							</div>
 							<div class="stats-number">715 <small class="before">(日目標: 705)</small></div>
 							<div class="stats-progress progress">
 								<div class="progress-bar" style="width: 101.45%;"></div>
@@ -671,7 +675,11 @@
 					<div class="widget widget-stats bg-blue">
 						<div class="stats-icon stats-icon-lg"><i class="fa fa-dollar-sign fa-fw"></i></div>
 						<div class="stats-content">
-							<div class="stats-title">昨日銷售額(目標)</div>
+							<div class="stats-title">昨日銷售額(目標)
+								<span class="ms-2">
+									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="前一日銷售額總數" data-bs-placement="top" data-bs-content="日目標銷售額＝去年同期日平均銷售額*(1+成長率%)"></i>
+								</span>
+							</div>
 							<div class="stats-number">188,675 <small class="before">(日目標: 162,750)</small></div>
 							<div class="stats-progress progress">
 								<div class="progress-bar" style="width: 115.93%;"></div>
@@ -684,45 +692,45 @@
 				<div class="col-sm-6 ">
 					<div class="widget widget-stats overflow-hidden bg-indigo text-white">
 						<div class="stats-icon stats-icon-lg"><i class="fa fa-globe fa-fw"></i></div>
-						<div class="stats-content">
-							<div class="stats-title">本{月}累積銷售
-								<span class="ms-2">
-									<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="銷售總額" data-bs-placement="top" data-bs-content="Net sales Net sales Net sales (門店銷售總額說明文案)"></i>
-								</span>
+						<div class="row stats-content">
+							<div class="col-12">
+								<div class="stats-title">本{月}累積銷售
+									<span class="ms-2">
+										<i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="銷售總額" data-bs-placement="top" data-bs-content="本區間累計至昨日的相關數據，包括銷售額、單數、以及平均值"></i>
+									</span>
+								</div>
 							</div>
-							<div class="stats-number">$<span data-animation="number" data-value="2670175">0.00 </span> 
-								<small class="mb-3 before text-gray-400"> 
-									 與月目標銷售額 <span>4,231,494</span>比: 
-									 <i class="fa fa-caret-down"></i> 
-									 <span data-animation="number" data-value="2120981" class="text-gray-300">0.00</span></small>
+							<div class="col-9">
+								<div class="stats-number">$<span data-animation="number" data-value="2432103">0 </span> 
+									<small class="mb-3 before text-gray-400"> 
+										距月目標銷售額 (<span>4,231,494</span>): 
+										<b><i class="fa fa-caret-down"></i> 
+										<span data-animation="number" data-value="2120981" class="text-gray-300">0</span></b></small>
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="text-gray-500">目標達成率(%)</div>
+								<div class="fs-18px fw-bold" data-animation="number" data-value="57.48">0.00</div>
 							</div>
 							<hr class="bg-white bg-opacity-50" />
 							<!-- BEGIN row -->
 							<div class="row text-truncate">
-								<!-- BEGIN col-4 -->
 								<div class="col-3">
 									<div class=" text-gray-500">總銷售單數</div>
 									<div class="fs-18px mb-5px fw-bold" data-animation="number" data-value="10833">0</div>
 								</div>
-								<!-- END col-4 -->
-								<!-- BEGIN col-4 -->
 								<div class="col-3">
 									<div class=" text-gray-500">平均每日銷售單數</div>
 									<div class="fs-18px mb-5px fw-bold"><span data-animation="number" data-value="722">0.00</span></div>
 								</div>
-								<!-- END col-4 -->
-								<!-- BEGIN col-4 -->
 								<div class="col-3">
 									<div class=" text-gray-500">平均每單銷售金額</div>
 									<div class="fs-18px mb-5px fw-bold">$<span data-animation="number" data-value="246">0.00</span></div>
 								</div>
-								<!-- END col-4 -->
-								<!-- BEGIN col-4 -->
 								<div class="col-3">
 									<div class=" text-gray-500">累計營業天數</div>
 									<div class="fs-18px mb-5px fw-bold" data-animation="number" data-value="15">0</div>
 								</div>
-								<!-- END col-4 -->
 							</div>
 						</div>
 					</div>
@@ -745,12 +753,12 @@
 							<!-- END title -->
 							<!-- BEGIN conversion-rate -->
 							<div class="d-flex align-items-center mb-1">
-								<h2 class="text-white mb-0">$<span data-animation="number" data-value="123995">0.00</span></h2>
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="1069938">0</span></h2>
 							</div>
 							<!-- END conversion-rate -->
 							<!-- BEGIN percentage -->
 							<div class="mb-4 text-gray-500 ">
-								<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="3.50">0.00</span>% 與上一個區段比較
+								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="33.04">0.00</span>% 與上一個區段(1,627,745)比較
 							</div>
 							<!-- END percentage -->
 							<!-- BEGIN info-row -->
@@ -759,33 +767,33 @@
 									<i class="fa fa-circle text-red fs-8px me-2"></i>
 									原物料成本
 								</div>
-								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="10.00">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="320155">0.00</span></div>
+								<div class="d-flex align-items-left ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="46.68">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="880000">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex mb-2">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-warning fs-8px me-2"></i>
+									<i class="fa fa-circle text-lime fs-8px me-2"></i>
 									人事成本
 								</div>
-								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="6.00">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="208000">0.00</span></div>
+								<div class="d-flex align-items-left ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="50.04">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="375165">0.00</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									<i class="fa fa-circle text-warning fs-8px me-2"></i>
 									營業成本
 								</div>
-								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="0.50">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="97850">0.00</span></div>
+								<div class="d-flex align-items-left ms-auto">
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="58.32">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="107000">0.00</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
@@ -802,17 +810,17 @@
 							<!-- BEGIN title -->
 							<div class="mb-3 text-gray-500">
 								<b class="mb-3">原物料成本</b> 
-								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
+								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="食耗材進貨成本" data-bs-placement="top" data-bs-content="所有原物料(食耗材)進貨成本加總－前一月庫存＋本月庫存" data-original-title="" title=""></i></span>
 							</div>
 							<!-- END title -->
 							<!-- BEGIN conversion-rate -->
 							<div class="d-flex align-items-center mb-1">
-								<h2 class="text-white mb-0">$<span data-animation="number" data-value="320155">0.00</span></h2>
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="880000">0</span></h2>
 							</div>
 							<!-- END conversion-rate -->
 							<!-- BEGIN percentage -->
 							<div class="mb-4 text-gray-500 ">
-								<i class="fa fa-caret-up"></i> <span data-animation="number" data-value="10.00">0.00</span>% 與上一個區段比較
+								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="46.68">0.00</span>% 與上一個區段(1,650,355)比較
 							</div>
 							<!-- END percentage -->
 							<!-- BEGIN info-row -->
@@ -822,32 +830,32 @@
 									進貨/採購
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="26">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="220155">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="26">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="860000">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex mb-2">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-warning fs-8px me-2"></i>
+									<i class="fa fa-circle text-red fs-8px me-2"></i>
 									上月底庫存
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="11">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="120000">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="71.57">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="20000">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									<i class="fa fa-circle text-red fs-8px me-2"></i>
 									當月庫存
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="27">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="20000">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="100">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
@@ -864,40 +872,40 @@
 							<!-- BEGIN title -->
 							<div class="mb-3 text-gray-500">
 								<b class="mb-3">人事成本</b> 
-								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
+								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="人事費用成本" data-bs-placement="top" data-bs-content="人事費用＝人員本薪+勞健保費＋其他加減項" data-original-title="" title=""></i></span>
 							</div>
 							<!-- END title -->
 							<!-- BEGIN conversion-rate -->
 							<div class="d-flex align-items-center mb-1">
-								<h2 class="text-white mb-0">$<span data-animation="number" data-value="208000">0.00</span></h2>
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="375165">0</span></h2>
 							</div>
 							<!-- END conversion-rate -->
 							<!-- BEGIN percentage -->
 							<div class="mb-4 text-gray-500 ">
-								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="6.00">0.00</span>% 與上一個區段比較
+								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="50.04">0.00</span>% 與上一個區段(750,895)比較
 							</div>
 							<!-- END percentage -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex mb-2">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-red fs-8px me-2"></i>
+									<i class="fa fa-circle text-lime fs-8px me-2"></i>
 									累計薪資
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="6">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="200000">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="50.04">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="375165">0.00</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex mb-2">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-warning fs-8px me-2"></i>
-									累計出勤時數
+									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									其他(勞健保、雜支)
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="5">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold"><span data-animation="number" data-value="1660">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa-solid fa-equals"></i> <span data-animation="number" data-value="0.00">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="0">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
@@ -905,11 +913,11 @@
 							<div class="d-flex">
 								<div class="d-flex align-items-center">
 									<i class="fa fa-circle text-lime fs-8px me-2"></i>
-									其他(勞健保、雜支)
+									累計出勤時數
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa-solid fa-equals"></i> <span data-animation="number" data-value="0">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="8000">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="24.57">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold"><span data-animation="number" data-value="1311">0</span> hr</div>
 								</div>
 							</div>
 							<!-- END info-row -->
@@ -926,28 +934,28 @@
 							<!-- BEGIN title -->
 							<div class="mb-3 text-gray-500">
 								<b class="mb-3">營業成本</b> 
-								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
+								<span class="ms-2"><i class="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="其他營業成本" data-bs-placement="top" data-bs-content="包括店租、水電瓦斯、系統服務費以及其他非固定雜支等" data-original-title="" title=""></i></span>
 							</div>
 							<!-- END title -->
 							<!-- BEGIN conversion-rate -->
 							<div class="d-flex align-items-center mb-1">
-								<h2 class="text-white mb-0">$<span data-animation="number" data-value="97850">0.00</span></h2>
+								<h2 class="text-white mb-0">$<span data-animation="number" data-value="107000">0</span></h2>
 							</div>
 							<!-- END conversion-rate -->
 							<!-- BEGIN percentage -->
 							<div class="mb-4 text-gray-500 ">
-								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="0.50">0.00</span>% 與上一個區段比較
+								<i class="fa fa-caret-down"></i> <span data-animation="number" data-value="58.32">0.00</span>% 與上一個區段(256,722)比較
 							</div>
 							<!-- END percentage -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex mb-2">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-red fs-8px me-2"></i>
-									房租
+									<i class="fa fa-circle text-warning fs-8px me-2"></i>
+									房租(每月5日)
 								</div>
 								<div class="d-flex align-items-center ms-auto">
 									<div class="text-gray-500 small"><i class="fa-solid fa-equals"></i> <span data-animation="number" data-value="0">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="65000">0.00</span></div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="105000">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
@@ -955,23 +963,23 @@
 							<div class="d-flex mb-2">
 								<div class="d-flex align-items-center">
 									<i class="fa fa-circle text-warning fs-8px me-2"></i>
-									水電瓦斯
+									水電瓦斯(每月26日)
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-up"></i> <span data-animation="number" data-value="5">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="25000">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="100">0.00</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="0">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
 							<!-- BEGIN info-row -->
 							<div class="d-flex">
 								<div class="d-flex align-items-center">
-									<i class="fa fa-circle text-lime fs-8px me-2"></i>
+									<i class="fa fa-circle text-warning fs-8px me-2"></i>
 									其他(電信系統、雜支)
 								</div>
 								<div class="d-flex align-items-center ms-auto">
-									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="5.5">0</span>%</div>
-									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="6850">0.00</span></div>
+									<div class="text-gray-500 small"><i class="fa fa-caret-down"></i> <span data-animation="number" data-value="66.67">0</span>%</div>
+									<div class="w-50px text-end ps-2 fw-bold">$<span data-animation="number" data-value="2000">0</span></div>
 								</div>
 							</div>
 							<!-- END info-row -->
@@ -1038,13 +1046,25 @@
 							</div>
 							<!-- END card -->
 							<!-- BEGIN card -->
+							<div class="card border-danger text-danger mb-10px">
+								<div class="card-body">
+									<blockquote class="blockquote">
+										<p class="mb-2">2023/12 月目標營業額未達成！</p>
+									</blockquote>
+									<figcaption class="blockquote-footer mt-n2 mb-1 text-orange-700">
+										12月總營業額為 <cite title="Source Title"><b>4,235,362</b> NT$</cite> (目標營業額為: 4,329,045)
+									</figcaption>
+								</div>
+							</div>
+							<!-- END card -->
+							<!-- BEGIN card -->
 							<div class="card border-green text-green mb-10px">
 								<div class="card-body">
 									<blockquote class="blockquote">
-										<p class="mb-2">2023/12 月目標營業額已順利達成！</p>
+										<p class="mb-2">2023/11 月目標營業額已順利達成！</p>
 									</blockquote>
 									<figcaption class="blockquote-footer mt-n2 mb-1 text-orange-700">
-										12月總營業額為 <cite title="Source Title">4,791,156 NT$</cite>
+										11月總營業額為 <cite title="Source Title"><b>3,554,995 NT$</b></cite> (目標營業額為: 3,329,045)
 									</figcaption>
 								</div>
 							</div>
@@ -1124,7 +1144,6 @@
 						<div class="card-footer text-center"><a href="#" class="btn btn-xs btn-warning fs-10px ps-2 pe-2">還有 7 筆 (檢視全部)</a>
 						</div>
 					</div>
-					<!-- END panel -->
 				</div-->
 				<!-- END col-4 -->
 			</div>
@@ -1341,19 +1360,19 @@
 		series: [{
 		name: '營業額',
 			type: 'column',
-			data: [372650, 852788, 702100, 1050035, 657789, 854321, 761234, 446548, 0, 0],
+			data: [372650, 952788, 902100, 1050035, 957789, 964321, 981234, 486548, 0, 0],
 			dataLabels: [{
 				enabled: true,
 				inside: true,
 			}],
 
-			//低於目標警示、高於目標正常
+			//低於目標警示(#ff5b57)、高於目標正常(#009e7a)
 			colorByPoint: true,
-			colors: ['#009e7a', '#009e7a', '#ff5b57', '#009e7a', '#ff5b57', '#009e7a', '#ff5b57', '#ff5b57', '#ececec', '#ececec']
+			colors: ['#ff5b57', '#ff5b57', '#ff5b57', '#009e7a', '#ff5b57', '#ff5b57', '#009e7a', '#ff5b57', '#ececec', '#ececec']
 		}, {
 		name: '目標營業額',
 			type: 'line',
-			data: [360012, 720024, 720024, 720024, 720024, 775524, 775524, 775524, 775524, 258508]
+			data: [499505, 999010, 999010, 999010, 999010, 976499, 976499, 488249, 976499, 325500]
 		}],
 
 		responsive: {
