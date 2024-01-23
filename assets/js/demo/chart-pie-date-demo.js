@@ -117,11 +117,11 @@ Highcharts.chart('container1', {
         type: 'pie'
     },
     title: {
-        text: '000000 台南成功店',
+        text: '2月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 2,657,972',
+        text: '成本小計: 2,198,500',
         align: 'left'
     },
     plotOptions: {
@@ -187,11 +187,11 @@ Highcharts.chart('container2', {
         type: 'pie'
     },
     title: {
-        text: '000002 中壢實踐店',
+        text: '3月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 3,159,731',
+        text: '成本小計: 2,867,600',
         align: 'left'
     },
     plotOptions: {
@@ -257,11 +257,11 @@ Highcharts.chart('container3', {
         type: 'pie'
     },
     title: {
-        text: '000003 文山景美店',
+        text: '4月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 2,934,276',
+        text: '成本小計: 2,528,000',
         align: 'left'
     },
     plotOptions: {
@@ -327,7 +327,7 @@ Highcharts.chart('container5', {
         type: 'pie'
     },
     title: {
-        text: '000004 高雄大社店',
+        text: '5月',
         align: 'left'
     },
     subtitle: {
@@ -397,11 +397,11 @@ Highcharts.chart('container6', {
         type: 'pie'
     },
     title: {
-        text: '000005 善化民權店',
+        text: '6月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 2,999,945 ',
+        text: '成本小計: 3,145,345 ',
         align: 'left'
     },
     plotOptions: {
@@ -467,11 +467,11 @@ Highcharts.chart('container7', {
         type: 'pie'
     },
     title: {
-        text: '000006 台南東寧店(門店成本一覽)',
+        text: '7月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 1,850,064 ',
+        text: '成本小計: 2,530,000 ',
         align: 'left'
     },
     plotOptions: {
@@ -537,11 +537,11 @@ Highcharts.chart('container8', {
         type: 'pie'
     },
     title: {
-        text: '000008 永康大灣店',
+        text: '8月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 2,934,276',
+        text: '成本小計: 2,148,500',
         align: 'left'
     },
     plotOptions: {
@@ -607,7 +607,7 @@ Highcharts.chart('container9', {
         type: 'pie'
     },
     title: {
-        text: '000009 台南安中店',
+        text: '9月',
         align: 'left'
     },
     subtitle: {
@@ -677,11 +677,11 @@ Highcharts.chart('container10', {
         type: 'pie'
     },
     title: {
-        text: '000010 中壢新生店',
+        text: '10月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 2,999,945 ',
+        text: '成本小計: 3,145,345 ',
         align: 'left'
     },
     plotOptions: {
@@ -747,11 +747,11 @@ Highcharts.chart('container11', {
         type: 'pie'
     },
     title: {
-        text: '000011 花蓮中山店',
+        text: '11月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 1,850,064 ',
+        text: '成本小計: 2,530,000 ',
         align: 'left'
     },
     plotOptions: {
@@ -817,221 +817,11 @@ Highcharts.chart('container12', {
         type: 'pie'
     },
     title: {
-        text: '000012 中和莒光店',
+        text: '12月',
         align: 'left'
     },
     subtitle: {
-        text: '成本小計: 1,850,064 ',
-        align: 'left'
-    },
-    plotOptions: {
-        pie: {
-            shadow: false,
-            center: ['50%', '50%']
-        }
-    },
-    tooltip: {
-        valueSuffix: ''
-    },
-    series: [{
-        name: 'NT$',
-        data: browserData,
-        size: '45%',
-        dataLabels: {
-            color: '#ffffff',
-            distance: '-50%'
-        }
-    }, {
-        name: 'Versions',
-        data: versionsData,
-        size: '80%',
-        innerSize: '60%',
-        dataLabels: {
-            format: '<b>{point.name}:</b> <span style="opacity: 0.5">{y}%</span>',
-            filter: {
-                property: 'y',
-                operator: '>',
-                value: 1
-            },
-            style: {
-                fontWeight: 'normal'
-            }
-        },
-        id: 'versions'
-    }],
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 400
-            },
-            chartOptions: {
-                series: [{
-                }, {
-                    id: 'versions',
-                    dataLabels: {
-                        distance: 10,
-                        format: '{point.custom.version}',
-                        filter: {
-                            property: 'percentage',
-                            operator: '>',
-                            value: 2
-                        }
-                    }
-                }]
-            }
-        }]
-    }
-});
-Highcharts.chart('container13', {
-    chart: {
-        type: 'pie'
-    },
-    title: {
-        text: '000013 大安師大店',
-        align: 'left'
-    },
-    subtitle: {
-        text: '成本小計: 2,999,945 ',
-        align: 'left'
-    },
-    plotOptions: {
-        pie: {
-            shadow: false,
-            center: ['50%', '50%']
-        }
-    },
-    tooltip: {
-        valueSuffix: ''
-    },
-    series: [{
-        name: 'NT$',
-        data: browserData,
-        size: '45%',
-        dataLabels: {
-            color: '#ffffff',
-            distance: '-50%'
-        }
-    }, {
-        name: 'Versions',
-        data: versionsData,
-        size: '80%',
-        innerSize: '60%',
-        dataLabels: {
-            format: '<b>{point.name}:</b> <span style="opacity: 0.5">{y}%</span>',
-            filter: {
-                property: 'y',
-                operator: '>',
-                value: 1
-            },
-            style: {
-                fontWeight: 'normal'
-            }
-        },
-        id: 'versions'
-    }],
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 400
-            },
-            chartOptions: {
-                series: [{
-                }, {
-                    id: 'versions',
-                    dataLabels: {
-                        distance: 10,
-                        format: '{point.custom.version}',
-                        filter: {
-                            property: 'percentage',
-                            operator: '>',
-                            value: 2
-                        }
-                    }
-                }]
-            }
-        }]
-    }
-});
-Highcharts.chart('container14', {
-    chart: {
-        type: 'pie'
-    },
-    title: {
-        text: '000014 永康大橋店',
-        align: 'left'
-    },
-    subtitle: {
-        text: '成本小計: 1,850,064 ',
-        align: 'left'
-    },
-    plotOptions: {
-        pie: {
-            shadow: false,
-            center: ['50%', '50%']
-        }
-    },
-    tooltip: {
-        valueSuffix: ''
-    },
-    series: [{
-        name: 'NT$',
-        data: browserData,
-        size: '45%',
-        dataLabels: {
-            color: '#ffffff',
-            distance: '-50%'
-        }
-    }, {
-        name: 'Versions',
-        data: versionsData,
-        size: '80%',
-        innerSize: '60%',
-        dataLabels: {
-            format: '<b>{point.name}:</b> <span style="opacity: 0.5">{y}%</span>',
-            filter: {
-                property: 'y',
-                operator: '>',
-                value: 1
-            },
-            style: {
-                fontWeight: 'normal'
-            }
-        },
-        id: 'versions'
-    }],
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 400
-            },
-            chartOptions: {
-                series: [{
-                }, {
-                    id: 'versions',
-                    dataLabels: {
-                        distance: 10,
-                        format: '{point.custom.version}',
-                        filter: {
-                            property: 'percentage',
-                            operator: '>',
-                            value: 2
-                        }
-                    }
-                }]
-            }
-        }]
-    }
-});
-Highcharts.chart('container15', {
-    chart: {
-        type: 'pie'
-    },
-    title: {
-        text: '000007 花蓮玉里店',
-        align: 'left'
-    },
-    subtitle: {
-        text: '成本小計: 1,850,064 ',
+        text: '成本小計: 2,148,500',
         align: 'left'
     },
     plotOptions: {
