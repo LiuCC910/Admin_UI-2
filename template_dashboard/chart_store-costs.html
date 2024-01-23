@@ -610,12 +610,26 @@
 								<div class="col-xl-3 text-end">
 									<div class='buttons2'>
 										<button class='active'>區間檢視</button>
-										<button>單店檢視</button>
+										<button onclick="window.location.href='chart_date-costs.html';">單店檢視</button>
 										<button type="button"><i class="fas fa-download"></i> <span>匯出</span></button>
 									</div>
 								</div>
 							</div>
 							<div class="row" style="position:relative;padding:25px;">
+                                <div class="col-xl-12">
+                                    <figure class="highcharts-figure">
+                                        <div id="containerbar"></div>
+                                    </figure>
+                                </div>
+								<!--單店區間模式才顯示-->
+								<!--a class="carousel-control-prev" href="#" data-bs-slide="prev" title="上一區段"> 
+									<i class="fa fa-angle-left"></i> 
+								</a>
+								<a class="carousel-control-next disabled" href="#" data-bs-slide="next" title="下一區段"> 
+									<i class="fa fa-angle-right"></i> 
+								</a-->
+                            </div>
+                            <div class="row">
 								<div class="col-xl-3">
                                     <figure class="highcharts-figure">
                                         <div id="container1"></div>
@@ -651,13 +665,41 @@
                                         <div id="container7"></div>
                                     </figure>
 								</div>
-								<!--單店區間模式才顯示-->
-								<!--a class="carousel-control-prev" href="#" data-bs-slide="prev" title="上一區段"> 
-									<i class="fa fa-angle-left"></i> 
-								</a>
-								<a class="carousel-control-next disabled" href="#" data-bs-slide="next" title="下一區段"> 
-									<i class="fa fa-angle-right"></i> 
-								</a-->
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container8"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container9"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container10"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container11"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container12"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container13"></div>
+                                    </figure>
+								</div>
+								<div class="col-xl-3">
+                                    <figure class="highcharts-figure">
+                                        <div id="container14"></div>
+                                    </figure>
+								</div>
 							</div>
 
 						</div>
@@ -860,8 +902,67 @@ $('#container4').highcharts({
 });
 </script>
 
+<!--堆疊柱狀圖-->
+<script>
+	Highcharts.chart('containerbar', {
+		chart: {
+			type: 'column'
+		},
+		title: {
+			text: '門店成本費用一覽',
+			align: 'left'
+		},
+		xAxis: {
+			categories: ['tncg', 'lzmz', 'zlsj', 'wsjm', 'gxds', 'shmq', 'tndn', 'ykdw', 'tnaz', 'zlxs', 'hlzs', 'zhjg', 'dasd', 'ykdq']
+		},
+		yAxis: {
+			min: 0,
+			title: {
+				text: '成本費用'
+			},
+			stackLabels: {
+				enabled: true
+			}
+		},
+		legend: {
+			align: 'right',
+			x: 0,
+			verticalAlign: 'top',
+			y: 0,
+			floating: true,
+			backgroundColor:
+				Highcharts.defaultOptions.legend.backgroundColor || 'white',
+			borderColor: null,
+			borderWidth: 0,
+			shadow: false
+		},
+		tooltip: {
+			headerFormat: '<b>{point.x}</b><br/>',
+			pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+		},
+		plotOptions: {
+			column: {
+				stacking: 'normal',
+				dataLabels: {
+					enabled: true
+				}
+			}
+		},
+		series: [{
+			name: '其他費用',
+			color: '#D568FB',
+			data: [505829, 300000, 400000, 375000, 400000, 800000, 200000, 90000, 70000, 60000, 100000, 256722, 100000, 256722]
+		}, {
+			name: '人事薪資',
+			color: '#FE6A35',
+			data: [1050125, 903500, 1007600, 1023000, 1056000, 1000345, 1150000, 998500, 1045000, 1200000, 900000, 750895, 900000, 750895]
+		}, {
+			name: '原物料',
+			color: '#544FC5',
+			data: [1300435, 995000, 1460000, 1130000, 1278000, 1345000, 1180000, 1060000, 1250000, 1090000, 1235000, 1650355, 1235000, 1650355]
+		}]
+	});
+</script>
+	
 </body>
 </html>
-<script>
-
-</script>
