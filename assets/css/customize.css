@@ -119,7 +119,7 @@ table.table-fixed thead tr th:nth-child(1), table.table-fixed thead tr th:nth-ch
 .chats .end .message:before {border-left-color: #ccc;}
 
 .timeline .timeline-time {width:5%;}
-.timeline .timeline-icon {left:3.5%;top:40px;width:5px;}
+.timeline .timeline-icon {left:3.85%;top:40px;width:5px;}
 .timeline .timeline-icon a {width:15px;height:15px;border:3px solid #495057;}
 .timeline:before {left:4.5%;width:3px;}
 .timeline .timeline-content {margin-left:8%;max-width:88%;}
