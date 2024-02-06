@@ -211,3 +211,12 @@ a.disabled{
     background-color: #0051b4;
     color: white;
 }
+
+.fc-event-text small{font-weight: normal;font-size: 0.9em;}
+.fc-event.disabled {cursor:not-allowed; background-color:#ececec;color:#999;}
+td.fc-daygrid-day {height: 150px !important;}
+
+.select2-container {z-index: 99999;}
+.form-check-inline {min-width:100px;}
+
+.storepicker .picker .pc-select {float:none;}
