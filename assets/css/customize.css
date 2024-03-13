@@ -38,7 +38,7 @@
 
 /*Admin用*/
 .before {font-size: .5em; color: #666;}
-.card .badge {min-width: 75px; margin-right: 15px;}
+.card .badge {min-width: 50px; margin-right: 15px;}
 .widget-stats {min-height: 170px;}
 .chats .chats-item .message:before {top: 25%;}
 .chat-buttons.btn-group.flex-wrap {margin:15px;}
@@ -51,37 +51,52 @@
 div.fixed-table td span.badge, .infotable th span.badge, .infotable td span.badge {width:50px;float:inline-end;}
 table.infotable{width: 100%;table-layout:fixed;}
 
-div.fixed-table {width: 100%; /*height:450px !important;*/ overflow: auto; padding: 0 !important;}
+div.fixed-table {width: 100%; /*height:450px !important;*/ overflow: auto; padding: 0 !important;
+    /*height: calc(100vh - 250px);*/
+    max-height: 70vh;
+}
 table.table-fixed {
     table-layout: fixed;
     width: 100%;
 }
-/*table.table-fixed thead tr th {
+table.table-fixed thead tr th {
     position:sticky;
     top:0;
     text-align: center;
-}*/
+    z-index: 99995;
+}
 table.table-fixed thead tr th:nth-child(1) {width: 35px;}
 table.table-fixed thead tr th:nth-child(2) {width: 155px;}
-table.table-fixed thead tr th {width: 135px; background-color: #cccccc;}
+table.table-fixed thead tr th {width: 150px; background-color: #cccccc;}
 
 table.table-fixed thead tr th:nth-child(1), table.table-fixed tbody tr th:nth-child(1) {
     position:sticky;
     left:0;
     background-color: #ececec;
+    z-index: 99998;
 }
 table.table-fixed thead tr th:nth-child(2), table.table-fixed tbody tr th:nth-child(2) {
     position:sticky;
     left:35px;
     background-color: #ececec;
+    z-index: 99997;
 }
 table.table-fixed thead tr th:nth-last-child(1), table.table-fixed tbody tr td:nth-last-child(1) {
     position:sticky;
     right:0;
     background-color: #ececec;
+    z-index: 99996;
+}
+table.table-fixed thead tr th:nth-child(1), table.table-fixed thead tr th:nth-child(2), table.table-fixed thead tr th:nth-last-child(1) {
+    top:0;
+    z-index: 99999;
 }
 table.table-fixed thead tr th:nth-child(1), table.table-fixed thead tr th:nth-child(2), table.table-fixed thead tr th:nth-last-child(1) {background-color: #cccccc;}
-
+table.table-fixed tr.td-group, table.table-fixed tbody tr.td-group th:nth-child(1), table.table-fixed tbody tr.td-group th:nth-child(2), table.table-fixed tbody tr.td-group td:nth-last-child(1){
+    background-color: #c4c1bb !important; --bs-table-bg-type: var(--bs-table-striped-bg);font-weight: bold;}
+table.table-fixed tr.td-warning, table.table-fixed tbody tr.td-warning th:nth-child(1), table.table-fixed tbody tr.td-warning th:nth-child(2), table.table-fixed tbody tr.td-warning td:nth-last-child(1){
+        background-color: #fad400 !important; --bs-table-bg-type: var(--bs-table-striped-bg);}
+    
 .picker .pc-select{float:inline-end;}
 .picker>.pc-element{margin-bottom:0 !important;padding-bottom:0 !important;}
 
@@ -217,6 +232,6 @@ a.disabled{
 td.fc-daygrid-day {height: 150px !important;}
 
 .select2-container {z-index: 99999;}
-.form-check-inline {min-width:100px;}
+/*.form-check-inline {min-width:100px;}*/
 
 .storepicker .picker .pc-select {float:none;}
